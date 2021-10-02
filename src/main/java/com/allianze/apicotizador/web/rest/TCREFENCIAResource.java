@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCREFENCIA;
+import com.allianze.apicotizador.dto.TCREFERENCIADTO;
 import com.allianze.apicotizador.repository.TCREFENCIARepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -151,42 +152,42 @@ public class TCREFENCIAResource {
     }
 
     /**
-     * {@code GET  /tcrefencias} : get all the tCREFENCIAS.
+     * {@code POST  /tcrefencias/getAll} : get all the tCREFENCIAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCREFENCIAS in body.
      */
-    @GetMapping("/tcrefencias")
-    public List<TCREFENCIA> getAllTCREFENCIAS() {
+    @PostMapping("/tcrefencias/getAll")
+    public List<TCREFENCIA> getAllTCREFENCIAS(@RequestBody TCREFERENCIADTO tcreferenciasDTO) {
         log.debug("REST request to get all TCREFENCIAS");
         return tCREFENCIARepository.findAll();
     }
 
     /**
-     * {@code GET  /tcrefencias/:id} : get the "id" tCREFENCIA.
+     * {@code POST  /tcrefencias/getId} : get the "id" tCREFENCIA.
      *
      * @param id the id of the tCREFENCIA to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCREFENCIA, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcrefencias/{id}")
-    public ResponseEntity<TCREFENCIA> getTCREFENCIA(@PathVariable Long id) {
-        log.debug("REST request to get TCREFENCIA : {}", id);
-        Optional<TCREFENCIA> tCREFENCIA = tCREFENCIARepository.findById(id);
+    @PostMapping("/tcrefencias/grtId")
+    public ResponseEntity<TCREFENCIA> getTCREFENCIA(@PathVariable TCREFERENCIADTO	tcreferenciasDTO) {
+        log.debug("REST request to get TCREFENCIA : {}", tcreferenciasDTO.getId());
+        Optional<TCREFENCIA> tCREFENCIA = tCREFENCIARepository.findById(tcreferenciasDTO.getId());
         return ResponseUtil.wrapOrNotFound(tCREFENCIA);
     }
 
     /**
-     * {@code DELETE  /tcrefencias/:id} : delete the "id" tCREFENCIA.
+     * {@code POST  /tcrefencias/deleteId} : delete the "id" tCREFENCIA.
      *
      * @param id the id of the tCREFENCIA to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcrefencias/{id}")
-    public ResponseEntity<Void> deleteTCREFENCIA(@PathVariable Long id) {
-        log.debug("REST request to delete TCREFENCIA : {}", id);
-        tCREFENCIARepository.deleteById(id);
+    @PostMapping("/tcrefencias/deleteId")
+    public ResponseEntity<Void> deleteTCREFENCIA(@RequestBody TCREFERENCIADTO tcreferenciasDTO) {
+        log.debug("REST request to delete TCREFENCIA : {}", tcreferenciasDTO.getId());
+        tCREFENCIARepository.deleteById(tcreferenciasDTO.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcreferenciasDTO.getId().toString()))
             .build();
     }
 }

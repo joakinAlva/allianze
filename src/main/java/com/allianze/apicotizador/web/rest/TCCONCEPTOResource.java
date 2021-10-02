@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCONCEPTO;
+import com.allianze.apicotizador.dto.TCCONCEPTODTO;
 import com.allianze.apicotizador.repository.TCCONCEPTORepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -145,42 +146,42 @@ public class TCCONCEPTOResource {
     }
 
     /**
-     * {@code GET  /tcconceptos} : get all the tCCONCEPTOS.
+     * {@code POST  /tcconceptos/getAll} : get all the tCCONCEPTOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCONCEPTOS in body.
      */
-    @GetMapping("/tcconceptos")
-    public List<TCCONCEPTO> getAllTCCONCEPTOS() {
+    @PostMapping("/tcconceptos/getAll")
+    public List<TCCONCEPTO> getAllTCCONCEPTOS(@RequestBody TCCONCEPTODTO tcconcepto) {
         log.debug("REST request to get all TCCONCEPTOS");
         return tCCONCEPTORepository.findAll();
     }
 
     /**
-     * {@code GET  /tcconceptos/:id} : get the "id" tCCONCEPTO.
+     * {@code POST  /tcconceptos/getId} : get the "id" tCCONCEPTO.
      *
      * @param id the id of the tCCONCEPTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCONCEPTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcconceptos/{id}")
-    public ResponseEntity<TCCONCEPTO> getTCCONCEPTO(@PathVariable Long id) {
-        log.debug("REST request to get TCCONCEPTO : {}", id);
-        Optional<TCCONCEPTO> tCCONCEPTO = tCCONCEPTORepository.findById(id);
+    @PostMapping("/tcconceptos/getId")
+    public ResponseEntity<TCCONCEPTO> getTCCONCEPTO(@RequestBody TCCONCEPTODTO tcconcepto) {
+        log.debug("REST request to get TCCONCEPTO : {}", tcconcepto.getId());
+        Optional<TCCONCEPTO> tCCONCEPTO = tCCONCEPTORepository.findById(tcconcepto.getId());
         return ResponseUtil.wrapOrNotFound(tCCONCEPTO);
     }
 
     /**
-     * {@code DELETE  /tcconceptos/:id} : delete the "id" tCCONCEPTO.
+     * {@code POST  /tcconceptos/deleteId} : delete the "id" tCCONCEPTO.
      *
      * @param id the id of the tCCONCEPTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcconceptos/{id}")
-    public ResponseEntity<Void> deleteTCCONCEPTO(@PathVariable Long id) {
-        log.debug("REST request to delete TCCONCEPTO : {}", id);
-        tCCONCEPTORepository.deleteById(id);
+    @PostMapping("/tcconceptos/deleteId")
+    public ResponseEntity<Void> deleteTCCONCEPTO(@RequestBody TCCONCEPTODTO tcconcepto) {
+        log.debug("REST request to delete TCCONCEPTO : {}", tcconcepto.getId());
+        tCCONCEPTORepository.deleteById(tcconcepto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcconcepto.getId().toString()))
             .build();
     }
 }

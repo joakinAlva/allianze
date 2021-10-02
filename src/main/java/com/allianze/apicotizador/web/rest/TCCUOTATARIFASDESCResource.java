@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCUOTATARIFASDESC;
+import com.allianze.apicotizador.dto.TCCUOTATARIFASDESCDTO;
 import com.allianze.apicotizador.repository.TCCUOTATARIFASDESCRepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -192,42 +193,42 @@ public class TCCUOTATARIFASDESCResource {
     }
 
     /**
-     * {@code GET  /tccuotatarifasdescs} : get all the tCCUOTATARIFASDESCS.
+     * {@code POST  /tccuotatarifasdescs/getAll} : get all the tCCUOTATARIFASDESCS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCUOTATARIFASDESCS in body.
      */
-    @GetMapping("/tccuotatarifasdescs")
-    public List<TCCUOTATARIFASDESC> getAllTCCUOTATARIFASDESCS() {
+    @PostMapping("/tccuotatarifasdescs/getAll")
+    public List<TCCUOTATARIFASDESC> getAllTCCUOTATARIFASDESCS(@RequestBody TCCUOTATARIFASDESCDTO tccuotaTarifasDescDto) {
         log.debug("REST request to get all TCCUOTATARIFASDESCS");
         return tCCUOTATARIFASDESCRepository.findAll();
     }
 
     /**
-     * {@code GET  /tccuotatarifasdescs/:id} : get the "id" tCCUOTATARIFASDESC.
+     * {@code POST  /tccuotatarifasdescs/getId} : get the "id" tCCUOTATARIFASDESC.
      *
      * @param id the id of the tCCUOTATARIFASDESC to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCUOTATARIFASDESC, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tccuotatarifasdescs/{id}")
-    public ResponseEntity<TCCUOTATARIFASDESC> getTCCUOTATARIFASDESC(@PathVariable Long id) {
-        log.debug("REST request to get TCCUOTATARIFASDESC : {}", id);
-        Optional<TCCUOTATARIFASDESC> tCCUOTATARIFASDESC = tCCUOTATARIFASDESCRepository.findById(id);
+    @PostMapping("/tccuotatarifasdescs/getId")
+    public ResponseEntity<TCCUOTATARIFASDESC> getTCCUOTATARIFASDESC(@RequestBody TCCUOTATARIFASDESCDTO tccuotaTarifasDescDto) {
+        log.debug("REST request to get TCCUOTATARIFASDESC : {}", tccuotaTarifasDescDto.getId());
+        Optional<TCCUOTATARIFASDESC> tCCUOTATARIFASDESC = tCCUOTATARIFASDESCRepository.findById(tccuotaTarifasDescDto.getId());
         return ResponseUtil.wrapOrNotFound(tCCUOTATARIFASDESC);
     }
 
     /**
-     * {@code DELETE  /tccuotatarifasdescs/:id} : delete the "id" tCCUOTATARIFASDESC.
+     * {@code POST  /tccuotatarifasdescs/deleteId} : delete the "id" tCCUOTATARIFASDESC.
      *
      * @param id the id of the tCCUOTATARIFASDESC to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tccuotatarifasdescs/{id}")
-    public ResponseEntity<Void> deleteTCCUOTATARIFASDESC(@PathVariable Long id) {
-        log.debug("REST request to delete TCCUOTATARIFASDESC : {}", id);
-        tCCUOTATARIFASDESCRepository.deleteById(id);
+    @PostMapping("/tccuotatarifasdescs/deleteId")
+    public ResponseEntity<Void> deleteTCCUOTATARIFASDESC(@RequestBody TCCUOTATARIFASDESCDTO tccuotaTarifasDescDto) {
+        log.debug("REST request to delete TCCUOTATARIFASDESC : {}", tccuotaTarifasDescDto.getId());
+        tCCUOTATARIFASDESCRepository.deleteById(tccuotaTarifasDescDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tccuotaTarifasDescDto.getId().toString()))
             .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCOBERTURA;
+import com.allianze.apicotizador.dto.TCCOBERTURADTO;
 import com.allianze.apicotizador.repository.TCCOBERTURARepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -145,42 +146,42 @@ public class TCCOBERTURAResource {
     }
 
     /**
-     * {@code GET  /tccoberturas} : get all the tCCOBERTURAS.
+     * {@code POST  /tccoberturas/getAll} : get all the tCCOBERTURAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCOBERTURAS in body.
      */
-    @GetMapping("/tccoberturas")
-    public List<TCCOBERTURA> getAllTCCOBERTURAS() {
+    @PostMapping("/tccoberturas/getAll")
+    public List<TCCOBERTURA> getAllTCCOBERTURAS(@RequestBody TCCOBERTURADTO tccoberturaDto) {
         log.debug("REST request to get all TCCOBERTURAS");
         return tCCOBERTURARepository.findAll();
     }
 
     /**
-     * {@code GET  /tccoberturas/:id} : get the "id" tCCOBERTURA.
+     * {@code POST  /tccoberturas/getId} : get the "id" tCCOBERTURA.
      *
      * @param id the id of the tCCOBERTURA to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCOBERTURA, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tccoberturas/{id}")
-    public ResponseEntity<TCCOBERTURA> getTCCOBERTURA(@PathVariable Long id) {
-        log.debug("REST request to get TCCOBERTURA : {}", id);
-        Optional<TCCOBERTURA> tCCOBERTURA = tCCOBERTURARepository.findById(id);
+    @PostMapping("/tccoberturas/getId")
+    public ResponseEntity<TCCOBERTURA> getTCCOBERTURA(@RequestBody TCCOBERTURADTO tccoberturaDto) {
+        log.debug("REST request to get TCCOBERTURA : {}", tccoberturaDto.getId());
+        Optional<TCCOBERTURA> tCCOBERTURA = tCCOBERTURARepository.findById(tccoberturaDto.getId());
         return ResponseUtil.wrapOrNotFound(tCCOBERTURA);
     }
 
     /**
-     * {@code DELETE  /tccoberturas/:id} : delete the "id" tCCOBERTURA.
+     * {@code POST  /tccoberturas/deleteId} : delete the "id" tCCOBERTURA.
      *
      * @param id the id of the tCCOBERTURA to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tccoberturas/{id}")
-    public ResponseEntity<Void> deleteTCCOBERTURA(@PathVariable Long id) {
-        log.debug("REST request to delete TCCOBERTURA : {}", id);
-        tCCOBERTURARepository.deleteById(id);
+    @PostMapping("/tccoberturas/deleteId")
+    public ResponseEntity<Void> deleteTCCOBERTURA(@RequestBody TCCOBERTURADTO tccoberturaDto) {
+        log.debug("REST request to delete TCCOBERTURA : {}", tccoberturaDto.getId());
+        tCCOBERTURARepository.deleteById(tccoberturaDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tccoberturaDto.getId().toString()))
             .build();
     }
 }

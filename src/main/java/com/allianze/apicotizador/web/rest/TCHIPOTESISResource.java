@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCHIPOTESIS;
+import com.allianze.apicotizador.dto.TCHIPOTESISDTO;
 import com.allianze.apicotizador.repository.TCHIPOTESISRepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -148,42 +149,42 @@ public class TCHIPOTESISResource {
     }
 
     /**
-     * {@code GET  /tchipoteses} : get all the tCHIPOTESES.
+     * {@code POST  /tchipoteses]/getAll} : get all the tCHIPOTESES.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCHIPOTESES in body.
      */
-    @GetMapping("/tchipoteses")
-    public List<TCHIPOTESIS> getAllTCHIPOTESES() {
+    @PostMapping("/tchipoteses/getAll")
+    public List<TCHIPOTESIS> getAllTCHIPOTESES(@RequestBody TCHIPOTESISDTO tchipotesis) {
         log.debug("REST request to get all TCHIPOTESES");
         return tCHIPOTESISRepository.findAll();
     }
 
     /**
-     * {@code GET  /tchipoteses/:id} : get the "id" tCHIPOTESIS.
+     * {@code POST  /tchipoteses/getId} : get the "id" tCHIPOTESIS.
      *
      * @param id the id of the tCHIPOTESIS to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCHIPOTESIS, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tchipoteses/{id}")
-    public ResponseEntity<TCHIPOTESIS> getTCHIPOTESIS(@PathVariable Long id) {
-        log.debug("REST request to get TCHIPOTESIS : {}", id);
-        Optional<TCHIPOTESIS> tCHIPOTESIS = tCHIPOTESISRepository.findById(id);
+    @PostMapping("/tchipoteses/getId")
+    public ResponseEntity<TCHIPOTESIS> getTCHIPOTESIS(@RequestBody TCHIPOTESISDTO tchipotesis) {
+        log.debug("REST request to get TCHIPOTESIS : {}", tchipotesis.getId());
+        Optional<TCHIPOTESIS> tCHIPOTESIS = tCHIPOTESISRepository.findById(tchipotesis.getId());
         return ResponseUtil.wrapOrNotFound(tCHIPOTESIS);
     }
 
     /**
-     * {@code DELETE  /tchipoteses/:id} : delete the "id" tCHIPOTESIS.
+     * {@code POST  /tchipoteses/:deleteId} : delete the "id" tCHIPOTESIS.
      *
      * @param id the id of the tCHIPOTESIS to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tchipoteses/{id}")
-    public ResponseEntity<Void> deleteTCHIPOTESIS(@PathVariable Long id) {
-        log.debug("REST request to delete TCHIPOTESIS : {}", id);
-        tCHIPOTESISRepository.deleteById(id);
+    @PostMapping("/tchipoteses/deleteId")
+    public ResponseEntity<Void> deleteTCHIPOTESIS(@RequestBody TCHIPOTESISDTO tchipotesis) {
+        log.debug("REST request to delete TCHIPOTESIS : {}", tchipotesis.getId());
+        tCHIPOTESISRepository.deleteById(tchipotesis.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tchipotesis.getId().toString()))
             .build();
     }
 }

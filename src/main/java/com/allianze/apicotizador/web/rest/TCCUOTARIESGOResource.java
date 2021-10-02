@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCUOTARIESGO;
+import com.allianze.apicotizador.dto.TCCUOTARIESGODTO;
 import com.allianze.apicotizador.repository.TCCUOTARIESGORepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -184,42 +185,42 @@ public class TCCUOTARIESGOResource {
     }
 
     /**
-     * {@code GET  /tccuotariesgos} : get all the tCCUOTARIESGOS.
+     * {@code POST  /tccuotariesgos/getAll} : get all the tCCUOTARIESGOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCUOTARIESGOS in body.
      */
-    @GetMapping("/tccuotariesgos")
-    public List<TCCUOTARIESGO> getAllTCCUOTARIESGOS() {
+    @PostMapping("/tccuotariesgos/getAll")
+    public List<TCCUOTARIESGO> getAllTCCUOTARIESGOS(@RequestBody TCCUOTARIESGODTO tccuotaRiesgoDto) {
         log.debug("REST request to get all TCCUOTARIESGOS");
         return tCCUOTARIESGORepository.findAll();
     }
 
     /**
-     * {@code GET  /tccuotariesgos/:id} : get the "id" tCCUOTARIESGO.
+     * {@code POST  /tccuotariesgos/getId} : get the "id" tCCUOTARIESGO.
      *
      * @param id the id of the tCCUOTARIESGO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCUOTARIESGO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tccuotariesgos/{id}")
-    public ResponseEntity<TCCUOTARIESGO> getTCCUOTARIESGO(@PathVariable Long id) {
-        log.debug("REST request to get TCCUOTARIESGO : {}", id);
-        Optional<TCCUOTARIESGO> tCCUOTARIESGO = tCCUOTARIESGORepository.findById(id);
+    @PostMapping("/tccuotariesgos/getId")
+    public ResponseEntity<TCCUOTARIESGO> getTCCUOTARIESGO(@RequestBody TCCUOTARIESGODTO tccuotaRiesgoDto) {
+        log.debug("REST request to get TCCUOTARIESGO : {}", tccuotaRiesgoDto.getId());
+        Optional<TCCUOTARIESGO> tCCUOTARIESGO = tCCUOTARIESGORepository.findById(tccuotaRiesgoDto.getId());
         return ResponseUtil.wrapOrNotFound(tCCUOTARIESGO);
     }
 
     /**
-     * {@code DELETE  /tccuotariesgos/:id} : delete the "id" tCCUOTARIESGO.
+     * {@code POST  /tccuotariesgos/deleteId} : delete the "id" tCCUOTARIESGO.
      *
      * @param id the id of the tCCUOTARIESGO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tccuotariesgos/{id}")
-    public ResponseEntity<Void> deleteTCCUOTARIESGO(@PathVariable Long id) {
-        log.debug("REST request to delete TCCUOTARIESGO : {}", id);
-        tCCUOTARIESGORepository.deleteById(id);
+    @PostMapping("/tccuotariesgos/deleteId")
+    public ResponseEntity<Void> deleteTCCUOTARIESGO(@RequestBody TCCUOTARIESGODTO tccuotaRiesgoDto) {
+        log.debug("REST request to delete TCCUOTARIESGO : {}", tccuotaRiesgoDto.getId());
+        tCCUOTARIESGORepository.deleteById(tccuotaRiesgoDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tccuotaRiesgoDto.getId().toString()))
             .build();
     }
 }

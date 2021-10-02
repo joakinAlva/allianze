@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCREGIONAL;
+import com.allianze.apicotizador.dto.TCREGIONALDTO;
 import com.allianze.apicotizador.repository.TCREGIONALRepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -142,42 +143,42 @@ public class TCREGIONALResource {
     }
 
     /**
-     * {@code GET  /tcregionals} : get all the tCREGIONALS.
+     * {@code POST  /tcregionals/getAll} : get all the tCREGIONALS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCREGIONALS in body.
      */
-    @GetMapping("/tcregionals")
-    public List<TCREGIONAL> getAllTCREGIONALS() {
+    @PostMapping("/tcregionals/getAll")
+    public List<TCREGIONAL> getAllTCREGIONALS(@RequestBody TCREGIONALDTO tcregionaldto) {
         log.debug("REST request to get all TCREGIONALS");
         return tCREGIONALRepository.findAll();
     }
 
     /**
-     * {@code GET  /tcregionals/:id} : get the "id" tCREGIONAL.
+     * {@code POST  /tcregionals/getId} : get the "id" tCREGIONAL.
      *
      * @param id the id of the tCREGIONAL to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCREGIONAL, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcregionals/{id}")
-    public ResponseEntity<TCREGIONAL> getTCREGIONAL(@PathVariable Long id) {
-        log.debug("REST request to get TCREGIONAL : {}", id);
-        Optional<TCREGIONAL> tCREGIONAL = tCREGIONALRepository.findById(id);
+    @PostMapping("/tcregionals/getId")
+    public ResponseEntity<TCREGIONAL> getTCREGIONAL(@RequestParam TCREGIONALDTO tcregionaldto) {
+        log.debug("REST request to get TCREGIONAL : {}", tcregionaldto.getClass());
+        Optional<TCREGIONAL> tCREGIONAL = tCREGIONALRepository.findById(tcregionaldto.getId());
         return ResponseUtil.wrapOrNotFound(tCREGIONAL);
     }
 
     /**
-     * {@code DELETE  /tcregionals/:id} : delete the "id" tCREGIONAL.
+     * {@code POST  /tcregionals/deleteId} : delete the "id" tCREGIONAL.
      *
      * @param id the id of the tCREGIONAL to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcregionals/{id}")
-    public ResponseEntity<Void> deleteTCREGIONAL(@PathVariable Long id) {
-        log.debug("REST request to delete TCREGIONAL : {}", id);
-        tCREGIONALRepository.deleteById(id);
+    @PostMapping("/tcregionals/deleteId")
+    public ResponseEntity<Void> deleteTCREGIONAL(@RequestBody TCREGIONALDTO tcregionalDTO) {
+        log.debug("REST request to delete TCREGIONAL : {}", tcregionalDTO.getId());
+        tCREGIONALRepository.deleteById(tcregionalDTO.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcregionalDTO.getClass().toString()))
             .build();
     }
 }

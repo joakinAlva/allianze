@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCTIPOPRODUCTO;
+import com.allianze.apicotizador.dto.TCTIPORPRODUCTODTO;
 import com.allianze.apicotizador.repository.TCTIPOPRODUCTORepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -149,42 +150,42 @@ public class TCTIPOPRODUCTOResource {
     }
 
     /**
-     * {@code GET  /tctipoproductos} : get all the tCTIPOPRODUCTOS.
+     * {@code POST  /tctipoproductos/getAll} : get all the tCTIPOPRODUCTOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCTIPOPRODUCTOS in body.
      */
-    @GetMapping("/tctipoproductos")
-    public List<TCTIPOPRODUCTO> getAllTCTIPOPRODUCTOS() {
+    @PostMapping("/tctipoproductos/getAll")
+    public List<TCTIPOPRODUCTO> getAllTCTIPOPRODUCTOS(@RequestBody TCTIPORPRODUCTODTO tctiporproductodto) {
         log.debug("REST request to get all TCTIPOPRODUCTOS");
         return tCTIPOPRODUCTORepository.findAll();
     }
 
     /**
-     * {@code GET  /tctipoproductos/:id} : get the "id" tCTIPOPRODUCTO.
+     * {@code POST  /tctipoproductos/getId} : get the "id" tCTIPOPRODUCTO.
      *
      * @param id the id of the tCTIPOPRODUCTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCTIPOPRODUCTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tctipoproductos/{id}")
-    public ResponseEntity<TCTIPOPRODUCTO> getTCTIPOPRODUCTO(@PathVariable Long id) {
-        log.debug("REST request to get TCTIPOPRODUCTO : {}", id);
-        Optional<TCTIPOPRODUCTO> tCTIPOPRODUCTO = tCTIPOPRODUCTORepository.findById(id);
+    @PostMapping("/tctipoproductos/getId")
+    public ResponseEntity<TCTIPOPRODUCTO> getTCTIPOPRODUCTO(@RequestBody TCTIPORPRODUCTODTO tctiporproductoDTO) {
+        log.debug("REST request to get TCTIPOPRODUCTO : {}", tctiporproductoDTO.getId());
+        Optional<TCTIPOPRODUCTO> tCTIPOPRODUCTO = tCTIPOPRODUCTORepository.findById(tctiporproductoDTO.getId());
         return ResponseUtil.wrapOrNotFound(tCTIPOPRODUCTO);
     }
 
     /**
-     * {@code DELETE  /tctipoproductos/:id} : delete the "id" tCTIPOPRODUCTO.
+     * {@code POST  /tctipoproductos/deleteId} : delete the "id" tCTIPOPRODUCTO.
      *
      * @param id the id of the tCTIPOPRODUCTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tctipoproductos/{id}")
-    public ResponseEntity<Void> deleteTCTIPOPRODUCTO(@PathVariable Long id) {
-        log.debug("REST request to delete TCTIPOPRODUCTO : {}", id);
-        tCTIPOPRODUCTORepository.deleteById(id);
+    @PostMapping("/tctipoproductos/deleteId")
+    public ResponseEntity<Void> deleteTCTIPOPRODUCTO(@RequestBody TCTIPORPRODUCTODTO tctiporproductoDTO) {
+        log.debug("REST request to delete TCTIPOPRODUCTO : {}", tctiporproductoDTO.getId());
+        tCTIPOPRODUCTORepository.deleteById(tctiporproductoDTO.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tctiporproductoDTO.getId().toString()))
             .build();
     }
 }

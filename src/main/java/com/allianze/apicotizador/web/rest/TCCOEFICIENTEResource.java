@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCOEFICIENTE;
+import com.allianze.apicotizador.dto.TCCOEFICIENTEDTO;
 import com.allianze.apicotizador.repository.TCCOEFICIENTERepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -151,42 +152,42 @@ public class TCCOEFICIENTEResource {
     }
 
     /**
-     * {@code GET  /tccoeficientes} : get all the tCCOEFICIENTES.
+     * {@code POST  /tccoeficientes/getAll} : get all the tCCOEFICIENTES.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCOEFICIENTES in body.
      */
-    @GetMapping("/tccoeficientes")
-    public List<TCCOEFICIENTE> getAllTCCOEFICIENTES() {
+    @PostMapping("/tccoeficientes/getAll")
+    public List<TCCOEFICIENTE> getAllTCCOEFICIENTES(@RequestBody TCCOEFICIENTEDTO tccpeficienteDto) {
         log.debug("REST request to get all TCCOEFICIENTES");
         return tCCOEFICIENTERepository.findAll();
     }
 
     /**
-     * {@code GET  /tccoeficientes/:id} : get the "id" tCCOEFICIENTE.
+     * {@code POST  /tccoeficientes/getId} : get the "id" tCCOEFICIENTE.
      *
      * @param id the id of the tCCOEFICIENTE to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCOEFICIENTE, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tccoeficientes/{id}")
-    public ResponseEntity<TCCOEFICIENTE> getTCCOEFICIENTE(@PathVariable Long id) {
-        log.debug("REST request to get TCCOEFICIENTE : {}", id);
-        Optional<TCCOEFICIENTE> tCCOEFICIENTE = tCCOEFICIENTERepository.findById(id);
+    @PostMapping("/tccoeficientes/getId")
+    public ResponseEntity<TCCOEFICIENTE> getTCCOEFICIENTE(@RequestBody TCCOEFICIENTEDTO tccpeficienteDto) {
+        log.debug("REST request to get TCCOEFICIENTE : {}", tccpeficienteDto.getId());
+        Optional<TCCOEFICIENTE> tCCOEFICIENTE = tCCOEFICIENTERepository.findById(tccpeficienteDto.getId());
         return ResponseUtil.wrapOrNotFound(tCCOEFICIENTE);
     }
 
     /**
-     * {@code DELETE  /tccoeficientes/:id} : delete the "id" tCCOEFICIENTE.
+     * {@code POST  /tccoeficientes/deleteId} : delete the "id" tCCOEFICIENTE.
      *
      * @param id the id of the tCCOEFICIENTE to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tccoeficientes/{id}")
-    public ResponseEntity<Void> deleteTCCOEFICIENTE(@PathVariable Long id) {
-        log.debug("REST request to delete TCCOEFICIENTE : {}", id);
-        tCCOEFICIENTERepository.deleteById(id);
+    @PostMapping("/tccoeficientes/deleteId")
+    public ResponseEntity<Void> deleteTCCOEFICIENTE(@RequestBody TCCOEFICIENTEDTO tccpeficienteDto) {
+        log.debug("REST request to delete TCCOEFICIENTE : {}", tccpeficienteDto.getId());
+        tCCOEFICIENTERepository.deleteById(tccpeficienteDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tccpeficienteDto.getId().toString()))
             .build();
     }
 }

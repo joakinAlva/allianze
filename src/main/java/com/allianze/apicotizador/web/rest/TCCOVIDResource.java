@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCOVID;
+import com.allianze.apicotizador.dto.TCCOVIDDTO;
 import com.allianze.apicotizador.repository.TCCOVIDRepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -157,42 +158,42 @@ public class TCCOVIDResource {
     }
 
     /**
-     * {@code GET  /tccovids} : get all the tCCOVIDS.
+     * {@code POST  /tccovids/getAll} : get all the tCCOVIDS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCOVIDS in body.
      */
-    @GetMapping("/tccovids")
-    public List<TCCOVID> getAllTCCOVIDS() {
+    @PostMapping("/tccovids/getAll")
+    public List<TCCOVID> getAllTCCOVIDS(@RequestBody TCCOVIDDTO tccovidDto) {
         log.debug("REST request to get all TCCOVIDS");
         return tCCOVIDRepository.findAll();
     }
 
     /**
-     * {@code GET  /tccovids/:id} : get the "id" tCCOVID.
+     * {@code POST  /tccovids/getId} : get the "id" tCCOVID.
      *
      * @param id the id of the tCCOVID to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCOVID, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tccovids/{id}")
-    public ResponseEntity<TCCOVID> getTCCOVID(@PathVariable Long id) {
-        log.debug("REST request to get TCCOVID : {}", id);
-        Optional<TCCOVID> tCCOVID = tCCOVIDRepository.findById(id);
+    @PostMapping("/tccovids/getId}")
+    public ResponseEntity<TCCOVID> getTCCOVID(@RequestBody TCCOVIDDTO tccovidDto) {
+        log.debug("REST request to get TCCOVID : {}", tccovidDto.getId());
+        Optional<TCCOVID> tCCOVID = tCCOVIDRepository.findById(tccovidDto.getId());
         return ResponseUtil.wrapOrNotFound(tCCOVID);
     }
 
     /**
-     * {@code DELETE  /tccovids/:id} : delete the "id" tCCOVID.
+     * {@code POST  /tccovids/deleteId} : delete the "id" tCCOVID.
      *
      * @param id the id of the tCCOVID to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tccovids/{id}")
-    public ResponseEntity<Void> deleteTCCOVID(@PathVariable Long id) {
-        log.debug("REST request to delete TCCOVID : {}", id);
-        tCCOVIDRepository.deleteById(id);
+    @PostMapping("/tccovids/deleteId")
+    public ResponseEntity<Void> deleteTCCOVID(@RequestBody TCCOVIDDTO tccovidDto) {
+        log.debug("REST request to delete TCCOVID : {}", tccovidDto.getId());
+        tCCOVIDRepository.deleteById(tccovidDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tccovidDto.getId().toString()))
             .build();
     }
 }

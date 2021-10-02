@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCDESCUENTOSUMAASEGURADA;
+import com.allianze.apicotizador.dto.TCDESCUENTOSUMAASEGURADADTO;
 import com.allianze.apicotizador.repository.TCDESCUENTOSUMAASEGURADARepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -168,42 +169,42 @@ public class TCDESCUENTOSUMAASEGURADAResource {
     }
 
     /**
-     * {@code GET  /tcdescuentosumaaseguradas} : get all the tCDESCUENTOSUMAASEGURADAS.
+     * {@code POST  /tcdescuentosumaaseguradas/getAll} : get all the tCDESCUENTOSUMAASEGURADAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCDESCUENTOSUMAASEGURADAS in body.
      */
-    @GetMapping("/tcdescuentosumaaseguradas")
-    public List<TCDESCUENTOSUMAASEGURADA> getAllTCDESCUENTOSUMAASEGURADAS() {
+    @PostMapping("/tcdescuentosumaaseguradas/getAll")
+    public List<TCDESCUENTOSUMAASEGURADA> getAllTCDESCUENTOSUMAASEGURADAS(@RequestBody TCDESCUENTOSUMAASEGURADADTO tcdescuentoSumaaseguradaDto) {
         log.debug("REST request to get all TCDESCUENTOSUMAASEGURADAS");
         return tCDESCUENTOSUMAASEGURADARepository.findAll();
     }
 
     /**
-     * {@code GET  /tcdescuentosumaaseguradas/:id} : get the "id" tCDESCUENTOSUMAASEGURADA.
+     * {@code POST  /tcdescuentosumaaseguradas/getId} : get the "id" tCDESCUENTOSUMAASEGURADA.
      *
      * @param id the id of the tCDESCUENTOSUMAASEGURADA to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCDESCUENTOSUMAASEGURADA, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcdescuentosumaaseguradas/{id}")
-    public ResponseEntity<TCDESCUENTOSUMAASEGURADA> getTCDESCUENTOSUMAASEGURADA(@PathVariable Long id) {
-        log.debug("REST request to get TCDESCUENTOSUMAASEGURADA : {}", id);
-        Optional<TCDESCUENTOSUMAASEGURADA> tCDESCUENTOSUMAASEGURADA = tCDESCUENTOSUMAASEGURADARepository.findById(id);
+    @PostMapping("/tcdescuentosumaaseguradas/getId")
+    public ResponseEntity<TCDESCUENTOSUMAASEGURADA> getTCDESCUENTOSUMAASEGURADA(@RequestBody TCDESCUENTOSUMAASEGURADADTO tcdescuentoSumaaseguradaDto) {
+        log.debug("REST request to get TCDESCUENTOSUMAASEGURADA : {}", tcdescuentoSumaaseguradaDto.getId());
+        Optional<TCDESCUENTOSUMAASEGURADA> tCDESCUENTOSUMAASEGURADA = tCDESCUENTOSUMAASEGURADARepository.findById(tcdescuentoSumaaseguradaDto.getId());
         return ResponseUtil.wrapOrNotFound(tCDESCUENTOSUMAASEGURADA);
     }
 
     /**
-     * {@code DELETE  /tcdescuentosumaaseguradas/:id} : delete the "id" tCDESCUENTOSUMAASEGURADA.
+     * {@code POST  /tcdescuentosumaaseguradas/deleteId} : delete the "id" tCDESCUENTOSUMAASEGURADA.
      *
      * @param id the id of the tCDESCUENTOSUMAASEGURADA to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcdescuentosumaaseguradas/{id}")
-    public ResponseEntity<Void> deleteTCDESCUENTOSUMAASEGURADA(@PathVariable Long id) {
-        log.debug("REST request to delete TCDESCUENTOSUMAASEGURADA : {}", id);
-        tCDESCUENTOSUMAASEGURADARepository.deleteById(id);
+    @PostMapping("/tcdescuentosumaaseguradas/deleteId")
+    public ResponseEntity<Void> deleteTCDESCUENTOSUMAASEGURADA(@RequestBody TCDESCUENTOSUMAASEGURADADTO tcdescuentoSumaaseguradaDto) {
+        log.debug("REST request to delete TCDESCUENTOSUMAASEGURADA : {}", tcdescuentoSumaaseguradaDto.getId());
+        tCDESCUENTOSUMAASEGURADARepository.deleteById(tcdescuentoSumaaseguradaDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcdescuentoSumaaseguradaDto.getId().toString()))
             .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCEDADRECARGO;
+import com.allianze.apicotizador.dto.TCEDADRECARGODTO;
 import com.allianze.apicotizador.repository.TCEDADRECARGORepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -151,42 +152,42 @@ public class TCEDADRECARGOResource {
     }
 
     /**
-     * {@code GET  /tcedadrecargos} : get all the tCEDADRECARGOS.
+     * {@code POST  /tcedadrecargos/getAll} : get all the tCEDADRECARGOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCEDADRECARGOS in body.
      */
-    @GetMapping("/tcedadrecargos")
-    public List<TCEDADRECARGO> getAllTCEDADRECARGOS() {
+    @PostMapping("/tcedadrecargos/getAll")
+    public List<TCEDADRECARGO> getAllTCEDADRECARGOS(@RequestBody TCEDADRECARGODTO tcedadRecargoDto) {
         log.debug("REST request to get all TCEDADRECARGOS");
         return tCEDADRECARGORepository.findAll();
     }
 
     /**
-     * {@code GET  /tcedadrecargos/:id} : get the "id" tCEDADRECARGO.
+     * {@code POST  /tcedadrecargos/getId} : get the "id" tCEDADRECARGO.
      *
      * @param id the id of the tCEDADRECARGO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCEDADRECARGO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcedadrecargos/{id}")
-    public ResponseEntity<TCEDADRECARGO> getTCEDADRECARGO(@PathVariable Long id) {
-        log.debug("REST request to get TCEDADRECARGO : {}", id);
-        Optional<TCEDADRECARGO> tCEDADRECARGO = tCEDADRECARGORepository.findById(id);
+    @PostMapping("/tcedadrecargos/getId")
+    public ResponseEntity<TCEDADRECARGO> getTCEDADRECARGO(@RequestBody TCEDADRECARGODTO tcedadRecargoDto) {
+        log.debug("REST request to get TCEDADRECARGO : {}", tcedadRecargoDto.getId());
+        Optional<TCEDADRECARGO> tCEDADRECARGO = tCEDADRECARGORepository.findById(tcedadRecargoDto.getId());
         return ResponseUtil.wrapOrNotFound(tCEDADRECARGO);
     }
 
     /**
-     * {@code DELETE  /tcedadrecargos/:id} : delete the "id" tCEDADRECARGO.
+     * {@code POST  /tcedadrecargos/deleteId} : delete the "id" tCEDADRECARGO.
      *
      * @param id the id of the tCEDADRECARGO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcedadrecargos/{id}")
-    public ResponseEntity<Void> deleteTCEDADRECARGO(@PathVariable Long id) {
-        log.debug("REST request to delete TCEDADRECARGO : {}", id);
-        tCEDADRECARGORepository.deleteById(id);
+    @PostMapping("/tcedadrecargos/deleteId")
+    public ResponseEntity<Void> deleteTCEDADRECARGO(@RequestBody TCEDADRECARGODTO tcedadRecargoDto) {
+        log.debug("REST request to delete TCEDADRECARGO : {}", tcedadRecargoDto.getId());
+        tCEDADRECARGORepository.deleteById(tcedadRecargoDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcedadRecargoDto.getId().toString()))
             .build();
     }
 }

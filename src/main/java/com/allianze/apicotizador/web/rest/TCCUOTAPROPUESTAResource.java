@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCUOTAPROPUESTA;
+import com.allianze.apicotizador.dto.TCCUOTAPROPUESTADTO;
 import com.allianze.apicotizador.repository.TCCUOTAPROPUESTARepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -157,42 +158,42 @@ public class TCCUOTAPROPUESTAResource {
     }
 
     /**
-     * {@code GET  /tccuotapropuestas} : get all the tCCUOTAPROPUESTAS.
+     * {@code POST  /tccuotapropuestas/getAll} : get all the tCCUOTAPROPUESTAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCUOTAPROPUESTAS in body.
      */
-    @GetMapping("/tccuotapropuestas")
-    public List<TCCUOTAPROPUESTA> getAllTCCUOTAPROPUESTAS() {
+    @PostMapping("/tccuotapropuestas/getAll")
+    public List<TCCUOTAPROPUESTA> getAllTCCUOTAPROPUESTAS(@RequestBody TCCUOTAPROPUESTADTO tccuotaPropuestaDto) {
         log.debug("REST request to get all TCCUOTAPROPUESTAS");
         return tCCUOTAPROPUESTARepository.findAll();
     }
 
     /**
-     * {@code GET  /tccuotapropuestas/:id} : get the "id" tCCUOTAPROPUESTA.
+     * {@code POST  /tccuotapropuestas/getId} : get the "id" tCCUOTAPROPUESTA.
      *
      * @param id the id of the tCCUOTAPROPUESTA to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCUOTAPROPUESTA, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tccuotapropuestas/{id}")
-    public ResponseEntity<TCCUOTAPROPUESTA> getTCCUOTAPROPUESTA(@PathVariable Long id) {
-        log.debug("REST request to get TCCUOTAPROPUESTA : {}", id);
-        Optional<TCCUOTAPROPUESTA> tCCUOTAPROPUESTA = tCCUOTAPROPUESTARepository.findById(id);
+    @PostMapping("/tccuotapropuestas/getId")
+    public ResponseEntity<TCCUOTAPROPUESTA> getTCCUOTAPROPUESTA(@RequestBody TCCUOTAPROPUESTADTO tccuotaPropuestaDto) {
+        log.debug("REST request to get TCCUOTAPROPUESTA : {}", tccuotaPropuestaDto.getId());
+        Optional<TCCUOTAPROPUESTA> tCCUOTAPROPUESTA = tCCUOTAPROPUESTARepository.findById(tccuotaPropuestaDto.getId());
         return ResponseUtil.wrapOrNotFound(tCCUOTAPROPUESTA);
     }
 
     /**
-     * {@code DELETE  /tccuotapropuestas/:id} : delete the "id" tCCUOTAPROPUESTA.
+     * {@code POST  /tccuotapropuestas/deleteId} : delete the "id" tCCUOTAPROPUESTA.
      *
      * @param id the id of the tCCUOTAPROPUESTA to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tccuotapropuestas/{id}")
-    public ResponseEntity<Void> deleteTCCUOTAPROPUESTA(@PathVariable Long id) {
-        log.debug("REST request to delete TCCUOTAPROPUESTA : {}", id);
-        tCCUOTAPROPUESTARepository.deleteById(id);
+    @PostMapping("/tccuotapropuestas/deleteId")
+    public ResponseEntity<Void> deleteTCCUOTAPROPUESTA(@RequestBody TCCUOTAPROPUESTADTO tccuotaPropuestaDto) {
+        log.debug("REST request to delete TCCUOTAPROPUESTA : {}", tccuotaPropuestaDto.getId());
+        tCCUOTAPROPUESTARepository.deleteById(tccuotaPropuestaDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tccuotaPropuestaDto.getId().toString()))
             .build();
     }
 }

@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCPRIMATARIFA;
+import com.allianze.apicotizador.dto.TCPRIMATARIFADTO;
 import com.allianze.apicotizador.repository.TCPRIMATARIFARepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -151,42 +152,42 @@ public class TCPRIMATARIFAResource {
     }
 
     /**
-     * {@code GET  /tcprimatarifas} : get all the tCPRIMATARIFAS.
+     * {@code POST  /tcprimatarifas/getAll} : get all the tCPRIMATARIFAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCPRIMATARIFAS in body.
      */
-    @GetMapping("/tcprimatarifas")
-    public List<TCPRIMATARIFA> getAllTCPRIMATARIFAS() {
+    @PostMapping("/tcprimatarifas/getAll")
+    public List<TCPRIMATARIFA> getAllTCPRIMATARIFAS(@RequestBody TCPRIMATARIFADTO tcprimaTarifaDto) {
         log.debug("REST request to get all TCPRIMATARIFAS");
         return tCPRIMATARIFARepository.findAll();
     }
 
     /**
-     * {@code GET  /tcprimatarifas/:id} : get the "id" tCPRIMATARIFA.
+     * {@code POST  /tcprimatarifas/getId} : get the "id" tCPRIMATARIFA.
      *
      * @param id the id of the tCPRIMATARIFA to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCPRIMATARIFA, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcprimatarifas/{id}")
-    public ResponseEntity<TCPRIMATARIFA> getTCPRIMATARIFA(@PathVariable Long id) {
-        log.debug("REST request to get TCPRIMATARIFA : {}", id);
-        Optional<TCPRIMATARIFA> tCPRIMATARIFA = tCPRIMATARIFARepository.findById(id);
+    @PostMapping("/tcprimatarifas/getId")
+    public ResponseEntity<TCPRIMATARIFA> getTCPRIMATARIFA(@RequestParam TCPRIMATARIFADTO tcprimaTarifaDto) {
+        log.debug("REST request to get TCPRIMATARIFA : {}", tcprimaTarifaDto.getId());
+        Optional<TCPRIMATARIFA> tCPRIMATARIFA = tCPRIMATARIFARepository.findById(tcprimaTarifaDto.getId());
         return ResponseUtil.wrapOrNotFound(tCPRIMATARIFA);
     }
 
     /**
-     * {@code DELETE  /tcprimatarifas/:id} : delete the "id" tCPRIMATARIFA.
+     * {@code POST  /tcprimatarifas/deleteId} : delete the "id" tCPRIMATARIFA.
      *
      * @param id the id of the tCPRIMATARIFA to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcprimatarifas/{id}")
-    public ResponseEntity<Void> deleteTCPRIMATARIFA(@PathVariable Long id) {
-        log.debug("REST request to delete TCPRIMATARIFA : {}", id);
-        tCPRIMATARIFARepository.deleteById(id);
+    @PostMapping("/tcprimatarifas/deleteId")
+    public ResponseEntity<Void> deleteTCPRIMATARIFA(@RequestBody TCPRIMATARIFADTO tcprimaTarifaDto) {
+        log.debug("REST request to delete TCPRIMATARIFA : {}", tcprimaTarifaDto.getId());
+        tCPRIMATARIFARepository.deleteById(tcprimaTarifaDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcprimaTarifaDto.getId().toString()))
             .build();
     }
 }

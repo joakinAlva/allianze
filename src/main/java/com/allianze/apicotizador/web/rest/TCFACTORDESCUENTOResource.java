@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCFACTORDESCUENTO;
+import com.allianze.apicotizador.dto.TCFACTORDESCUENTORDTO;
 import com.allianze.apicotizador.repository.TCFACTORDESCUENTORepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -148,42 +149,42 @@ public class TCFACTORDESCUENTOResource {
     }
 
     /**
-     * {@code GET  /tcfactordescuentos} : get all the tCFACTORDESCUENTOS.
+     * {@code POST  /tcfactordescuentos/getAll} : get all the tCFACTORDESCUENTOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCFACTORDESCUENTOS in body.
      */
-    @GetMapping("/tcfactordescuentos")
-    public List<TCFACTORDESCUENTO> getAllTCFACTORDESCUENTOS() {
+    @PostMapping("/tcfactordescuentos/getAll")
+    public List<TCFACTORDESCUENTO> getAllTCFACTORDESCUENTOS(@RequestBody TCFACTORDESCUENTORDTO tcfactorDescuentoDto) {
         log.debug("REST request to get all TCFACTORDESCUENTOS");
         return tCFACTORDESCUENTORepository.findAll();
     }
 
     /**
-     * {@code GET  /tcfactordescuentos/:id} : get the "id" tCFACTORDESCUENTO.
+     * {@code POST  /tcfactordescuentos/getId} : get the "id" tCFACTORDESCUENTO.
      *
      * @param id the id of the tCFACTORDESCUENTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCFACTORDESCUENTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcfactordescuentos/{id}")
-    public ResponseEntity<TCFACTORDESCUENTO> getTCFACTORDESCUENTO(@PathVariable Long id) {
-        log.debug("REST request to get TCFACTORDESCUENTO : {}", id);
-        Optional<TCFACTORDESCUENTO> tCFACTORDESCUENTO = tCFACTORDESCUENTORepository.findById(id);
+    @PostMapping("/tcfactordescuentos/getId")
+    public ResponseEntity<TCFACTORDESCUENTO> getTCFACTORDESCUENTO(@RequestBody TCFACTORDESCUENTORDTO tcfactorDescuentoDto) {
+        log.debug("REST request to get TCFACTORDESCUENTO : {}", tcfactorDescuentoDto.getId());
+        Optional<TCFACTORDESCUENTO> tCFACTORDESCUENTO = tCFACTORDESCUENTORepository.findById(tcfactorDescuentoDto.getId());
         return ResponseUtil.wrapOrNotFound(tCFACTORDESCUENTO);
     }
 
     /**
-     * {@code DELETE  /tcfactordescuentos/:id} : delete the "id" tCFACTORDESCUENTO.
+     * {@code POST  /tcfactordescuentos/deleteId} : delete the "id" tCFACTORDESCUENTO.
      *
      * @param id the id of the tCFACTORDESCUENTO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcfactordescuentos/{id}")
-    public ResponseEntity<Void> deleteTCFACTORDESCUENTO(@PathVariable Long id) {
-        log.debug("REST request to delete TCFACTORDESCUENTO : {}", id);
-        tCFACTORDESCUENTORepository.deleteById(id);
+    @PostMapping("/tcfactordescuentos/deleteId")
+    public ResponseEntity<Void> deleteTCFACTORDESCUENTO(@RequestBody TCFACTORDESCUENTORDTO tcfactorDescuentoDto) {
+        log.debug("REST request to delete TCFACTORDESCUENTO : {}", tcfactorDescuentoDto.getId());
+        tCFACTORDESCUENTORepository.deleteById(tcfactorDescuentoDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcfactorDescuentoDto.getClass().toString()))
             .build();
     }
 }

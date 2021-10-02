@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCRECARGOPAGOFRACCIONADO;
+import com.allianze.apicotizador.dto.TCRECARGOPAGOFRACCIONADORDTO;
 import com.allianze.apicotizador.repository.TCRECARGOPAGOFRACCIONADORepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -165,42 +166,42 @@ public class TCRECARGOPAGOFRACCIONADOResource {
     }
 
     /**
-     * {@code GET  /tcrecargopagofraccionados} : get all the tCRECARGOPAGOFRACCIONADOS.
+     * {@code POST  /tcrecargopagofraccionados/getAll} : get all the tCRECARGOPAGOFRACCIONADOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCRECARGOPAGOFRACCIONADOS in body.
      */
     @GetMapping("/tcrecargopagofraccionados")
-    public List<TCRECARGOPAGOFRACCIONADO> getAllTCRECARGOPAGOFRACCIONADOS() {
+    public List<TCRECARGOPAGOFRACCIONADO> getAllTCRECARGOPAGOFRACCIONADOS(@RequestBody TCRECARGOPAGOFRACCIONADORDTO tcrecargoPagoFraccionadorDto) {
         log.debug("REST request to get all TCRECARGOPAGOFRACCIONADOS");
         return tCRECARGOPAGOFRACCIONADORepository.findAll();
     }
 
     /**
-     * {@code GET  /tcrecargopagofraccionados/:id} : get the "id" tCRECARGOPAGOFRACCIONADO.
+     * {@code POST  /tcrecargopagofraccionados/g} : get the "id" tCRECARGOPAGOFRACCIONADO.
      *
      * @param id the id of the tCRECARGOPAGOFRACCIONADO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCRECARGOPAGOFRACCIONADO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcrecargopagofraccionados/{id}")
-    public ResponseEntity<TCRECARGOPAGOFRACCIONADO> getTCRECARGOPAGOFRACCIONADO(@PathVariable Long id) {
-        log.debug("REST request to get TCRECARGOPAGOFRACCIONADO : {}", id);
-        Optional<TCRECARGOPAGOFRACCIONADO> tCRECARGOPAGOFRACCIONADO = tCRECARGOPAGOFRACCIONADORepository.findById(id);
+    @PostMapping("/tcrecargopagofraccionados/getId")
+    public ResponseEntity<TCRECARGOPAGOFRACCIONADO> getTCRECARGOPAGOFRACCIONADO(@RequestBody TCRECARGOPAGOFRACCIONADORDTO tcrecargoPagoFraccionadorDto) {
+        log.debug("REST request to get TCRECARGOPAGOFRACCIONADO : {}", tcrecargoPagoFraccionadorDto.getId());
+        Optional<TCRECARGOPAGOFRACCIONADO> tCRECARGOPAGOFRACCIONADO = tCRECARGOPAGOFRACCIONADORepository.findById(tcrecargoPagoFraccionadorDto.getId());
         return ResponseUtil.wrapOrNotFound(tCRECARGOPAGOFRACCIONADO);
     }
 
     /**
-     * {@code DELETE  /tcrecargopagofraccionados/:id} : delete the "id" tCRECARGOPAGOFRACCIONADO.
+     * {@code POST  /tcrecargopagofraccionados/deleteId} : delete the "id" tCRECARGOPAGOFRACCIONADO.
      *
      * @param id the id of the tCRECARGOPAGOFRACCIONADO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcrecargopagofraccionados/{id}")
-    public ResponseEntity<Void> deleteTCRECARGOPAGOFRACCIONADO(@PathVariable Long id) {
-        log.debug("REST request to delete TCRECARGOPAGOFRACCIONADO : {}", id);
-        tCRECARGOPAGOFRACCIONADORepository.deleteById(id);
+    @PostMapping("/tcrecargopagofraccionados/deleteId")
+    public ResponseEntity<Void> deleteTCRECARGOPAGOFRACCIONADO(@RequestBody TCRECARGOPAGOFRACCIONADORDTO tcrecargoPagoFraccionadorDto) {
+        log.debug("REST request to delete TCRECARGOPAGOFRACCIONADO : {}", tcrecargoPagoFraccionadorDto.getId());
+        tCRECARGOPAGOFRACCIONADORepository.deleteById(tcrecargoPagoFraccionadorDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcrecargoPagoFraccionadorDto.getId().toString()))
             .build();
     }
 }

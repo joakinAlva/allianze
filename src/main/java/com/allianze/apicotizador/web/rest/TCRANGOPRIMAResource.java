@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCRANGOPRIMA;
+import com.allianze.apicotizador.dto.TCRANGOPRIMADTO;
 import com.allianze.apicotizador.repository.TCRANGOPRIMARepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -151,42 +152,42 @@ public class TCRANGOPRIMAResource {
     }
 
     /**
-     * {@code GET  /tcrangoprimas} : get all the tCRANGOPRIMAS.
+     * {@code POST  /tcrangoprimas/getAll} : get all the tCRANGOPRIMAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCRANGOPRIMAS in body.
      */
-    @GetMapping("/tcrangoprimas")
-    public List<TCRANGOPRIMA> getAllTCRANGOPRIMAS() {
+    @PostMapping("/tcrangoprimas/getAll")
+    public List<TCRANGOPRIMA> getAllTCRANGOPRIMAS(@RequestBody TCRANGOPRIMADTO tcrangoPrimaDto) {
         log.debug("REST request to get all TCRANGOPRIMAS");
         return tCRANGOPRIMARepository.findAll();
     }
 
     /**
-     * {@code GET  /tcrangoprimas/:id} : get the "id" tCRANGOPRIMA.
+     * {@code POST  /tcrangoprimas/getId} : get the "id" tCRANGOPRIMA.
      *
      * @param id the id of the tCRANGOPRIMA to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCRANGOPRIMA, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcrangoprimas/{id}")
-    public ResponseEntity<TCRANGOPRIMA> getTCRANGOPRIMA(@PathVariable Long id) {
-        log.debug("REST request to get TCRANGOPRIMA : {}", id);
-        Optional<TCRANGOPRIMA> tCRANGOPRIMA = tCRANGOPRIMARepository.findById(id);
+    @PostMapping("/tcrangoprimas/getId")
+    public ResponseEntity<TCRANGOPRIMA> getTCRANGOPRIMA(@RequestBody TCRANGOPRIMADTO tcrangoPrimaDto) {
+        log.debug("REST request to get TCRANGOPRIMA : {}", tcrangoPrimaDto.getId());
+        Optional<TCRANGOPRIMA> tCRANGOPRIMA = tCRANGOPRIMARepository.findById(tcrangoPrimaDto.getId());
         return ResponseUtil.wrapOrNotFound(tCRANGOPRIMA);
     }
 
     /**
-     * {@code DELETE  /tcrangoprimas/:id} : delete the "id" tCRANGOPRIMA.
+     * {@code POST  /tcrangoprimas/deleteId} : delete the "id" tCRANGOPRIMA.
      *
      * @param id the id of the tCRANGOPRIMA to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcrangoprimas/{id}")
-    public ResponseEntity<Void> deleteTCRANGOPRIMA(@PathVariable Long id) {
-        log.debug("REST request to delete TCRANGOPRIMA : {}", id);
-        tCRANGOPRIMARepository.deleteById(id);
+    @PostMapping("/tcrangoprimas/deleteId")
+    public ResponseEntity<Void> deleteTCRANGOPRIMA(@RequestBody TCRANGOPRIMADTO tcrangoPrimaDto) {
+        log.debug("REST request to delete TCRANGOPRIMA : {}", tcrangoPrimaDto.getId());
+        tCRANGOPRIMARepository.deleteById(tcrangoPrimaDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcrangoPrimaDto.getId().toString()))
             .build();
     }
 }

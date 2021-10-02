@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCUOTAVALOR;
+import com.allianze.apicotizador.dto.TCCUOTAVALORDTO;
 import com.allianze.apicotizador.repository.TCCUOTAVALORRepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -145,42 +146,42 @@ public class TCCUOTAVALORResource {
     }
 
     /**
-     * {@code GET  /tccuotavalors} : get all the tCCUOTAVALORS.
+     * {@code POST  /tccuotavalors/getAll} : get all the tCCUOTAVALORS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCUOTAVALORS in body.
      */
-    @GetMapping("/tccuotavalors")
-    public List<TCCUOTAVALOR> getAllTCCUOTAVALORS() {
+    @PostMapping("/tccuotavalors/getAll")
+    public List<TCCUOTAVALOR> getAllTCCUOTAVALORS(@RequestBody TCCUOTAVALORDTO tccuotaValorDto) {
         log.debug("REST request to get all TCCUOTAVALORS");
         return tCCUOTAVALORRepository.findAll();
     }
 
     /**
-     * {@code GET  /tccuotavalors/:id} : get the "id" tCCUOTAVALOR.
+     * {@code POST  /tccuotavalors/getId} : get the "id" tCCUOTAVALOR.
      *
      * @param id the id of the tCCUOTAVALOR to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCUOTAVALOR, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tccuotavalors/{id}")
-    public ResponseEntity<TCCUOTAVALOR> getTCCUOTAVALOR(@PathVariable Long id) {
-        log.debug("REST request to get TCCUOTAVALOR : {}", id);
-        Optional<TCCUOTAVALOR> tCCUOTAVALOR = tCCUOTAVALORRepository.findById(id);
+    @PostMapping("/tccuotavalors/getId")
+    public ResponseEntity<TCCUOTAVALOR> getTCCUOTAVALOR(@RequestBody TCCUOTAVALORDTO tccuotaValorDto) {
+        log.debug("REST request to get TCCUOTAVALOR : {}", tccuotaValorDto.getId());
+        Optional<TCCUOTAVALOR> tCCUOTAVALOR = tCCUOTAVALORRepository.findById(tccuotaValorDto.getId());
         return ResponseUtil.wrapOrNotFound(tCCUOTAVALOR);
     }
 
     /**
-     * {@code DELETE  /tccuotavalors/:id} : delete the "id" tCCUOTAVALOR.
+     * {@code POST  /tccuotavalors/deleteId} : delete the "id" tCCUOTAVALOR.
      *
      * @param id the id of the tCCUOTAVALOR to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tccuotavalors/{id}")
-    public ResponseEntity<Void> deleteTCCUOTAVALOR(@PathVariable Long id) {
-        log.debug("REST request to delete TCCUOTAVALOR : {}", id);
-        tCCUOTAVALORRepository.deleteById(id);
+    @PostMapping("/tccuotavalors/deleteId")
+    public ResponseEntity<Void> deleteTCCUOTAVALOR(@RequestBody TCCUOTAVALORDTO tccuotaValorDto) {
+        log.debug("REST request to delete TCCUOTAVALOR : {}", tccuotaValorDto.getId());
+        tCCUOTAVALORRepository.deleteById(tccuotaValorDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tccuotaValorDto.getId().toString()))
             .build();
     }
 }

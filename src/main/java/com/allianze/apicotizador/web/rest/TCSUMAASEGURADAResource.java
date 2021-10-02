@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCSUMAASEGURADA;
+import com.allianze.apicotizador.dto.TCSUMAASEGURADORADTO;
 import com.allianze.apicotizador.repository.TCSUMAASEGURADARepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -157,42 +158,42 @@ public class TCSUMAASEGURADAResource {
     }
 
     /**
-     * {@code GET  /tcsumaaseguradas} : get all the tCSUMAASEGURADAS.
+     * {@code POST  /tcsumaaseguradas/getAll} : get all the tCSUMAASEGURADAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCSUMAASEGURADAS in body.
      */
-    @GetMapping("/tcsumaaseguradas")
-    public List<TCSUMAASEGURADA> getAllTCSUMAASEGURADAS() {
+    @PostMapping("/tcsumaaseguradas/getAll")
+    public List<TCSUMAASEGURADA> getAllTCSUMAASEGURADAS(@RequestBody TCSUMAASEGURADORADTO tcsumaAseguradoraDTO) {
         log.debug("REST request to get all TCSUMAASEGURADAS");
         return tCSUMAASEGURADARepository.findAll();
     }
 
     /**
-     * {@code GET  /tcsumaaseguradas/:id} : get the "id" tCSUMAASEGURADA.
+     * {@code POST  /tcsumaaseguradas/getId} : get the "id" tCSUMAASEGURADA.
      *
      * @param id the id of the tCSUMAASEGURADA to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCSUMAASEGURADA, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcsumaaseguradas/{id}")
-    public ResponseEntity<TCSUMAASEGURADA> getTCSUMAASEGURADA(@PathVariable Long id) {
-        log.debug("REST request to get TCSUMAASEGURADA : {}", id);
-        Optional<TCSUMAASEGURADA> tCSUMAASEGURADA = tCSUMAASEGURADARepository.findById(id);
+    @PostMapping("/tcsumaaseguradas/getId")
+    public ResponseEntity<TCSUMAASEGURADA> getTCSUMAASEGURADA(@RequestBody TCSUMAASEGURADORADTO tcsumaAseguradoraDTO) {
+        log.debug("REST request to get TCSUMAASEGURADA : {}",tcsumaAseguradoraDTO.getId());
+        Optional<TCSUMAASEGURADA> tCSUMAASEGURADA = tCSUMAASEGURADARepository.findById(tcsumaAseguradoraDTO.getId());
         return ResponseUtil.wrapOrNotFound(tCSUMAASEGURADA);
     }
 
     /**
-     * {@code DELETE  /tcsumaaseguradas/:id} : delete the "id" tCSUMAASEGURADA.
+     * {@code POST  /tcsumaaseguradas/deleteId} : delete the "id" tCSUMAASEGURADA.
      *
      * @param id the id of the tCSUMAASEGURADA to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcsumaaseguradas/{id}")
-    public ResponseEntity<Void> deleteTCSUMAASEGURADA(@PathVariable Long id) {
-        log.debug("REST request to delete TCSUMAASEGURADA : {}", id);
-        tCSUMAASEGURADARepository.deleteById(id);
+    @PostMapping("/tcsumaaseguradas/deleteId")
+    public ResponseEntity<Void> deleteTCSUMAASEGURADA(@RequestBody TCSUMAASEGURADORADTO tcsumaAseguradoraDTO) {
+        log.debug("REST request to delete TCSUMAASEGURADA : {}", tcsumaAseguradoraDTO.getId());
+        tCSUMAASEGURADARepository.deleteById(tcsumaAseguradoraDTO.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcsumaAseguradoraDTO.getId().toString()))
             .build();
     }
 }
