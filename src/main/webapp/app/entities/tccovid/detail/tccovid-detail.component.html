@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCCOVID">
+      <h2 data-cy="tCCOVIDDetailsHeading"><span jhiTranslate="apicotizadorApp.tCCOVID.detail.title">TCCOVID</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVID.idCovid">Id Covid</span></dt>
+        <dd>
+          <span>{{ tCCOVID.idCovid }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVID.edad">Edad</span></dt>
+        <dd>
+          <span>{{ tCCOVID.edad }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVID.basica">Basica</span></dt>
+        <dd>
+          <span>{{ tCCOVID.basica }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVID.recargoEdad">Recargo Edad</span></dt>
+        <dd>
+          <span>{{ tCCOVID.recargoEdad }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVID.recargoGiro">Recargo Giro</span></dt>
+        <dd>
+          <span>{{ tCCOVID.recargoGiro }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVID.recargoTotal">Recargo Total</span></dt>
+        <dd>
+          <span>{{ tCCOVID.recargoTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVID.basicaRecargada">Basica Recargada</span></dt>
+        <dd>
+          <span>{{ tCCOVID.basicaRecargada }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tccovid', tCCOVID.idCovid, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,188 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tccovid-heading" data-cy="TCCOVIDCreateUpdateHeading" jhiTranslate="apicotizadorApp.tCCOVID.home.createOrEditLabel">
+        Create or edit a TCCOVID
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idCovid')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOVID.idCovid" for="field_idCovid">Id Covid</label>
+          <input
+            type="number"
+            class="form-control"
+            name="idCovid"
+            id="field_idCovid"
+            data-cy="idCovid"
+            formControlName="idCovid"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOVID.edad" for="field_edad">Edad</label>
+          <input type="text" class="form-control" name="edad" id="field_edad" data-cy="edad" formControlName="edad" />
+          <div *ngIf="editForm.get('edad')!.invalid && (editForm.get('edad')!.dirty || editForm.get('edad')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('edad')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOVID.basica" for="field_basica">Basica</label>
+          <input type="number" class="form-control" name="basica" id="field_basica" data-cy="basica" formControlName="basica" />
+          <div *ngIf="editForm.get('basica')!.invalid && (editForm.get('basica')!.dirty || editForm.get('basica')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('basica')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('basica')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOVID.recargoEdad" for="field_recargoEdad">Recargo Edad</label>
+          <input
+            type="number"
+            class="form-control"
+            name="recargoEdad"
+            id="field_recargoEdad"
+            data-cy="recargoEdad"
+            formControlName="recargoEdad"
+          />
+          <div *ngIf="editForm.get('recargoEdad')!.invalid && (editForm.get('recargoEdad')!.dirty || editForm.get('recargoEdad')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('recargoEdad')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('recargoEdad')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOVID.recargoGiro" for="field_recargoGiro">Recargo Giro</label>
+          <input
+            type="number"
+            class="form-control"
+            name="recargoGiro"
+            id="field_recargoGiro"
+            data-cy="recargoGiro"
+            formControlName="recargoGiro"
+          />
+          <div *ngIf="editForm.get('recargoGiro')!.invalid && (editForm.get('recargoGiro')!.dirty || editForm.get('recargoGiro')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('recargoGiro')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('recargoGiro')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOVID.recargoTotal" for="field_recargoTotal"
+            >Recargo Total</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="recargoTotal"
+            id="field_recargoTotal"
+            data-cy="recargoTotal"
+            formControlName="recargoTotal"
+          />
+          <div
+            *ngIf="editForm.get('recargoTotal')!.invalid && (editForm.get('recargoTotal')!.dirty || editForm.get('recargoTotal')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('recargoTotal')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('recargoTotal')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOVID.basicaRecargada" for="field_basicaRecargada"
+            >Basica Recargada</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="basicaRecargada"
+            id="field_basicaRecargada"
+            data-cy="basicaRecargada"
+            formControlName="basicaRecargada"
+          />
+          <div
+            *ngIf="
+              editForm.get('basicaRecargada')!.invalid &&
+              (editForm.get('basicaRecargada')!.dirty || editForm.get('basicaRecargada')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('basicaRecargada')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('basicaRecargada')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

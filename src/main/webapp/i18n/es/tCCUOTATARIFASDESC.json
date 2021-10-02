@@ -1,0 +1,38 @@
+{
+  "apicotizadorApp": {
+    "tCCUOTATARIFASDESC": {
+      "home": {
+        "title": "TCCUOTATARIFASDESCS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCCUOTATARIFASDESC",
+        "createOrEditLabel": "Crear o editar TCCUOTATARIFASDESC",
+        "notFound": "Ningún TCCUOTATARIFASDESCS encontrado"
+      },
+      "created": "Un nuevo TCCUOTATARIFASDESC ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCCUOTATARIFASDESC ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCCUOTATARIFASDESC ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCCUOTATARIFASDESC {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCUOTATARIFASDESC"
+      },
+      "idCuotaTarifaSdesc": "Id Cuota Tarifa Sdesc",
+      "edad": "Edad",
+      "valorBa": "Valor Ba",
+      "valorBaCovid": "Valor Ba Covid",
+      "valorBipTres": "Valor Bip Tres",
+      "valorBipSeis": "Valor Bip Seis",
+      "valorBit": "Valor Bit",
+      "valorMa": "Valor Ma",
+      "valorDi": "Valor Di",
+      "valorTi": "Valor Ti",
+      "valorGff": "Valor Gff",
+      "valorGffCovid": "Valor Gff Covid",
+      "valorCa": "Valor Ca",
+      "valorGe": "Valor Ge",
+      "valorIqUno": "Valor Iq Uno",
+      "valorIqDos": "Valor Iq Dos"
+    }
+  }
+}

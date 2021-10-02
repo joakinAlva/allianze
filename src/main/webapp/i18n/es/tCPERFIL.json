@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCPERFIL": {
+      "home": {
+        "title": "TCPERFILS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCPERFIL",
+        "createOrEditLabel": "Crear o editar TCPERFIL",
+        "notFound": "Ningún TCPERFILS encontrado"
+      },
+      "created": "Un nuevo TCPERFIL ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCPERFIL ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCPERFIL ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCPERFIL {{ id }}?"
+      },
+      "detail": {
+        "title": "TCPERFIL"
+      },
+      "idPerfil": "Id Perfil",
+      "perfil": "Perfil",
+      "tMUSUARIO": "T MUSUARIO"
+    }
+  }
+}

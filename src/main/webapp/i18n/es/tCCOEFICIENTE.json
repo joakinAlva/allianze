@@ -1,0 +1,27 @@
+{
+  "apicotizadorApp": {
+    "tCCOEFICIENTE": {
+      "home": {
+        "title": "TCCOEFICIENTES",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCCOEFICIENTE",
+        "createOrEditLabel": "Crear o editar TCCOEFICIENTE",
+        "notFound": "Ningún TCCOEFICIENTES encontrado"
+      },
+      "created": "Un nuevo TCCOEFICIENTE ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCCOEFICIENTE ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCCOEFICIENTE ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCCOEFICIENTE {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCOEFICIENTE"
+      },
+      "idCoeficiente": "Id Coeficiente",
+      "coeficiente": "Coeficiente",
+      "intervaloMin": "Intervalo Min",
+      "intervaloMax": "Intervalo Max",
+      "descuentoExtra": "Descuento Extra"
+    }
+  }
+}

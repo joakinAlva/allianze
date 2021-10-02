@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCCUOTAVALOR": {
+      "home": {
+        "title": "TCCUOTAVALORS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCCUOTAVALOR",
+        "createOrEditLabel": "Crear o editar TCCUOTAVALOR",
+        "notFound": "Ningún TCCUOTAVALORS encontrado"
+      },
+      "created": "Un nuevo TCCUOTAVALOR ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCCUOTAVALOR ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCCUOTAVALOR ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCCUOTAVALOR {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCUOTAVALOR"
+      },
+      "idCuotaValor": "Id Cuota Valor",
+      "porcentaje": "Porcentaje",
+      "valor": "Valor"
+    }
+  }
+}

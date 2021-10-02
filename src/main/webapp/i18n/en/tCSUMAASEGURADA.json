@@ -1,0 +1,28 @@
+{
+  "apicotizadorApp": {
+    "tCSUMAASEGURADA": {
+      "home": {
+        "title": "TCSUMAASEGURADAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCSUMAASEGURADA",
+        "createOrEditLabel": "Create or edit a TCSUMAASEGURADA",
+        "notFound": "No TCSUMAASEGURADAS found"
+      },
+      "created": "A new TCSUMAASEGURADA is created with identifier {{ param }}",
+      "updated": "A TCSUMAASEGURADA is updated with identifier {{ param }}",
+      "deleted": "A TCSUMAASEGURADA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCSUMAASEGURADA {{ id }}?"
+      },
+      "detail": {
+        "title": "TCSUMAASEGURADA"
+      },
+      "idSumaAsegurada": "Id Suma Asegurada",
+      "sagff": "Sagff",
+      "saca": "Saca",
+      "sage": "Sage",
+      "saiqa": "Saiqa",
+      "saiqv": "Saiqv"
+    }
+  }
+}

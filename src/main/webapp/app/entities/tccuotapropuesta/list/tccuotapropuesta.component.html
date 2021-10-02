@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="TCCUOTAPROPUESTAHeading">
+    <span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.home.title">TCCUOTAPROPUESTAS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tccuotapropuesta"
+        [routerLink]="['/tccuotapropuesta/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.home.createLabel"> Create a new TCCUOTAPROPUESTA </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCCUOTAPROPUESTAS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.home.notFound">No tCCUOTAPROPUESTAS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCCUOTAPROPUESTAS && tCCUOTAPROPUESTAS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.idCuotaPropuesta">Id Cuota Propuesta</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.edad">Edad</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.valorVg">Valor Vg</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.valorBipTres">Valor Bip Tres</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.valorBit">Valor Bit</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTAPROPUESTA.valorDi">Valor Di</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCCUOTAPROPUESTA of tCCUOTAPROPUESTAS; trackBy: trackIdCuotaPropuesta" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tccuotapropuesta', tCCUOTAPROPUESTA.idCuotaPropuesta, 'view']">{{ tCCUOTAPROPUESTA.idCuotaPropuesta }}</a>
+          </td>
+          <td>{{ tCCUOTAPROPUESTA.edad }}</td>
+          <td>{{ tCCUOTAPROPUESTA.valorVg }}</td>
+          <td>{{ tCCUOTAPROPUESTA.valorBipTres }}</td>
+          <td>{{ tCCUOTAPROPUESTA.valorBit }}</td>
+          <td>{{ tCCUOTAPROPUESTA.valorDi }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tccuotapropuesta', tCCUOTAPROPUESTA.idCuotaPropuesta, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tccuotapropuesta', tCCUOTAPROPUESTA.idCuotaPropuesta, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCCUOTAPROPUESTA)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

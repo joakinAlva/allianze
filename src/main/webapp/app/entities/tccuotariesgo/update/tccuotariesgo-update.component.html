@@ -1,0 +1,416 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tccuotariesgo-heading"
+        data-cy="TCCUOTARIESGOCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCCUOTARIESGO.home.createOrEditLabel"
+      >
+        Create or edit a TCCUOTARIESGO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idCuotaRiesgo')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.idCuotaRiesgo" for="field_idCuotaRiesgo"
+            >Id Cuota Riesgo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idCuotaRiesgo"
+            id="field_idCuotaRiesgo"
+            data-cy="idCuotaRiesgo"
+            formControlName="idCuotaRiesgo"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.edad" for="field_edad">Edad</label>
+          <input type="text" class="form-control" name="edad" id="field_edad" data-cy="edad" formControlName="edad" />
+          <div *ngIf="editForm.get('edad')!.invalid && (editForm.get('edad')!.dirty || editForm.get('edad')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('edad')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBa" for="field_valorBa">Valor Ba</label>
+          <input type="number" class="form-control" name="valorBa" id="field_valorBa" data-cy="valorBa" formControlName="valorBa" />
+          <div *ngIf="editForm.get('valorBa')!.invalid && (editForm.get('valorBa')!.dirty || editForm.get('valorBa')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorBa')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorBa')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBaCovid" for="field_valorBaCovid"
+            >Valor Ba Covid</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="valorBaCovid"
+            id="field_valorBaCovid"
+            data-cy="valorBaCovid"
+            formControlName="valorBaCovid"
+          />
+          <div
+            *ngIf="editForm.get('valorBaCovid')!.invalid && (editForm.get('valorBaCovid')!.dirty || editForm.get('valorBaCovid')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorBaCovid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorBaCovid')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBipTres" for="field_valorBipTres"
+            >Valor Bip Tres</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="valorBipTres"
+            id="field_valorBipTres"
+            data-cy="valorBipTres"
+            formControlName="valorBipTres"
+          />
+          <div
+            *ngIf="editForm.get('valorBipTres')!.invalid && (editForm.get('valorBipTres')!.dirty || editForm.get('valorBipTres')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorBipTres')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorBipTres')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBipSeis" for="field_valorBipSeis"
+            >Valor Bip Seis</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="valorBipSeis"
+            id="field_valorBipSeis"
+            data-cy="valorBipSeis"
+            formControlName="valorBipSeis"
+          />
+          <div
+            *ngIf="editForm.get('valorBipSeis')!.invalid && (editForm.get('valorBipSeis')!.dirty || editForm.get('valorBipSeis')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorBipSeis')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorBipSeis')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBit" for="field_valorBit">Valor Bit</label>
+          <input type="number" class="form-control" name="valorBit" id="field_valorBit" data-cy="valorBit" formControlName="valorBit" />
+          <div *ngIf="editForm.get('valorBit')!.invalid && (editForm.get('valorBit')!.dirty || editForm.get('valorBit')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorBit')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorBit')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorMa" for="field_valorMa">Valor Ma</label>
+          <input type="number" class="form-control" name="valorMa" id="field_valorMa" data-cy="valorMa" formControlName="valorMa" />
+          <div *ngIf="editForm.get('valorMa')!.invalid && (editForm.get('valorMa')!.dirty || editForm.get('valorMa')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorMa')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorMa')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorDi" for="field_valorDi">Valor Di</label>
+          <input type="number" class="form-control" name="valorDi" id="field_valorDi" data-cy="valorDi" formControlName="valorDi" />
+          <div *ngIf="editForm.get('valorDi')!.invalid && (editForm.get('valorDi')!.dirty || editForm.get('valorDi')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorDi')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorDi')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorTi" for="field_valorTi">Valor Ti</label>
+          <input type="number" class="form-control" name="valorTi" id="field_valorTi" data-cy="valorTi" formControlName="valorTi" />
+          <div *ngIf="editForm.get('valorTi')!.invalid && (editForm.get('valorTi')!.dirty || editForm.get('valorTi')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorTi')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorTi')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGff" for="field_valorGff">Valor Gff</label>
+          <input type="number" class="form-control" name="valorGff" id="field_valorGff" data-cy="valorGff" formControlName="valorGff" />
+          <div *ngIf="editForm.get('valorGff')!.invalid && (editForm.get('valorGff')!.dirty || editForm.get('valorGff')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorGff')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorGff')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGffCovid" for="field_valorGffCovid"
+            >Valor Gff Covid</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="valorGffCovid"
+            id="field_valorGffCovid"
+            data-cy="valorGffCovid"
+            formControlName="valorGffCovid"
+          />
+          <div
+            *ngIf="
+              editForm.get('valorGffCovid')!.invalid && (editForm.get('valorGffCovid')!.dirty || editForm.get('valorGffCovid')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorGffCovid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorGffCovid')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorCa" for="field_valorCa">Valor Ca</label>
+          <input type="number" class="form-control" name="valorCa" id="field_valorCa" data-cy="valorCa" formControlName="valorCa" />
+          <div *ngIf="editForm.get('valorCa')!.invalid && (editForm.get('valorCa')!.dirty || editForm.get('valorCa')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorCa')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorCa')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGe" for="field_valorGe">Valor Ge</label>
+          <input type="number" class="form-control" name="valorGe" id="field_valorGe" data-cy="valorGe" formControlName="valorGe" />
+          <div *ngIf="editForm.get('valorGe')!.invalid && (editForm.get('valorGe')!.dirty || editForm.get('valorGe')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorGe')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorGe')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorIqUno" for="field_valorIqUno"
+            >Valor Iq Uno</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="valorIqUno"
+            id="field_valorIqUno"
+            data-cy="valorIqUno"
+            formControlName="valorIqUno"
+          />
+          <div *ngIf="editForm.get('valorIqUno')!.invalid && (editForm.get('valorIqUno')!.dirty || editForm.get('valorIqUno')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorIqUno')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorIqUno')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorIqDos" for="field_valorIqDos"
+            >Valor Iq Dos</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="valorIqDos"
+            id="field_valorIqDos"
+            data-cy="valorIqDos"
+            formControlName="valorIqDos"
+          />
+          <div *ngIf="editForm.get('valorIqDos')!.invalid && (editForm.get('valorIqDos')!.dirty || editForm.get('valorIqDos')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorIqDos')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorIqDos')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

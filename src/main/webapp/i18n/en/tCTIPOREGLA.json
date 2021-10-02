@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCTIPOREGLA": {
+      "home": {
+        "title": "TCTIPOREGLAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCTIPOREGLA",
+        "createOrEditLabel": "Create or edit a TCTIPOREGLA",
+        "notFound": "No TCTIPOREGLAS found"
+      },
+      "created": "A new TCTIPOREGLA is created with identifier {{ param }}",
+      "updated": "A TCTIPOREGLA is updated with identifier {{ param }}",
+      "deleted": "A TCTIPOREGLA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCTIPOREGLA {{ id }}?"
+      },
+      "detail": {
+        "title": "TCTIPOREGLA"
+      },
+      "idTipoRegla": "Id Tipo Regla",
+      "tipo": "Tipo",
+      "segmento": "Segmento"
+    }
+  }
+}

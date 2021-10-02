@@ -1,0 +1,163 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcprimanetasdesc-heading"
+        data-cy="TCPRIMANETASDESCCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.home.createOrEditLabel"
+      >
+        Create or edit a TCPRIMANETASDESC
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idPrimaNetaSdesc')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.idPrimaNetaSdesc" for="field_idPrimaNetaSdesc"
+            >Id Prima Neta Sdesc</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idPrimaNetaSdesc"
+            id="field_idPrimaNetaSdesc"
+            data-cy="idPrimaNetaSdesc"
+            formControlName="idPrimaNetaSdesc"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.primaNetaSdesc" for="field_primaNetaSdesc"
+            >Prima Neta Sdesc</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="primaNetaSdesc"
+            id="field_primaNetaSdesc"
+            data-cy="primaNetaSdesc"
+            formControlName="primaNetaSdesc"
+          />
+          <div
+            *ngIf="
+              editForm.get('primaNetaSdesc')!.invalid && (editForm.get('primaNetaSdesc')!.dirty || editForm.get('primaNetaSdesc')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primaNetaSdesc')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.margenMin" for="field_margenMin"
+            >Margen Min</label
+          >
+          <input type="number" class="form-control" name="margenMin" id="field_margenMin" data-cy="margenMin" formControlName="margenMin" />
+          <div *ngIf="editForm.get('margenMin')!.invalid && (editForm.get('margenMin')!.dirty || editForm.get('margenMin')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('margenMin')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('margenMin')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.margenMax" for="field_margenMax"
+            >Margen Max</label
+          >
+          <input type="number" class="form-control" name="margenMax" id="field_margenMax" data-cy="margenMax" formControlName="margenMax" />
+          <div *ngIf="editForm.get('margenMax')!.invalid && (editForm.get('margenMax')!.dirty || editForm.get('margenMax')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('margenMax')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('margenMax')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.maxComSd" for="field_maxComSd">Max Com Sd</label>
+          <input type="number" class="form-control" name="maxComSd" id="field_maxComSd" data-cy="maxComSd" formControlName="maxComSd" />
+          <div *ngIf="editForm.get('maxComSd')!.invalid && (editForm.get('maxComSd')!.dirty || editForm.get('maxComSd')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maxComSd')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('maxComSd')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.maxComEp" for="field_maxComEp">Max Com Ep</label>
+          <input type="number" class="form-control" name="maxComEp" id="field_maxComEp" data-cy="maxComEp" formControlName="maxComEp" />
+          <div *ngIf="editForm.get('maxComEp')!.invalid && (editForm.get('maxComEp')!.dirty || editForm.get('maxComEp')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maxComEp')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('maxComEp')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

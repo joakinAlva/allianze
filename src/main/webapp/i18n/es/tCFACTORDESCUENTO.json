@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCFACTORDESCUENTO": {
+      "home": {
+        "title": "TCFACTORDESCUENTOS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCFACTORDESCUENTO",
+        "createOrEditLabel": "Crear o editar TCFACTORDESCUENTO",
+        "notFound": "Ningún TCFACTORDESCUENTOS encontrado"
+      },
+      "created": "Un nuevo TCFACTORDESCUENTO ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCFACTORDESCUENTO ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCFACTORDESCUENTO ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCFACTORDESCUENTO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCFACTORDESCUENTO"
+      },
+      "idFactorDescuento": "Id Factor Descuento",
+      "factor": "Factor",
+      "porcentaje": "Porcentaje"
+    }
+  }
+}

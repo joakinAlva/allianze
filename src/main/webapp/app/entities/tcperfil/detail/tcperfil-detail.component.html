@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCPERFIL">
+      <h2 data-cy="tCPERFILDetailsHeading"><span jhiTranslate="apicotizadorApp.tCPERFIL.detail.title">TCPERFIL</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCPERFIL.idPerfil">Id Perfil</span></dt>
+        <dd>
+          <span>{{ tCPERFIL.idPerfil }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCPERFIL.perfil">Perfil</span></dt>
+        <dd>
+          <span>{{ tCPERFIL.perfil }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tcperfil', tCPERFIL.idPerfil, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

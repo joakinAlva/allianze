@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCDESCUENTOTIPORIESGO": {
+      "home": {
+        "title": "TCDESCUENTOTIPORIESGOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCDESCUENTOTIPORIESGO",
+        "createOrEditLabel": "Create or edit a TCDESCUENTOTIPORIESGO",
+        "notFound": "No TCDESCUENTOTIPORIESGOS found"
+      },
+      "created": "A new TCDESCUENTOTIPORIESGO is created with identifier {{ param }}",
+      "updated": "A TCDESCUENTOTIPORIESGO is updated with identifier {{ param }}",
+      "deleted": "A TCDESCUENTOTIPORIESGO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCDESCUENTOTIPORIESGO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCDESCUENTOTIPORIESGO"
+      },
+      "idDescuentoTipoRiesgo": "Id Descuento Tipo Riesgo",
+      "tipo": "Tipo",
+      "descuento": "Descuento"
+    }
+  }
+}

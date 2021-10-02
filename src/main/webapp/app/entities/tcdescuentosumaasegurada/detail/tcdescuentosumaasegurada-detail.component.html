@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCDESCUENTOSUMAASEGURADA">
+      <h2 data-cy="tCDESCUENTOSUMAASEGURADADetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.detail.title">TCDESCUENTOSUMAASEGURADA</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.idDescuentoSumaAsegurada">Id Descuento Suma Asegurada</span></dt>
+        <dd>
+          <span>{{ tCDESCUENTOSUMAASEGURADA.idDescuentoSumaAsegurada }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.minSuma">Min Suma</span></dt>
+        <dd>
+          <span>{{ tCDESCUENTOSUMAASEGURADA.minSuma }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.maxSuma">Max Suma</span></dt>
+        <dd>
+          <span>{{ tCDESCUENTOSUMAASEGURADA.maxSuma }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.porcentaje">Porcentaje</span></dt>
+        <dd>
+          <span>{{ tCDESCUENTOSUMAASEGURADA.porcentaje }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/tcdescuentosumaasegurada', tCDESCUENTOSUMAASEGURADA.idDescuentoSumaAsegurada, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

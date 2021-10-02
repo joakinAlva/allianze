@@ -1,0 +1,26 @@
+{
+  "apicotizadorApp": {
+    "tCOCUPACION": {
+      "home": {
+        "title": "TCOCUPACIONS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCOCUPACION",
+        "createOrEditLabel": "Create or edit a TCOCUPACION",
+        "notFound": "No TCOCUPACIONS found"
+      },
+      "created": "A new TCOCUPACION is created with identifier {{ param }}",
+      "updated": "A TCOCUPACION is updated with identifier {{ param }}",
+      "deleted": "A TCOCUPACION is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCOCUPACION {{ id }}?"
+      },
+      "detail": {
+        "title": "TCOCUPACION"
+      },
+      "idOcupacion": "Id Ocupacion",
+      "ocupacion": "Ocupacion",
+      "factorGiroAnterior": "Factor Giro Anterior",
+      "factorGiroActual": "Factor Giro Actual"
+    }
+  }
+}

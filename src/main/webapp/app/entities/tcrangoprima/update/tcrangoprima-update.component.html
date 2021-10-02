@@ -1,0 +1,139 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcrangoprima-heading"
+        data-cy="TCRANGOPRIMACreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCRANGOPRIMA.home.createOrEditLabel"
+      >
+        Create or edit a TCRANGOPRIMA
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idRangoPrima')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCRANGOPRIMA.idRangoPrima" for="field_idRangoPrima"
+            >Id Rango Prima</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idRangoPrima"
+            id="field_idRangoPrima"
+            data-cy="idRangoPrima"
+            formControlName="idRangoPrima"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCRANGOPRIMA.valorMin" for="field_valorMin">Valor Min</label>
+          <input type="number" class="form-control" name="valorMin" id="field_valorMin" data-cy="valorMin" formControlName="valorMin" />
+          <div *ngIf="editForm.get('valorMin')!.invalid && (editForm.get('valorMin')!.dirty || editForm.get('valorMin')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorMin')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorMin')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCRANGOPRIMA.valorMax" for="field_valorMax">Valor Max</label>
+          <input type="number" class="form-control" name="valorMax" id="field_valorMax" data-cy="valorMax" formControlName="valorMax" />
+          <div *ngIf="editForm.get('valorMax')!.invalid && (editForm.get('valorMax')!.dirty || editForm.get('valorMax')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorMax')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorMax')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCRANGOPRIMA.dividendos" for="field_dividendos">Dividendos</label>
+          <input
+            type="number"
+            class="form-control"
+            name="dividendos"
+            id="field_dividendos"
+            data-cy="dividendos"
+            formControlName="dividendos"
+          />
+          <div *ngIf="editForm.get('dividendos')!.invalid && (editForm.get('dividendos')!.dirty || editForm.get('dividendos')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('dividendos')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('dividendos')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCRANGOPRIMA.comision" for="field_comision">Comision</label>
+          <input type="number" class="form-control" name="comision" id="field_comision" data-cy="comision" formControlName="comision" />
+          <div *ngIf="editForm.get('comision')!.invalid && (editForm.get('comision')!.dirty || editForm.get('comision')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('comision')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('comision')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

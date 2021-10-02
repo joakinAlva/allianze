@@ -1,0 +1,27 @@
+{
+  "apicotizadorApp": {
+    "tCPRIMATARIFA": {
+      "home": {
+        "title": "TCPRIMATARIFAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCPRIMATARIFA",
+        "createOrEditLabel": "Create or edit a TCPRIMATARIFA",
+        "notFound": "No TCPRIMATARIFAS found"
+      },
+      "created": "A new TCPRIMATARIFA is created with identifier {{ param }}",
+      "updated": "A TCPRIMATARIFA is updated with identifier {{ param }}",
+      "deleted": "A TCPRIMATARIFA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCPRIMATARIFA {{ id }}?"
+      },
+      "detail": {
+        "title": "TCPRIMATARIFA"
+      },
+      "idPrimaTarifa": "Id Prima Tarifa",
+      "divPrimaTarifa": "Div Prima Tarifa",
+      "zNeta": "Z Neta",
+      "divPrimaRiesgo": "Div Prima Riesgo",
+      "zRiesgo": "Z Riesgo"
+    }
+  }
+}

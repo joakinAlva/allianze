@@ -1,0 +1,113 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcdescuentosumaasegurada-heading"
+        data-cy="TCDESCUENTOSUMAASEGURADACreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.home.createOrEditLabel"
+      >
+        Create or edit a TCDESCUENTOSUMAASEGURADA
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idDescuentoSumaAsegurada')!.value == null">
+          <label
+            class="form-control-label"
+            jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.idDescuentoSumaAsegurada"
+            for="field_idDescuentoSumaAsegurada"
+            >Id Descuento Suma Asegurada</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idDescuentoSumaAsegurada"
+            id="field_idDescuentoSumaAsegurada"
+            data-cy="idDescuentoSumaAsegurada"
+            formControlName="idDescuentoSumaAsegurada"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.minSuma" for="field_minSuma"
+            >Min Suma</label
+          >
+          <input type="text" class="form-control" name="minSuma" id="field_minSuma" data-cy="minSuma" formControlName="minSuma" />
+          <div *ngIf="editForm.get('minSuma')!.invalid && (editForm.get('minSuma')!.dirty || editForm.get('minSuma')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('minSuma')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.maxSuma" for="field_maxSuma"
+            >Max Suma</label
+          >
+          <input type="text" class="form-control" name="maxSuma" id="field_maxSuma" data-cy="maxSuma" formControlName="maxSuma" />
+          <div *ngIf="editForm.get('maxSuma')!.invalid && (editForm.get('maxSuma')!.dirty || editForm.get('maxSuma')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('maxSuma')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCDESCUENTOSUMAASEGURADA.porcentaje" for="field_porcentaje"
+            >Porcentaje</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="porcentaje"
+            id="field_porcentaje"
+            data-cy="porcentaje"
+            formControlName="porcentaje"
+          />
+          <div *ngIf="editForm.get('porcentaje')!.invalid && (editForm.get('porcentaje')!.dirty || editForm.get('porcentaje')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('porcentaje')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('porcentaje')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

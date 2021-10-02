@@ -1,0 +1,27 @@
+{
+  "apicotizadorApp": {
+    "tCREFENCIA": {
+      "home": {
+        "title": "TCREFENCIAS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCREFENCIA",
+        "createOrEditLabel": "Crear o editar TCREFENCIA",
+        "notFound": "Ningún TCREFENCIAS encontrado"
+      },
+      "created": "Un nuevo TCREFENCIA ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCREFENCIA ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCREFENCIA ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCREFENCIA {{ id }}?"
+      },
+      "detail": {
+        "title": "TCREFENCIA"
+      },
+      "idReferencia": "Id Referencia",
+      "periodo": "Periodo",
+      "referencia": "Referencia",
+      "edadpromedio": "Edadpromedio",
+      "cuota": "Cuota"
+    }
+  }
+}

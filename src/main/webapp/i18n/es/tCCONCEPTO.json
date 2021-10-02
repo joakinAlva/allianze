@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCCONCEPTO": {
+      "home": {
+        "title": "TCCONCEPTOS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCCONCEPTO",
+        "createOrEditLabel": "Crear o editar TCCONCEPTO",
+        "notFound": "Ningún TCCONCEPTOS encontrado"
+      },
+      "created": "Un nuevo TCCONCEPTO ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCCONCEPTO ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCCONCEPTO ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCCONCEPTO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCONCEPTO"
+      },
+      "idConcepto": "Id Concepto",
+      "concepto": "Concepto",
+      "dato": "Dato"
+    }
+  }
+}

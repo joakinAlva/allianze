@@ -1,0 +1,24 @@
+{
+  "apicotizadorApp": {
+    "tCEJECUTIVO": {
+      "home": {
+        "title": "TCEJECUTIVOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCEJECUTIVO",
+        "createOrEditLabel": "Create or edit a TCEJECUTIVO",
+        "notFound": "No TCEJECUTIVOS found"
+      },
+      "created": "A new TCEJECUTIVO is created with identifier {{ param }}",
+      "updated": "A TCEJECUTIVO is updated with identifier {{ param }}",
+      "deleted": "A TCEJECUTIVO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCEJECUTIVO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCEJECUTIVO"
+      },
+      "idEjecutivo": "Id Ejecutivo",
+      "ejecutivo": "Ejecutivo"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="clob" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="uuid" dbms="h2, oracle"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql, mariadb"/>
+    <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034940_added_entity_TCPERFIL.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034941_added_entity_TMUSUARIO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034942_added_entity_TCUNIDADNEGOCIO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034943_added_entity_TCEJECUTIVO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034944_added_entity_TCSUBGRUPO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034945_added_entity_TCTIPOREGLA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034946_added_entity_TCTIPO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034947_added_entity_TCOCUPACION.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034948_added_entity_TCDESCUENTOTIPORIESGO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034949_added_entity_TCPRIMANETASDESC.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210928034950_added_entity_TCFACTORSAMI.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044441_added_entity_TCDESCUENTOSUMAASEGURADA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044442_added_entity_TCPRIMATARIFA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044443_added_entity_TCRECARGOPAGOFRACCIONADO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044444_added_entity_TCCOBERTURA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044445_added_entity_TCCONCEPTO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044446_added_entity_TCHIPOTESIS.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044447_added_entity_TCCOEFICIENTE.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044448_added_entity_TCFACTORDESCUENTO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044449_added_entity_TCSUMAASEGURADA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044450_added_entity_TCRANGOPRIMA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044451_added_entity_TCTIPOPRODUCTO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044452_added_entity_TCREFENCIA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044453_added_entity_TCCUOTARIESGO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044454_added_entity_TCCUOTAVALOR.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044455_added_entity_TCCUOTATARIFASDESC.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044456_added_entity_TCCUOTAPROPUESTA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044457_added_entity_TCEDADRECARGO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044458_added_entity_TCCOVID.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211001044459_added_entity_TCREGIONAL.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210928034941_added_entity_constraints_TMUSUARIO.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

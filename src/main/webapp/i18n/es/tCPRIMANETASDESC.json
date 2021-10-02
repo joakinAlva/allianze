@@ -1,0 +1,28 @@
+{
+  "apicotizadorApp": {
+    "tCPRIMANETASDESC": {
+      "home": {
+        "title": "TCPRIMANETASDESCS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCPRIMANETASDESC",
+        "createOrEditLabel": "Crear o editar TCPRIMANETASDESC",
+        "notFound": "Ningún TCPRIMANETASDESCS encontrado"
+      },
+      "created": "Un nuevo TCPRIMANETASDESC ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCPRIMANETASDESC ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCPRIMANETASDESC ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCPRIMANETASDESC {{ id }}?"
+      },
+      "detail": {
+        "title": "TCPRIMANETASDESC"
+      },
+      "idPrimaNetaSdesc": "Id Prima Neta Sdesc",
+      "primaNetaSdesc": "Prima Neta Sdesc",
+      "margenMin": "Margen Min",
+      "margenMax": "Margen Max",
+      "maxComSd": "Max Com Sd",
+      "maxComEp": "Max Com Ep"
+    }
+  }
+}

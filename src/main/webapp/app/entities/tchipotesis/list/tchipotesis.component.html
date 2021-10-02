@@ -1,0 +1,82 @@
+<div>
+  <h2 id="page-heading" data-cy="TCHIPOTESISHeading">
+    <span jhiTranslate="apicotizadorApp.tCHIPOTESIS.home.title">TCHIPOTESES</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCHIPOTESIS.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tchipotesis"
+        [routerLink]="['/tchipotesis/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCHIPOTESIS.home.createLabel"> Create a new TCHIPOTESIS </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCHIPOTESES?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCHIPOTESIS.home.notFound">No tCHIPOTESES found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCHIPOTESES && tCHIPOTESES.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.idHipotesis">Id Hipotesis</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.hipotesis">Hipotesis</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.valor">Valor</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.variable">Variable</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCHIPOTESIS of tCHIPOTESES; trackBy: trackIdHipotesis" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tchipotesis', tCHIPOTESIS.idHipotesis, 'view']">{{ tCHIPOTESIS.idHipotesis }}</a>
+          </td>
+          <td>{{ tCHIPOTESIS.hipotesis }}</td>
+          <td>{{ tCHIPOTESIS.valor }}</td>
+          <td>{{ tCHIPOTESIS.variable }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tchipotesis', tCHIPOTESIS.idHipotesis, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tchipotesis', tCHIPOTESIS.idHipotesis, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCHIPOTESIS)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

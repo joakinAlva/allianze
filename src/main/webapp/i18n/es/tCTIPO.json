@@ -1,0 +1,24 @@
+{
+  "apicotizadorApp": {
+    "tCTIPO": {
+      "home": {
+        "title": "TCTIPOS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCTIPO",
+        "createOrEditLabel": "Crear o editar TCTIPO",
+        "notFound": "Ningún TCTIPOS encontrado"
+      },
+      "created": "Un nuevo TCTIPO ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCTIPO ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCTIPO ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCTIPO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCTIPO"
+      },
+      "idTipo": "Id Tipo",
+      "tipoRegla": "Tipo Regla"
+    }
+  }
+}

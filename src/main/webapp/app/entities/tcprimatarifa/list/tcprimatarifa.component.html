@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="TCPRIMATARIFAHeading">
+    <span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.home.title">TCPRIMATARIFAS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tcprimatarifa"
+        [routerLink]="['/tcprimatarifa/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.home.createLabel"> Create a new TCPRIMATARIFA </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCPRIMATARIFAS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.home.notFound">No tCPRIMATARIFAS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCPRIMATARIFAS && tCPRIMATARIFAS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.idPrimaTarifa">Id Prima Tarifa</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.divPrimaTarifa">Div Prima Tarifa</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.zNeta">Z Neta</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.divPrimaRiesgo">Div Prima Riesgo</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCPRIMATARIFA.zRiesgo">Z Riesgo</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCPRIMATARIFA of tCPRIMATARIFAS; trackBy: trackIdPrimaTarifa" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tcprimatarifa', tCPRIMATARIFA.idPrimaTarifa, 'view']">{{ tCPRIMATARIFA.idPrimaTarifa }}</a>
+          </td>
+          <td>{{ tCPRIMATARIFA.divPrimaTarifa }}</td>
+          <td>{{ tCPRIMATARIFA.zNeta }}</td>
+          <td>{{ tCPRIMATARIFA.divPrimaRiesgo }}</td>
+          <td>{{ tCPRIMATARIFA.zRiesgo }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tcprimatarifa', tCPRIMATARIFA.idPrimaTarifa, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tcprimatarifa', tCPRIMATARIFA.idPrimaTarifa, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCPRIMATARIFA)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

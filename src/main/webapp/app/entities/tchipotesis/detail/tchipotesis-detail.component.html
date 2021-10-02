@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCHIPOTESIS">
+      <h2 data-cy="tCHIPOTESISDetailsHeading"><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.detail.title">TCHIPOTESIS</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.idHipotesis">Id Hipotesis</span></dt>
+        <dd>
+          <span>{{ tCHIPOTESIS.idHipotesis }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.hipotesis">Hipotesis</span></dt>
+        <dd>
+          <span>{{ tCHIPOTESIS.hipotesis }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.valor">Valor</span></dt>
+        <dd>
+          <span>{{ tCHIPOTESIS.valor }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCHIPOTESIS.variable">Variable</span></dt>
+        <dd>
+          <span>{{ tCHIPOTESIS.variable }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tchipotesis', tCHIPOTESIS.idHipotesis, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCOCUPACION">
+      <h2 data-cy="tCOCUPACIONDetailsHeading"><span jhiTranslate="apicotizadorApp.tCOCUPACION.detail.title">TCOCUPACION</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCOCUPACION.idOcupacion">Id Ocupacion</span></dt>
+        <dd>
+          <span>{{ tCOCUPACION.idOcupacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCOCUPACION.ocupacion">Ocupacion</span></dt>
+        <dd>
+          <span>{{ tCOCUPACION.ocupacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCOCUPACION.factorGiroAnterior">Factor Giro Anterior</span></dt>
+        <dd>
+          <span>{{ tCOCUPACION.factorGiroAnterior }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCOCUPACION.factorGiroActual">Factor Giro Actual</span></dt>
+        <dd>
+          <span>{{ tCOCUPACION.factorGiroActual }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tcocupacion', tCOCUPACION.idOcupacion, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

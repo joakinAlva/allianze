@@ -1,0 +1,26 @@
+{
+  "apicotizadorApp": {
+    "tCTIPOPRODUCTO": {
+      "home": {
+        "title": "TCTIPOPRODUCTOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCTIPOPRODUCTO",
+        "createOrEditLabel": "Create or edit a TCTIPOPRODUCTO",
+        "notFound": "No TCTIPOPRODUCTOS found"
+      },
+      "created": "A new TCTIPOPRODUCTO is created with identifier {{ param }}",
+      "updated": "A TCTIPOPRODUCTO is updated with identifier {{ param }}",
+      "deleted": "A TCTIPOPRODUCTO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCTIPOPRODUCTO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCTIPOPRODUCTO"
+      },
+      "idTipoProducto": "Id Tipo Producto",
+      "tipoProducto": "Tipo Producto",
+      "registro": "Registro",
+      "fecha": "Fecha"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "apicotizadorApp": {
+    "tCDESCUENTOSUMAASEGURADA": {
+      "home": {
+        "title": "TCDESCUENTOSUMAASEGURADAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCDESCUENTOSUMAASEGURADA",
+        "createOrEditLabel": "Create or edit a TCDESCUENTOSUMAASEGURADA",
+        "notFound": "No TCDESCUENTOSUMAASEGURADAS found"
+      },
+      "created": "A new TCDESCUENTOSUMAASEGURADA is created with identifier {{ param }}",
+      "updated": "A TCDESCUENTOSUMAASEGURADA is updated with identifier {{ param }}",
+      "deleted": "A TCDESCUENTOSUMAASEGURADA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCDESCUENTOSUMAASEGURADA {{ id }}?"
+      },
+      "detail": {
+        "title": "TCDESCUENTOSUMAASEGURADA"
+      },
+      "idDescuentoSumaAsegurada": "Id Descuento Suma Asegurada",
+      "minSuma": "Min Suma",
+      "maxSuma": "Max Suma",
+      "porcentaje": "Porcentaje"
+    }
+  }
+}

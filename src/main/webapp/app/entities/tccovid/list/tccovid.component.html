@@ -1,0 +1,88 @@
+<div>
+  <h2 id="page-heading" data-cy="TCCOVIDHeading">
+    <span jhiTranslate="apicotizadorApp.tCCOVID.home.title">TCCOVIDS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCOVID.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tccovid"
+        [routerLink]="['/tccovid/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCOVID.home.createLabel"> Create a new TCCOVID </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCCOVIDS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCCOVID.home.notFound">No tCCOVIDS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCCOVIDS && tCCOVIDS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVID.idCovid">Id Covid</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVID.edad">Edad</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVID.basica">Basica</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVID.recargoEdad">Recargo Edad</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVID.recargoGiro">Recargo Giro</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVID.recargoTotal">Recargo Total</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVID.basicaRecargada">Basica Recargada</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCCOVID of tCCOVIDS; trackBy: trackIdCovid" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tccovid', tCCOVID.idCovid, 'view']">{{ tCCOVID.idCovid }}</a>
+          </td>
+          <td>{{ tCCOVID.edad }}</td>
+          <td>{{ tCCOVID.basica }}</td>
+          <td>{{ tCCOVID.recargoEdad }}</td>
+          <td>{{ tCCOVID.recargoGiro }}</td>
+          <td>{{ tCCOVID.recargoTotal }}</td>
+          <td>{{ tCCOVID.basicaRecargada }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tccovid', tCCOVID.idCovid, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tccovid', tCCOVID.idCovid, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCCOVID)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

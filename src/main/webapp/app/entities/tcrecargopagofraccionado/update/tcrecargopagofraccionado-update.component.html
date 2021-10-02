@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcrecargopagofraccionado-heading"
+        data-cy="TCRECARGOPAGOFRACCIONADOCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.home.createOrEditLabel"
+      >
+        Create or edit a TCRECARGOPAGOFRACCIONADO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idRecargoPagoFraccionado')!.value == null">
+          <label
+            class="form-control-label"
+            jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado"
+            for="field_idRecargoPagoFraccionado"
+            >Id Recargo Pago Fraccionado</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idRecargoPagoFraccionado"
+            id="field_idRecargoPagoFraccionado"
+            data-cy="idRecargoPagoFraccionado"
+            formControlName="idRecargoPagoFraccionado"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.periodo" for="field_periodo"
+            >Periodo</label
+          >
+          <input type="text" class="form-control" name="periodo" id="field_periodo" data-cy="periodo" formControlName="periodo" />
+          <div *ngIf="editForm.get('periodo')!.invalid && (editForm.get('periodo')!.dirty || editForm.get('periodo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('periodo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.porcentaje" for="field_porcentaje"
+            >Porcentaje</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="porcentaje"
+            id="field_porcentaje"
+            data-cy="porcentaje"
+            formControlName="porcentaje"
+          />
+          <div *ngIf="editForm.get('porcentaje')!.invalid && (editForm.get('porcentaje')!.dirty || editForm.get('porcentaje')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('porcentaje')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('porcentaje')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

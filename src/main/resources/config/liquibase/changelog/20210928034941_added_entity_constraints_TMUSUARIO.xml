@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity TMUSUARIO.
+    -->
+    <changeSet id="20210928034941-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="employee_id_perfil"
+                                 baseTableName="tmusuario"
+                                 constraintName="fk_tmusuario__employee_id"
+                                 referencedColumnNames="id_perfil"
+                                 referencedTableName="tcperfil"/>
+    </changeSet>
+</databaseChangeLog>

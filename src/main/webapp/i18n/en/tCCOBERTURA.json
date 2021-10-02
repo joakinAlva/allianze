@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCCOBERTURA": {
+      "home": {
+        "title": "TCCOBERTURAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCCOBERTURA",
+        "createOrEditLabel": "Create or edit a TCCOBERTURA",
+        "notFound": "No TCCOBERTURAS found"
+      },
+      "created": "A new TCCOBERTURA is created with identifier {{ param }}",
+      "updated": "A TCCOBERTURA is updated with identifier {{ param }}",
+      "deleted": "A TCCOBERTURA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCCOBERTURA {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCOBERTURA"
+      },
+      "idCobertura": "Id Cobertura",
+      "cobertura": "Cobertura",
+      "posicion": "Posicion"
+    }
+  }
+}

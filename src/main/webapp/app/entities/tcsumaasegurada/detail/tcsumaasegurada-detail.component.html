@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCSUMAASEGURADA">
+      <h2 data-cy="tCSUMAASEGURADADetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tCSUMAASEGURADA.detail.title">TCSUMAASEGURADA</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCSUMAASEGURADA.idSumaAsegurada">Id Suma Asegurada</span></dt>
+        <dd>
+          <span>{{ tCSUMAASEGURADA.idSumaAsegurada }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCSUMAASEGURADA.sagff">Sagff</span></dt>
+        <dd>
+          <span>{{ tCSUMAASEGURADA.sagff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCSUMAASEGURADA.saca">Saca</span></dt>
+        <dd>
+          <span>{{ tCSUMAASEGURADA.saca }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCSUMAASEGURADA.sage">Sage</span></dt>
+        <dd>
+          <span>{{ tCSUMAASEGURADA.sage }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCSUMAASEGURADA.saiqa">Saiqa</span></dt>
+        <dd>
+          <span>{{ tCSUMAASEGURADA.saiqa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCSUMAASEGURADA.saiqv">Saiqv</span></dt>
+        <dd>
+          <span>{{ tCSUMAASEGURADA.saiqv }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tcsumaasegurada', tCSUMAASEGURADA.idSumaAsegurada, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

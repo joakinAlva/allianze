@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCTIPOPRODUCTO">
+      <h2 data-cy="tCTIPOPRODUCTODetailsHeading"><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.detail.title">TCTIPOPRODUCTO</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.idTipoProducto">Id Tipo Producto</span></dt>
+        <dd>
+          <span>{{ tCTIPOPRODUCTO.idTipoProducto }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.tipoProducto">Tipo Producto</span></dt>
+        <dd>
+          <span>{{ tCTIPOPRODUCTO.tipoProducto }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.registro">Registro</span></dt>
+        <dd>
+          <span>{{ tCTIPOPRODUCTO.registro }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.fecha">Fecha</span></dt>
+        <dd>
+          <span>{{ tCTIPOPRODUCTO.fecha | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tctipoproducto', tCTIPOPRODUCTO.idTipoProducto, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

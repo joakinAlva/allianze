@@ -1,0 +1,78 @@
+<div>
+  <h2 id="page-heading" data-cy="TCUNIDADNEGOCIOHeading">
+    <span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.home.title">TCUNIDADNEGOCIOS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tcunidadnegocio"
+        [routerLink]="['/tcunidadnegocio/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.home.createLabel"> Create a new TCUNIDADNEGOCIO </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCUNIDADNEGOCIOS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.home.notFound">No tCUNIDADNEGOCIOS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCUNIDADNEGOCIOS && tCUNIDADNEGOCIOS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.idUnidadNegocio">Id Unidad Negocio</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.unidadNegocio">Unidad Negocio</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCUNIDADNEGOCIO of tCUNIDADNEGOCIOS; trackBy: trackIdUnidadNegocio" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tcunidadnegocio', tCUNIDADNEGOCIO.idUnidadNegocio, 'view']">{{ tCUNIDADNEGOCIO.idUnidadNegocio }}</a>
+          </td>
+          <td>{{ tCUNIDADNEGOCIO.unidadNegocio }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tcunidadnegocio', tCUNIDADNEGOCIO.idUnidadNegocio, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tcunidadnegocio', tCUNIDADNEGOCIO.idUnidadNegocio, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCUNIDADNEGOCIO)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

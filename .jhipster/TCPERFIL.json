@@ -1,0 +1,35 @@
+{
+  "name": "TCPERFIL",
+  "fields": [
+    {
+      "fieldName": "idPerfil",
+      "fieldType": "Long",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "perfil",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "tMUSUARIO",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "tMUSUARIO"
+    }
+  ],
+  "entityTableName": "tcperfil",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210928034940"
+}

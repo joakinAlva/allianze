@@ -1,0 +1,150 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcprimatarifa-heading"
+        data-cy="TCPRIMATARIFACreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCPRIMATARIFA.home.createOrEditLabel"
+      >
+        Create or edit a TCPRIMATARIFA
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idPrimaTarifa')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMATARIFA.idPrimaTarifa" for="field_idPrimaTarifa"
+            >Id Prima Tarifa</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idPrimaTarifa"
+            id="field_idPrimaTarifa"
+            data-cy="idPrimaTarifa"
+            formControlName="idPrimaTarifa"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMATARIFA.divPrimaTarifa" for="field_divPrimaTarifa"
+            >Div Prima Tarifa</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="divPrimaTarifa"
+            id="field_divPrimaTarifa"
+            data-cy="divPrimaTarifa"
+            formControlName="divPrimaTarifa"
+          />
+          <div
+            *ngIf="
+              editForm.get('divPrimaTarifa')!.invalid && (editForm.get('divPrimaTarifa')!.dirty || editForm.get('divPrimaTarifa')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('divPrimaTarifa')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('divPrimaTarifa')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMATARIFA.zNeta" for="field_zNeta">Z Neta</label>
+          <input type="number" class="form-control" name="zNeta" id="field_zNeta" data-cy="zNeta" formControlName="zNeta" />
+          <div *ngIf="editForm.get('zNeta')!.invalid && (editForm.get('zNeta')!.dirty || editForm.get('zNeta')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('zNeta')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('zNeta')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMATARIFA.divPrimaRiesgo" for="field_divPrimaRiesgo"
+            >Div Prima Riesgo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="divPrimaRiesgo"
+            id="field_divPrimaRiesgo"
+            data-cy="divPrimaRiesgo"
+            formControlName="divPrimaRiesgo"
+          />
+          <div
+            *ngIf="
+              editForm.get('divPrimaRiesgo')!.invalid && (editForm.get('divPrimaRiesgo')!.dirty || editForm.get('divPrimaRiesgo')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('divPrimaRiesgo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('divPrimaRiesgo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCPRIMATARIFA.zRiesgo" for="field_zRiesgo">Z Riesgo</label>
+          <input type="number" class="form-control" name="zRiesgo" id="field_zRiesgo" data-cy="zRiesgo" formControlName="zRiesgo" />
+          <div *ngIf="editForm.get('zRiesgo')!.invalid && (editForm.get('zRiesgo')!.dirty || editForm.get('zRiesgo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('zRiesgo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('zRiesgo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

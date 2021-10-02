@@ -1,0 +1,82 @@
+<div>
+  <h2 id="page-heading" data-cy="TCTIPOPRODUCTOHeading">
+    <span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.home.title">TCTIPOPRODUCTOS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tctipoproducto"
+        [routerLink]="['/tctipoproducto/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.home.createLabel"> Create a new TCTIPOPRODUCTO </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCTIPOPRODUCTOS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.home.notFound">No tCTIPOPRODUCTOS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCTIPOPRODUCTOS && tCTIPOPRODUCTOS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.idTipoProducto">Id Tipo Producto</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.tipoProducto">Tipo Producto</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.registro">Registro</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.fecha">Fecha</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCTIPOPRODUCTO of tCTIPOPRODUCTOS; trackBy: trackIdTipoProducto" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tctipoproducto', tCTIPOPRODUCTO.idTipoProducto, 'view']">{{ tCTIPOPRODUCTO.idTipoProducto }}</a>
+          </td>
+          <td>{{ tCTIPOPRODUCTO.tipoProducto }}</td>
+          <td>{{ tCTIPOPRODUCTO.registro }}</td>
+          <td>{{ tCTIPOPRODUCTO.fecha | formatMediumDate }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tctipoproducto', tCTIPOPRODUCTO.idTipoProducto, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tctipoproducto', tCTIPOPRODUCTO.idTipoProducto, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCTIPOPRODUCTO)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

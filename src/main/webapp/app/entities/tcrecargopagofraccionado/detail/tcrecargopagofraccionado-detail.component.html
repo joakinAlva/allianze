@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCRECARGOPAGOFRACCIONADO">
+      <h2 data-cy="tCRECARGOPAGOFRACCIONADODetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.detail.title">TCRECARGOPAGOFRACCIONADO</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado">Id Recargo Pago Fraccionado</span></dt>
+        <dd>
+          <span>{{ tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.periodo">Periodo</span></dt>
+        <dd>
+          <span>{{ tCRECARGOPAGOFRACCIONADO.periodo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.porcentaje">Porcentaje</span></dt>
+        <dd>
+          <span>{{ tCRECARGOPAGOFRACCIONADO.porcentaje }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/tcrecargopagofraccionado', tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

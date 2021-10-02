@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCCOEFICIENTE">
+      <h2 data-cy="tCCOEFICIENTEDetailsHeading"><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.detail.title">TCCOEFICIENTE</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.idCoeficiente">Id Coeficiente</span></dt>
+        <dd>
+          <span>{{ tCCOEFICIENTE.idCoeficiente }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.coeficiente">Coeficiente</span></dt>
+        <dd>
+          <span>{{ tCCOEFICIENTE.coeficiente }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.intervaloMin">Intervalo Min</span></dt>
+        <dd>
+          <span>{{ tCCOEFICIENTE.intervaloMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.intervaloMax">Intervalo Max</span></dt>
+        <dd>
+          <span>{{ tCCOEFICIENTE.intervaloMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.descuentoExtra">Descuento Extra</span></dt>
+        <dd>
+          <span>{{ tCCOEFICIENTE.descuentoExtra }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tccoeficiente', tCCOEFICIENTE.idCoeficiente, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "apicotizadorApp": {
+    "tCHIPOTESIS": {
+      "home": {
+        "title": "TCHIPOTESES",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCHIPOTESIS",
+        "createOrEditLabel": "Crear o editar TCHIPOTESIS",
+        "notFound": "Ningún TCHIPOTESES encontrado"
+      },
+      "created": "Un nuevo TCHIPOTESIS ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCHIPOTESIS ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCHIPOTESIS ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCHIPOTESIS {{ id }}?"
+      },
+      "detail": {
+        "title": "TCHIPOTESIS"
+      },
+      "idHipotesis": "Id Hipotesis",
+      "hipotesis": "Hipotesis",
+      "valor": "Valor",
+      "variable": "Variable"
+    }
+  }
+}

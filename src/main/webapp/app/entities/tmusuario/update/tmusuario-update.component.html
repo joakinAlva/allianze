@@ -1,0 +1,208 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tmusuario-heading" data-cy="TMUSUARIOCreateUpdateHeading" jhiTranslate="apicotizadorApp.tMUSUARIO.home.createOrEditLabel">
+        Create or edit a TMUSUARIO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idUsuario')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.idUsuario" for="field_idUsuario">Id Usuario</label>
+          <input
+            type="number"
+            class="form-control"
+            name="idUsuario"
+            id="field_idUsuario"
+            data-cy="idUsuario"
+            formControlName="idUsuario"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+          <div *ngIf="editForm.get('nombre')!.invalid && (editForm.get('nombre')!.dirty || editForm.get('nombre')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nombre')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.apellidos" for="field_apellidos">Apellidos</label>
+          <input type="text" class="form-control" name="apellidos" id="field_apellidos" data-cy="apellidos" formControlName="apellidos" />
+          <div *ngIf="editForm.get('apellidos')!.invalid && (editForm.get('apellidos')!.dirty || editForm.get('apellidos')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('apellidos')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.correoElectronico" for="field_correoElectronico"
+            >Correo Electronico</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="correoElectronico"
+            id="field_correoElectronico"
+            data-cy="correoElectronico"
+            formControlName="correoElectronico"
+          />
+          <div
+            *ngIf="
+              editForm.get('correoElectronico')!.invalid &&
+              (editForm.get('correoElectronico')!.dirty || editForm.get('correoElectronico')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('correoElectronico')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.usuario" for="field_usuario">Usuario</label>
+          <input type="text" class="form-control" name="usuario" id="field_usuario" data-cy="usuario" formControlName="usuario" />
+          <div *ngIf="editForm.get('usuario')!.invalid && (editForm.get('usuario')!.dirty || editForm.get('usuario')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('usuario')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.clave" for="field_clave">Clave</label>
+          <input type="text" class="form-control" name="clave" id="field_clave" data-cy="clave" formControlName="clave" />
+          <div *ngIf="editForm.get('clave')!.invalid && (editForm.get('clave')!.dirty || editForm.get('clave')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('clave')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.fechaRegistro" for="field_fechaRegistro"
+            >Fecha Registro</label
+          >
+          <div class="input-group">
+            <input
+              id="field_fechaRegistro"
+              data-cy="fechaRegistro"
+              type="text"
+              class="form-control"
+              name="fechaRegistro"
+              ngbDatepicker
+              #fechaRegistroDp="ngbDatepicker"
+              formControlName="fechaRegistro"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="fechaRegistroDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('fechaRegistro')!.invalid && (editForm.get('fechaRegistro')!.dirty || editForm.get('fechaRegistro')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('fechaRegistro')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.token" for="field_token">Token</label>
+          <input type="text" class="form-control" name="token" id="field_token" data-cy="token" formControlName="token" />
+          <div *ngIf="editForm.get('token')!.invalid && (editForm.get('token')!.dirty || editForm.get('token')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('token')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.estatus" for="field_estatus">Estatus</label>
+          <input type="number" class="form-control" name="estatus" id="field_estatus" data-cy="estatus" formControlName="estatus" />
+          <div *ngIf="editForm.get('estatus')!.invalid && (editForm.get('estatus')!.dirty || editForm.get('estatus')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('estatus')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('estatus')?.errors?.max"
+              jhiTranslate="entity.validation.max"
+              [translateValues]="{ max: 1 }"
+            >
+              This field cannot be more than 1.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('estatus')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMUSUARIO.employee" for="field_employee">Employee</label>
+          <select class="form-control" id="field_employee" data-cy="employee" name="employee" formControlName="employee">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                tCPERFILOption.idPerfil === editForm.get('employee')!.value?.idPerfil ? editForm.get('employee')!.value : tCPERFILOption
+              "
+              *ngFor="let tCPERFILOption of tCPERFILSSharedCollection; trackBy: trackTCPERFILByIdPerfil"
+            >
+              {{ tCPERFILOption.idPerfil }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

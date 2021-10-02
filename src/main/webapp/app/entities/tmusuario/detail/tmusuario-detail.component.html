@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tMUSUARIO">
+      <h2 data-cy="tMUSUARIODetailsHeading"><span jhiTranslate="apicotizadorApp.tMUSUARIO.detail.title">TMUSUARIO</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.idUsuario">Id Usuario</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.idUsuario }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.apellidos">Apellidos</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.apellidos }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.correoElectronico">Correo Electronico</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.correoElectronico }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.usuario">Usuario</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.usuario }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.clave">Clave</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.clave }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.fechaRegistro">Fecha Registro</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.fechaRegistro | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.token">Token</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.token }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.estatus">Estatus</span></dt>
+        <dd>
+          <span>{{ tMUSUARIO.estatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMUSUARIO.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="tMUSUARIO.employee">
+            <a [routerLink]="['/tcperfil', tMUSUARIO.employee?.idPerfil, 'view']">{{ tMUSUARIO.employee?.idPerfil }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tmusuario', tMUSUARIO.idUsuario, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

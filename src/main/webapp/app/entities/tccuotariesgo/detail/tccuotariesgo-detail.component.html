@@ -1,0 +1,88 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCCUOTARIESGO">
+      <h2 data-cy="tCCUOTARIESGODetailsHeading"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.detail.title">TCCUOTARIESGO</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.idCuotaRiesgo">Id Cuota Riesgo</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.idCuotaRiesgo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.edad">Edad</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.edad }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBa">Valor Ba</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorBa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBaCovid">Valor Ba Covid</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorBaCovid }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBipTres">Valor Bip Tres</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorBipTres }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBipSeis">Valor Bip Seis</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorBipSeis }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBit">Valor Bit</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorBit }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorMa">Valor Ma</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorMa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorDi">Valor Di</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorDi }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorTi">Valor Ti</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorTi }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGff">Valor Gff</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGffCovid">Valor Gff Covid</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorGffCovid }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorCa">Valor Ca</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorCa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGe">Valor Ge</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorGe }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorIqUno">Valor Iq Uno</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorIqUno }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorIqDos">Valor Iq Dos</span></dt>
+        <dd>
+          <span>{{ tCCUOTARIESGO.valorIqDos }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tccuotariesgo', tCCUOTARIESGO.idCuotaRiesgo, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

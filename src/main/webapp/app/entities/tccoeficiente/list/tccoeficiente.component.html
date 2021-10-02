@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="TCCOEFICIENTEHeading">
+    <span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.home.title">TCCOEFICIENTES</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tccoeficiente"
+        [routerLink]="['/tccoeficiente/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.home.createLabel"> Create a new TCCOEFICIENTE </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCCOEFICIENTES?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.home.notFound">No tCCOEFICIENTES found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCCOEFICIENTES && tCCOEFICIENTES.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.idCoeficiente">Id Coeficiente</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.coeficiente">Coeficiente</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.intervaloMin">Intervalo Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.intervaloMax">Intervalo Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOEFICIENTE.descuentoExtra">Descuento Extra</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCCOEFICIENTE of tCCOEFICIENTES; trackBy: trackIdCoeficiente" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tccoeficiente', tCCOEFICIENTE.idCoeficiente, 'view']">{{ tCCOEFICIENTE.idCoeficiente }}</a>
+          </td>
+          <td>{{ tCCOEFICIENTE.coeficiente }}</td>
+          <td>{{ tCCOEFICIENTE.intervaloMin }}</td>
+          <td>{{ tCCOEFICIENTE.intervaloMax }}</td>
+          <td>{{ tCCOEFICIENTE.descuentoExtra }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tccoeficiente', tCCOEFICIENTE.idCoeficiente, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tccoeficiente', tCCOEFICIENTE.idCoeficiente, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCCOEFICIENTE)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "apicotizadorApp": {
+    "tCREGIONAL": {
+      "home": {
+        "title": "TCREGIONALS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCREGIONAL",
+        "createOrEditLabel": "Crear o editar TCREGIONAL",
+        "notFound": "Ningún TCREGIONALS encontrado"
+      },
+      "created": "Un nuevo TCREGIONAL ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCREGIONAL ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCREGIONAL ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCREGIONAL {{ id }}?"
+      },
+      "detail": {
+        "title": "TCREGIONAL"
+      },
+      "idRegional": "Id Regional",
+      "regional": "Regional"
+    }
+  }
+}

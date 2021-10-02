@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCCONCEPTO">
+      <h2 data-cy="tCCONCEPTODetailsHeading"><span jhiTranslate="apicotizadorApp.tCCONCEPTO.detail.title">TCCONCEPTO</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCCONCEPTO.idConcepto">Id Concepto</span></dt>
+        <dd>
+          <span>{{ tCCONCEPTO.idConcepto }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCONCEPTO.concepto">Concepto</span></dt>
+        <dd>
+          <span>{{ tCCONCEPTO.concepto }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCONCEPTO.dato">Dato</span></dt>
+        <dd>
+          <span>{{ tCCONCEPTO.dato }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tcconcepto', tCCONCEPTO.idConcepto, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

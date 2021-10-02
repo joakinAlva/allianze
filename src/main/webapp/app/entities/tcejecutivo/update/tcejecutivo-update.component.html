@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcejecutivo-heading"
+        data-cy="TCEJECUTIVOCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCEJECUTIVO.home.createOrEditLabel"
+      >
+        Create or edit a TCEJECUTIVO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idEjecutivo')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCEJECUTIVO.idEjecutivo" for="field_idEjecutivo"
+            >Id Ejecutivo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idEjecutivo"
+            id="field_idEjecutivo"
+            data-cy="idEjecutivo"
+            formControlName="idEjecutivo"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCEJECUTIVO.ejecutivo" for="field_ejecutivo">Ejecutivo</label>
+          <input type="text" class="form-control" name="ejecutivo" id="field_ejecutivo" data-cy="ejecutivo" formControlName="ejecutivo" />
+          <div *ngIf="editForm.get('ejecutivo')!.invalid && (editForm.get('ejecutivo')!.dirty || editForm.get('ejecutivo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('ejecutivo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

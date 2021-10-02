@@ -1,0 +1,32 @@
+{
+  "apicotizadorApp": {
+    "tMUSUARIO": {
+      "home": {
+        "title": "TMUSUARIOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TMUSUARIO",
+        "createOrEditLabel": "Create or edit a TMUSUARIO",
+        "notFound": "No TMUSUARIOS found"
+      },
+      "created": "A new TMUSUARIO is created with identifier {{ param }}",
+      "updated": "A TMUSUARIO is updated with identifier {{ param }}",
+      "deleted": "A TMUSUARIO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TMUSUARIO {{ id }}?"
+      },
+      "detail": {
+        "title": "TMUSUARIO"
+      },
+      "idUsuario": "Id Usuario",
+      "nombre": "Nombre",
+      "apellidos": "Apellidos",
+      "correoElectronico": "Correo Electronico",
+      "usuario": "Usuario",
+      "clave": "Clave",
+      "fechaRegistro": "Fecha Registro",
+      "token": "Token",
+      "estatus": "Estatus",
+      "employee": "Employee"
+    }
+  }
+}

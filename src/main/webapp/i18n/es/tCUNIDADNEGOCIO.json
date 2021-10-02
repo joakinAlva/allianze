@@ -1,0 +1,24 @@
+{
+  "apicotizadorApp": {
+    "tCUNIDADNEGOCIO": {
+      "home": {
+        "title": "TCUNIDADNEGOCIOS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCUNIDADNEGOCIO",
+        "createOrEditLabel": "Crear o editar TCUNIDADNEGOCIO",
+        "notFound": "Ningún TCUNIDADNEGOCIOS encontrado"
+      },
+      "created": "Un nuevo TCUNIDADNEGOCIO ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCUNIDADNEGOCIO ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCUNIDADNEGOCIO ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCUNIDADNEGOCIO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCUNIDADNEGOCIO"
+      },
+      "idUnidadNegocio": "Id Unidad Negocio",
+      "unidadNegocio": "Unidad Negocio"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "apicotizadorApp": {
+    "tCSUBGRUPO": {
+      "home": {
+        "title": "TCSUBGRUPOS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCSUBGRUPO",
+        "createOrEditLabel": "Crear o editar TCSUBGRUPO",
+        "notFound": "Ningún TCSUBGRUPOS encontrado"
+      },
+      "created": "Un nuevo TCSUBGRUPO ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCSUBGRUPO ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCSUBGRUPO ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCSUBGRUPO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCSUBGRUPO"
+      },
+      "idSubGrupo": "Id Sub Grupo",
+      "subGrupo": "Sub Grupo"
+    }
+  }
+}

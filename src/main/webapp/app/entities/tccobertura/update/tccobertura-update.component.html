@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tccobertura-heading"
+        data-cy="TCCOBERTURACreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCCOBERTURA.home.createOrEditLabel"
+      >
+        Create or edit a TCCOBERTURA
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idCobertura')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOBERTURA.idCobertura" for="field_idCobertura"
+            >Id Cobertura</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idCobertura"
+            id="field_idCobertura"
+            data-cy="idCobertura"
+            formControlName="idCobertura"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOBERTURA.cobertura" for="field_cobertura">Cobertura</label>
+          <input type="text" class="form-control" name="cobertura" id="field_cobertura" data-cy="cobertura" formControlName="cobertura" />
+          <div *ngIf="editForm.get('cobertura')!.invalid && (editForm.get('cobertura')!.dirty || editForm.get('cobertura')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('cobertura')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOBERTURA.posicion" for="field_posicion">Posicion</label>
+          <input type="number" class="form-control" name="posicion" id="field_posicion" data-cy="posicion" formControlName="posicion" />
+          <div *ngIf="editForm.get('posicion')!.invalid && (editForm.get('posicion')!.dirty || editForm.get('posicion')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('posicion')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('posicion')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

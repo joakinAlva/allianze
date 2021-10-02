@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCCUOTATARIFASDESC">
+      <h2 data-cy="tCCUOTATARIFASDESCDetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.detail.title">TCCUOTATARIFASDESC</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.idCuotaTarifaSdesc">Id Cuota Tarifa Sdesc</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.idCuotaTarifaSdesc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.edad">Edad</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.edad }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBa">Valor Ba</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorBa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBaCovid">Valor Ba Covid</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorBaCovid }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBipTres">Valor Bip Tres</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorBipTres }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBipSeis">Valor Bip Seis</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorBipSeis }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBit">Valor Bit</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorBit }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorMa">Valor Ma</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorMa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorDi">Valor Di</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorDi }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorTi">Valor Ti</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorTi }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorGff">Valor Gff</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorGffCovid">Valor Gff Covid</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorGffCovid }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorCa">Valor Ca</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorCa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorGe">Valor Ge</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorGe }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorIqUno">Valor Iq Uno</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorIqUno }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorIqDos">Valor Iq Dos</span></dt>
+        <dd>
+          <span>{{ tCCUOTATARIFASDESC.valorIqDos }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tccuotatarifasdesc', tCCUOTATARIFASDESC.idCuotaTarifaSdesc, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div>
+  <h2 id="page-heading" data-cy="TCCUOTATARIFASDESCHeading">
+    <span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.home.title">TCCUOTATARIFASDESCS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tccuotatarifasdesc"
+        [routerLink]="['/tccuotatarifasdesc/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.home.createLabel"> Create a new TCCUOTATARIFASDESC </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCCUOTATARIFASDESCS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.home.notFound">No tCCUOTATARIFASDESCS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCCUOTATARIFASDESCS && tCCUOTATARIFASDESCS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.idCuotaTarifaSdesc">Id Cuota Tarifa Sdesc</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.edad">Edad</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBa">Valor Ba</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBaCovid">Valor Ba Covid</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBipTres">Valor Bip Tres</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBipSeis">Valor Bip Seis</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorBit">Valor Bit</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorMa">Valor Ma</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorDi">Valor Di</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorTi">Valor Ti</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorGff">Valor Gff</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorGffCovid">Valor Gff Covid</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorCa">Valor Ca</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorGe">Valor Ge</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorIqUno">Valor Iq Uno</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTATARIFASDESC.valorIqDos">Valor Iq Dos</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCCUOTATARIFASDESC of tCCUOTATARIFASDESCS; trackBy: trackIdCuotaTarifaSdesc" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tccuotatarifasdesc', tCCUOTATARIFASDESC.idCuotaTarifaSdesc, 'view']">{{
+              tCCUOTATARIFASDESC.idCuotaTarifaSdesc
+            }}</a>
+          </td>
+          <td>{{ tCCUOTATARIFASDESC.edad }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorBa }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorBaCovid }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorBipTres }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorBipSeis }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorBit }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorMa }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorDi }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorTi }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorGff }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorGffCovid }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorCa }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorGe }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorIqUno }}</td>
+          <td>{{ tCCUOTATARIFASDESC.valorIqDos }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tccuotatarifasdesc', tCCUOTATARIFASDESC.idCuotaTarifaSdesc, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tccuotatarifasdesc', tCCUOTATARIFASDESC.idCuotaTarifaSdesc, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCCUOTATARIFASDESC)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

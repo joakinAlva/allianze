@@ -1,0 +1,176 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tccoeficiente-heading"
+        data-cy="TCCOEFICIENTECreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCCOEFICIENTE.home.createOrEditLabel"
+      >
+        Create or edit a TCCOEFICIENTE
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idCoeficiente')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOEFICIENTE.idCoeficiente" for="field_idCoeficiente"
+            >Id Coeficiente</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idCoeficiente"
+            id="field_idCoeficiente"
+            data-cy="idCoeficiente"
+            formControlName="idCoeficiente"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOEFICIENTE.coeficiente" for="field_coeficiente"
+            >Coeficiente</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="coeficiente"
+            id="field_coeficiente"
+            data-cy="coeficiente"
+            formControlName="coeficiente"
+          />
+          <div *ngIf="editForm.get('coeficiente')!.invalid && (editForm.get('coeficiente')!.dirty || editForm.get('coeficiente')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('coeficiente')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('coeficiente')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOEFICIENTE.intervaloMin" for="field_intervaloMin"
+            >Intervalo Min</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="intervaloMin"
+            id="field_intervaloMin"
+            data-cy="intervaloMin"
+            formControlName="intervaloMin"
+          />
+          <div
+            *ngIf="editForm.get('intervaloMin')!.invalid && (editForm.get('intervaloMin')!.dirty || editForm.get('intervaloMin')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('intervaloMin')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('intervaloMin')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOEFICIENTE.intervaloMax" for="field_intervaloMax"
+            >Intervalo Max</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="intervaloMax"
+            id="field_intervaloMax"
+            data-cy="intervaloMax"
+            formControlName="intervaloMax"
+          />
+          <div
+            *ngIf="editForm.get('intervaloMax')!.invalid && (editForm.get('intervaloMax')!.dirty || editForm.get('intervaloMax')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('intervaloMax')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('intervaloMax')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCOEFICIENTE.descuentoExtra" for="field_descuentoExtra"
+            >Descuento Extra</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="descuentoExtra"
+            id="field_descuentoExtra"
+            data-cy="descuentoExtra"
+            formControlName="descuentoExtra"
+          />
+          <div
+            *ngIf="
+              editForm.get('descuentoExtra')!.invalid && (editForm.get('descuentoExtra')!.dirty || editForm.get('descuentoExtra')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('descuentoExtra')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('descuentoExtra')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

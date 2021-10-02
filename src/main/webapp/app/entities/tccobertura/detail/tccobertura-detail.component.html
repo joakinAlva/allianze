@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCCOBERTURA">
+      <h2 data-cy="tCCOBERTURADetailsHeading"><span jhiTranslate="apicotizadorApp.tCCOBERTURA.detail.title">TCCOBERTURA</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCCOBERTURA.idCobertura">Id Cobertura</span></dt>
+        <dd>
+          <span>{{ tCCOBERTURA.idCobertura }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOBERTURA.cobertura">Cobertura</span></dt>
+        <dd>
+          <span>{{ tCCOBERTURA.cobertura }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOBERTURA.posicion">Posicion</span></dt>
+        <dd>
+          <span>{{ tCCOBERTURA.posicion }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tccobertura', tCCOBERTURA.idCobertura, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

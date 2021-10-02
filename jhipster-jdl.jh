@@ -1,0 +1,303 @@
+entity TCPERFIL {
+	@Id idPerfil Long
+    perfil String required
+}
+
+entity TMUSUARIO {
+	@Id idUsuario Long
+    nombre String required
+    apellidos String required
+    correoElectronico  String required
+    usuario String required
+    clave String required
+    fechaRegistro LocalDate required
+    token String required
+    estatus Long max(1) required
+}
+
+entity TCUNIDADNEGOCIO {
+	@Id idUnidadNegocio Long
+    unidadNegocio String required
+}
+
+entity TCEJECUTIVO {
+	@Id idEjecutivo Long
+    ejecutivo String required
+}
+
+entity TCSUBGRUPO {
+	@Id idSubGrupo Long
+    subGrupo String required
+}
+
+entity TCTIPOREGLA {
+	@Id idTipoRegla Long
+    tipo String required
+    segmento Long required
+}
+
+entity TCTIPO {
+	@Id idTipo Long
+    tipoRegla String required
+}
+
+entity TCOCUPACION {
+	@Id idOcupacion Long
+    ocupacion String required
+    factorGiroAnterior Long required
+    factorGiroActual Long required
+}
+
+entity TCDESCUENTOTIPORIESGO {
+	@Id idDescuentoTipoRiesgo Long
+    tipo String required
+    descuento Long required
+}
+
+entity TCPRIMANETASDESC {
+	@Id idPrimaNetaSdesc Long
+    primaNetaSdesc String required
+    margenMin Long required
+    margenMax Long required
+    maxComSd  Long required
+    maxComEp Long required
+}
+entity TCFACTORSAMI {
+	@Id idFactorSami Long
+    minAsegurados String required
+    maxAsegurados String required
+    factor String required
+}
+
+
+entity TCDESCUENTOSUMAASEGURADA {
+	@Id idDescuentoSumaAsegurada Long
+    minSuma String required
+    maxSuma String required
+    porcentaje Long required
+}	
+
+entity TCPRIMATARIFA {
+	@Id idPrimaTarifa Long
+    divPrimaTarifa Long required
+    zNeta Long required
+    divPrimaRiesgo Long required
+    zRiesgo Long required
+}
+
+entity TCRECARGOPAGOFRACCIONADO {
+	@Id idRecargoPagoFraccionado Long
+    periodo String required
+    porcentaje Long required
+}
+
+entity TCCOBERTURA {
+	@Id idCobertura Long
+    cobertura String required
+    posicion Long required
+}
+
+entity TCCONCEPTO {
+	@Id idConcepto Long
+    concepto String required
+    dato Long required
+}
+
+entity TCHIPOTESIS {
+	@Id idHipotesis Long
+    hipotesis String required
+    valor Long required
+    variable String required
+}
+
+entity TCCOEFICIENTE {
+	@Id idCoeficiente Long
+    coeficiente Long required
+    intervaloMin Long required
+    intervaloMax Long required
+    descuentoExtra Long required
+}
+
+entity TCFACTORDESCUENTO {
+	@Id idFactorDescuento Long
+    factor Long required
+    porcentaje Long required
+}
+
+entity TCSUMAASEGURADA {
+	@Id idSumaAsegurada Long
+    sagff Long required
+    saca Long required
+    sage Long required
+    saiqa Long required
+    saiqv Long required
+}
+
+entity TCRANGOPRIMA {
+	@Id idRangoPrima Long
+    valorMin Long required
+    valorMax Long required
+    dividendos Long required
+    comision Long required
+}
+entity TCTIPOPRODUCTO {
+	@Id idTipoProducto Long
+    tipoProducto String required
+    registro String required
+    fecha LocalDate required
+}
+entity TCREFENCIA {
+	@Id idReferencia Long
+    periodo String required
+    referencia String required
+    edadpromedio String required
+    cuota String required
+}
+entity TCCUOTARIESGO {
+	@Id idCuotaRiesgo Long
+    edad String required
+    valorBa Long required
+    valorBaCovid Long required
+    valorBipTres Long required
+    valorBipSeis Long required
+    valorBit Long required
+    valorMa Long required
+    valorDi Long required
+    valorTi Long required
+    valorGff Long required
+    valorGffCovid Long required
+    valorCa Long required
+    valorGe Long required
+    valorIqUno Long required
+    valorIqDos Long required
+}
+entity TCCUOTAVALOR {
+	@Id idCuotaValor Long
+    porcentaje Long required
+    valor String required
+}
+
+entity TCCUOTAVALOR {
+	@Id idCuotaValor Long
+    porcentaje Long required
+    valor String required
+}
+
+entity TCCUOTATARIFASDESC {
+	@Id idCuotaTarifaSdesc Long
+    edad String required
+    valorBa Long required
+    valorBaCovid Long required
+    valorBipTres Long required
+    valorBipSeis Long required
+    valorBit Long required
+    valorMa Long required
+    valorDi Long required
+    valorTi Long required
+    valorGff Long required
+    valorGffCovid Long required
+    valorCa Long required
+    valorGe Long required
+    valorIqUno Long required
+    valorIqDos Long required
+}
+
+entity TCCUOTAPROPUESTA {
+	@Id idCuotaPropuesta Long
+    edad String required
+    valorVg Long required
+    valorBipTres Long required
+    valorBit Long required
+    valorDi Long required
+}
+
+entity TCEDADRECARGO {
+	@Id idEdadRecargo Long
+    edadMin String required
+    edadMax String required
+    recargoAnterior Long required
+    recargoActual Long required
+}
+
+entity TCCOVID {
+	@Id idCovid Long
+    edad String required
+    basica Long required
+    recargoEdad Long required
+    recargoGiro Long required
+    recargoTotal Long required
+    basicaRecargada Long required
+}
+entity TCCOVIDTARIFAS {
+	@Id idCovidTarifas Long
+    edad String required
+    qxcnsfg Long required
+    titular String required
+    conyuge String required
+    hijoMayor String required
+    hijoMenor String required
+    qxTitular Long required
+    qxConyuge Long required
+    qxHijoMayor Long required
+    qxHijoMenor Long required
+    qxTitularRecargada Long required
+    qxConyugeRecargada Long required
+    qxHijoMayorRecargada Long required
+    qxHijoMenorRecargada Long required
+    valorGff Long required
+    valorGffCovid Long required
+}
+entity TCESTATUSCOTIZACION {
+	@Id idEstatusCotizacion Long
+    orden Long required
+    estatusCotizacion String required
+}
+
+entity TMCOTIZACION {
+	@Id idCotizacion Long
+    usuario Long required
+    fechaRegistro LocalDate required
+    estatus Long required
+    eliminada Long required
+}
+
+
+
+// an ignored comment
+/** not an ignored comment */
+
+
+//relationship OneToOne {
+//	Country{region} to Region
+//}
+
+//relationship OneToOne {
+//	Location{country} to Country
+//}
+
+//relationship OneToOne {
+//	Department{location} to Location
+//}
+
+//relationship ManyToMany {
+//	Job{task(title)} to Task{job}
+//}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	TCPERFIL to TMUSUARIO{employee}
+}
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+//service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

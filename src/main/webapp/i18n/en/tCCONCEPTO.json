@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCCONCEPTO": {
+      "home": {
+        "title": "TCCONCEPTOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCCONCEPTO",
+        "createOrEditLabel": "Create or edit a TCCONCEPTO",
+        "notFound": "No TCCONCEPTOS found"
+      },
+      "created": "A new TCCONCEPTO is created with identifier {{ param }}",
+      "updated": "A TCCONCEPTO is updated with identifier {{ param }}",
+      "deleted": "A TCCONCEPTO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCCONCEPTO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCONCEPTO"
+      },
+      "idConcepto": "Id Concepto",
+      "concepto": "Concepto",
+      "dato": "Dato"
+    }
+  }
+}

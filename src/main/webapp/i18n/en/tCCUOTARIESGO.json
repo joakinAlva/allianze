@@ -1,0 +1,38 @@
+{
+  "apicotizadorApp": {
+    "tCCUOTARIESGO": {
+      "home": {
+        "title": "TCCUOTARIESGOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCCUOTARIESGO",
+        "createOrEditLabel": "Create or edit a TCCUOTARIESGO",
+        "notFound": "No TCCUOTARIESGOS found"
+      },
+      "created": "A new TCCUOTARIESGO is created with identifier {{ param }}",
+      "updated": "A TCCUOTARIESGO is updated with identifier {{ param }}",
+      "deleted": "A TCCUOTARIESGO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCCUOTARIESGO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCUOTARIESGO"
+      },
+      "idCuotaRiesgo": "Id Cuota Riesgo",
+      "edad": "Edad",
+      "valorBa": "Valor Ba",
+      "valorBaCovid": "Valor Ba Covid",
+      "valorBipTres": "Valor Bip Tres",
+      "valorBipSeis": "Valor Bip Seis",
+      "valorBit": "Valor Bit",
+      "valorMa": "Valor Ma",
+      "valorDi": "Valor Di",
+      "valorTi": "Valor Ti",
+      "valorGff": "Valor Gff",
+      "valorGffCovid": "Valor Gff Covid",
+      "valorCa": "Valor Ca",
+      "valorGe": "Valor Ge",
+      "valorIqUno": "Valor Iq Uno",
+      "valorIqDos": "Valor Iq Dos"
+    }
+  }
+}

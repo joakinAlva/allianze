@@ -1,0 +1,27 @@
+{
+  "apicotizadorApp": {
+    "tCRANGOPRIMA": {
+      "home": {
+        "title": "TCRANGOPRIMAS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCRANGOPRIMA",
+        "createOrEditLabel": "Crear o editar TCRANGOPRIMA",
+        "notFound": "Ningún TCRANGOPRIMAS encontrado"
+      },
+      "created": "Un nuevo TCRANGOPRIMA ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCRANGOPRIMA ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCRANGOPRIMA ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCRANGOPRIMA {{ id }}?"
+      },
+      "detail": {
+        "title": "TCRANGOPRIMA"
+      },
+      "idRangoPrima": "Id Rango Prima",
+      "valorMin": "Valor Min",
+      "valorMax": "Valor Max",
+      "dividendos": "Dividendos",
+      "comision": "Comision"
+    }
+  }
+}

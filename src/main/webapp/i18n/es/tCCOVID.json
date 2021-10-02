@@ -1,0 +1,29 @@
+{
+  "apicotizadorApp": {
+    "tCCOVID": {
+      "home": {
+        "title": "TCCOVIDS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCCOVID",
+        "createOrEditLabel": "Crear o editar TCCOVID",
+        "notFound": "Ningún TCCOVIDS encontrado"
+      },
+      "created": "Un nuevo TCCOVID ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCCOVID ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCCOVID ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCCOVID {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCOVID"
+      },
+      "idCovid": "Id Covid",
+      "edad": "Edad",
+      "basica": "Basica",
+      "recargoEdad": "Recargo Edad",
+      "recargoGiro": "Recargo Giro",
+      "recargoTotal": "Recargo Total",
+      "basicaRecargada": "Basica Recargada"
+    }
+  }
+}

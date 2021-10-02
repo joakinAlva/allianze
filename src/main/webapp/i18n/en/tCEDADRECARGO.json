@@ -1,0 +1,27 @@
+{
+  "apicotizadorApp": {
+    "tCEDADRECARGO": {
+      "home": {
+        "title": "TCEDADRECARGOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCEDADRECARGO",
+        "createOrEditLabel": "Create or edit a TCEDADRECARGO",
+        "notFound": "No TCEDADRECARGOS found"
+      },
+      "created": "A new TCEDADRECARGO is created with identifier {{ param }}",
+      "updated": "A TCEDADRECARGO is updated with identifier {{ param }}",
+      "deleted": "A TCEDADRECARGO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCEDADRECARGO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCEDADRECARGO"
+      },
+      "idEdadRecargo": "Id Edad Recargo",
+      "edadMin": "Edad Min",
+      "edadMax": "Edad Max",
+      "recargoAnterior": "Recargo Anterior",
+      "recargoActual": "Recargo Actual"
+    }
+  }
+}

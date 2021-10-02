@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCDESCUENTOTIPORIESGO">
+      <h2 data-cy="tCDESCUENTOTIPORIESGODetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tCDESCUENTOTIPORIESGO.detail.title">TCDESCUENTOTIPORIESGO</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCDESCUENTOTIPORIESGO.idDescuentoTipoRiesgo">Id Descuento Tipo Riesgo</span></dt>
+        <dd>
+          <span>{{ tCDESCUENTOTIPORIESGO.idDescuentoTipoRiesgo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCDESCUENTOTIPORIESGO.tipo">Tipo</span></dt>
+        <dd>
+          <span>{{ tCDESCUENTOTIPORIESGO.tipo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCDESCUENTOTIPORIESGO.descuento">Descuento</span></dt>
+        <dd>
+          <span>{{ tCDESCUENTOTIPORIESGO.descuento }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/tcdescuentotiporiesgo', tCDESCUENTOTIPORIESGO.idDescuentoTipoRiesgo, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

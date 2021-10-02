@@ -1,0 +1,28 @@
+{
+  "apicotizadorApp": {
+    "tCCUOTAPROPUESTA": {
+      "home": {
+        "title": "TCCUOTAPROPUESTAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCCUOTAPROPUESTA",
+        "createOrEditLabel": "Create or edit a TCCUOTAPROPUESTA",
+        "notFound": "No TCCUOTAPROPUESTAS found"
+      },
+      "created": "A new TCCUOTAPROPUESTA is created with identifier {{ param }}",
+      "updated": "A TCCUOTAPROPUESTA is updated with identifier {{ param }}",
+      "deleted": "A TCCUOTAPROPUESTA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCCUOTAPROPUESTA {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCUOTAPROPUESTA"
+      },
+      "idCuotaPropuesta": "Id Cuota Propuesta",
+      "edad": "Edad",
+      "valorVg": "Valor Vg",
+      "valorBipTres": "Valor Bip Tres",
+      "valorBit": "Valor Bit",
+      "valorDi": "Valor Di"
+    }
+  }
+}

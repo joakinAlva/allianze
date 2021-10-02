@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCRECARGOPAGOFRACCIONADO": {
+      "home": {
+        "title": "TCRECARGOPAGOFRACCIONADOS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCRECARGOPAGOFRACCIONADO",
+        "createOrEditLabel": "Crear o editar TCRECARGOPAGOFRACCIONADO",
+        "notFound": "Ningún TCRECARGOPAGOFRACCIONADOS encontrado"
+      },
+      "created": "Un nuevo TCRECARGOPAGOFRACCIONADO ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCRECARGOPAGOFRACCIONADO ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCRECARGOPAGOFRACCIONADO ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCRECARGOPAGOFRACCIONADO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCRECARGOPAGOFRACCIONADO"
+      },
+      "idRecargoPagoFraccionado": "Id Recargo Pago Fraccionado",
+      "periodo": "Periodo",
+      "porcentaje": "Porcentaje"
+    }
+  }
+}

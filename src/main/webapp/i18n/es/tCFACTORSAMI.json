@@ -1,0 +1,26 @@
+{
+  "apicotizadorApp": {
+    "tCFACTORSAMI": {
+      "home": {
+        "title": "TCFACTORSAMIS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TCFACTORSAMI",
+        "createOrEditLabel": "Crear o editar TCFACTORSAMI",
+        "notFound": "Ningún TCFACTORSAMIS encontrado"
+      },
+      "created": "Un nuevo TCFACTORSAMI ha sido creado con el identificador {{ param }}",
+      "updated": "Un TCFACTORSAMI ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TCFACTORSAMI ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TCFACTORSAMI {{ id }}?"
+      },
+      "detail": {
+        "title": "TCFACTORSAMI"
+      },
+      "idFactorSami": "Id Factor Sami",
+      "minAsegurados": "Min Asegurados",
+      "maxAsegurados": "Max Asegurados",
+      "factor": "Factor"
+    }
+  }
+}

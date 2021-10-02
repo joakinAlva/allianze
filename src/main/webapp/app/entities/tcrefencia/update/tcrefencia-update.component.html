@@ -1,0 +1,118 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcrefencia-heading"
+        data-cy="TCREFENCIACreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCREFENCIA.home.createOrEditLabel"
+      >
+        Create or edit a TCREFENCIA
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idReferencia')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCREFENCIA.idReferencia" for="field_idReferencia"
+            >Id Referencia</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idReferencia"
+            id="field_idReferencia"
+            data-cy="idReferencia"
+            formControlName="idReferencia"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCREFENCIA.periodo" for="field_periodo">Periodo</label>
+          <input type="text" class="form-control" name="periodo" id="field_periodo" data-cy="periodo" formControlName="periodo" />
+          <div *ngIf="editForm.get('periodo')!.invalid && (editForm.get('periodo')!.dirty || editForm.get('periodo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('periodo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCREFENCIA.referencia" for="field_referencia">Referencia</label>
+          <input
+            type="text"
+            class="form-control"
+            name="referencia"
+            id="field_referencia"
+            data-cy="referencia"
+            formControlName="referencia"
+          />
+          <div *ngIf="editForm.get('referencia')!.invalid && (editForm.get('referencia')!.dirty || editForm.get('referencia')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('referencia')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCREFENCIA.edadpromedio" for="field_edadpromedio"
+            >Edadpromedio</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="edadpromedio"
+            id="field_edadpromedio"
+            data-cy="edadpromedio"
+            formControlName="edadpromedio"
+          />
+          <div
+            *ngIf="editForm.get('edadpromedio')!.invalid && (editForm.get('edadpromedio')!.dirty || editForm.get('edadpromedio')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('edadpromedio')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCREFENCIA.cuota" for="field_cuota">Cuota</label>
+          <input type="text" class="form-control" name="cuota" id="field_cuota" data-cy="cuota" formControlName="cuota" />
+          <div *ngIf="editForm.get('cuota')!.invalid && (editForm.get('cuota')!.dirty || editForm.get('cuota')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cuota')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

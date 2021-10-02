@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCPRIMANETASDESC">
+      <h2 data-cy="tCPRIMANETASDESCDetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.detail.title">TCPRIMANETASDESC</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.idPrimaNetaSdesc">Id Prima Neta Sdesc</span></dt>
+        <dd>
+          <span>{{ tCPRIMANETASDESC.idPrimaNetaSdesc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.primaNetaSdesc">Prima Neta Sdesc</span></dt>
+        <dd>
+          <span>{{ tCPRIMANETASDESC.primaNetaSdesc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.margenMin">Margen Min</span></dt>
+        <dd>
+          <span>{{ tCPRIMANETASDESC.margenMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.margenMax">Margen Max</span></dt>
+        <dd>
+          <span>{{ tCPRIMANETASDESC.margenMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.maxComSd">Max Com Sd</span></dt>
+        <dd>
+          <span>{{ tCPRIMANETASDESC.maxComSd }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCPRIMANETASDESC.maxComEp">Max Com Ep</span></dt>
+        <dd>
+          <span>{{ tCPRIMANETASDESC.maxComEp }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tcprimanetasdesc', tCPRIMANETASDESC.idPrimaNetaSdesc, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

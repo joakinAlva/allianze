@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCUNIDADNEGOCIO">
+      <h2 data-cy="tCUNIDADNEGOCIODetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.detail.title">TCUNIDADNEGOCIO</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.idUnidadNegocio">Id Unidad Negocio</span></dt>
+        <dd>
+          <span>{{ tCUNIDADNEGOCIO.idUnidadNegocio }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCUNIDADNEGOCIO.unidadNegocio">Unidad Negocio</span></dt>
+        <dd>
+          <span>{{ tCUNIDADNEGOCIO.unidadNegocio }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tcunidadnegocio', tCUNIDADNEGOCIO.idUnidadNegocio, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

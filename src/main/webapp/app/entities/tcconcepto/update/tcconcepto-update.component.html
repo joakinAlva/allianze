@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcconcepto-heading"
+        data-cy="TCCONCEPTOCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCCONCEPTO.home.createOrEditLabel"
+      >
+        Create or edit a TCCONCEPTO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idConcepto')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCONCEPTO.idConcepto" for="field_idConcepto">Id Concepto</label>
+          <input
+            type="number"
+            class="form-control"
+            name="idConcepto"
+            id="field_idConcepto"
+            data-cy="idConcepto"
+            formControlName="idConcepto"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCONCEPTO.concepto" for="field_concepto">Concepto</label>
+          <input type="text" class="form-control" name="concepto" id="field_concepto" data-cy="concepto" formControlName="concepto" />
+          <div *ngIf="editForm.get('concepto')!.invalid && (editForm.get('concepto')!.dirty || editForm.get('concepto')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('concepto')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCCONCEPTO.dato" for="field_dato">Dato</label>
+          <input type="number" class="form-control" name="dato" id="field_dato" data-cy="dato" formControlName="dato" />
+          <div *ngIf="editForm.get('dato')!.invalid && (editForm.get('dato')!.dirty || editForm.get('dato')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('dato')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('dato')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

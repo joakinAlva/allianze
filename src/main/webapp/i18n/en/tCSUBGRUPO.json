@@ -1,0 +1,24 @@
+{
+  "apicotizadorApp": {
+    "tCSUBGRUPO": {
+      "home": {
+        "title": "TCSUBGRUPOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCSUBGRUPO",
+        "createOrEditLabel": "Create or edit a TCSUBGRUPO",
+        "notFound": "No TCSUBGRUPOS found"
+      },
+      "created": "A new TCSUBGRUPO is created with identifier {{ param }}",
+      "updated": "A TCSUBGRUPO is updated with identifier {{ param }}",
+      "deleted": "A TCSUBGRUPO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCSUBGRUPO {{ id }}?"
+      },
+      "detail": {
+        "title": "TCSUBGRUPO"
+      },
+      "idSubGrupo": "Id Sub Grupo",
+      "subGrupo": "Sub Grupo"
+    }
+  }
+}

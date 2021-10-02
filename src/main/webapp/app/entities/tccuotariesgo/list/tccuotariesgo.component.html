@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="TCCUOTARIESGOHeading">
+    <span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.home.title">TCCUOTARIESGOS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tccuotariesgo"
+        [routerLink]="['/tccuotariesgo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.home.createLabel"> Create a new TCCUOTARIESGO </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCCUOTARIESGOS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.home.notFound">No tCCUOTARIESGOS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCCUOTARIESGOS && tCCUOTARIESGOS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.idCuotaRiesgo">Id Cuota Riesgo</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.edad">Edad</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBa">Valor Ba</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBaCovid">Valor Ba Covid</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBipTres">Valor Bip Tres</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBipSeis">Valor Bip Seis</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorBit">Valor Bit</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorMa">Valor Ma</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorDi">Valor Di</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorTi">Valor Ti</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGff">Valor Gff</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGffCovid">Valor Gff Covid</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorCa">Valor Ca</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorGe">Valor Ge</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorIqUno">Valor Iq Uno</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCUOTARIESGO.valorIqDos">Valor Iq Dos</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCCUOTARIESGO of tCCUOTARIESGOS; trackBy: trackIdCuotaRiesgo" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tccuotariesgo', tCCUOTARIESGO.idCuotaRiesgo, 'view']">{{ tCCUOTARIESGO.idCuotaRiesgo }}</a>
+          </td>
+          <td>{{ tCCUOTARIESGO.edad }}</td>
+          <td>{{ tCCUOTARIESGO.valorBa }}</td>
+          <td>{{ tCCUOTARIESGO.valorBaCovid }}</td>
+          <td>{{ tCCUOTARIESGO.valorBipTres }}</td>
+          <td>{{ tCCUOTARIESGO.valorBipSeis }}</td>
+          <td>{{ tCCUOTARIESGO.valorBit }}</td>
+          <td>{{ tCCUOTARIESGO.valorMa }}</td>
+          <td>{{ tCCUOTARIESGO.valorDi }}</td>
+          <td>{{ tCCUOTARIESGO.valorTi }}</td>
+          <td>{{ tCCUOTARIESGO.valorGff }}</td>
+          <td>{{ tCCUOTARIESGO.valorGffCovid }}</td>
+          <td>{{ tCCUOTARIESGO.valorCa }}</td>
+          <td>{{ tCCUOTARIESGO.valorGe }}</td>
+          <td>{{ tCCUOTARIESGO.valorIqUno }}</td>
+          <td>{{ tCCUOTARIESGO.valorIqDos }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tccuotariesgo', tCCUOTARIESGO.idCuotaRiesgo, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tccuotariesgo', tCCUOTARIESGO.idCuotaRiesgo, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCCUOTARIESGO)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

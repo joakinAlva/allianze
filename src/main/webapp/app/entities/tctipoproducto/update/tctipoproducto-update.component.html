@@ -1,0 +1,111 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tctipoproducto-heading"
+        data-cy="TCTIPOPRODUCTOCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.home.createOrEditLabel"
+      >
+        Create or edit a TCTIPOPRODUCTO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idTipoProducto')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.idTipoProducto" for="field_idTipoProducto"
+            >Id Tipo Producto</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idTipoProducto"
+            id="field_idTipoProducto"
+            data-cy="idTipoProducto"
+            formControlName="idTipoProducto"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.tipoProducto" for="field_tipoProducto"
+            >Tipo Producto</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tipoProducto"
+            id="field_tipoProducto"
+            data-cy="tipoProducto"
+            formControlName="tipoProducto"
+          />
+          <div
+            *ngIf="editForm.get('tipoProducto')!.invalid && (editForm.get('tipoProducto')!.dirty || editForm.get('tipoProducto')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('tipoProducto')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.registro" for="field_registro">Registro</label>
+          <input type="text" class="form-control" name="registro" id="field_registro" data-cy="registro" formControlName="registro" />
+          <div *ngIf="editForm.get('registro')!.invalid && (editForm.get('registro')!.dirty || editForm.get('registro')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('registro')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCTIPOPRODUCTO.fecha" for="field_fecha">Fecha</label>
+          <div class="input-group">
+            <input
+              id="field_fecha"
+              data-cy="fecha"
+              type="text"
+              class="form-control"
+              name="fecha"
+              ngbDatepicker
+              #fechaDp="ngbDatepicker"
+              formControlName="fecha"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="fechaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('fecha')!.invalid && (editForm.get('fecha')!.dirty || editForm.get('fecha')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('fecha')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

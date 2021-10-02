@@ -1,0 +1,87 @@
+<div>
+  <h2 id="page-heading" data-cy="TCRECARGOPAGOFRACCIONADOHeading">
+    <span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.home.title">TCRECARGOPAGOFRACCIONADOS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tcrecargopagofraccionado"
+        [routerLink]="['/tcrecargopagofraccionado/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.home.createLabel"> Create a new TCRECARGOPAGOFRACCIONADO </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCRECARGOPAGOFRACCIONADOS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.home.notFound">No tCRECARGOPAGOFRACCIONADOS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCRECARGOPAGOFRACCIONADOS && tCRECARGOPAGOFRACCIONADOS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col">
+            <span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado">Id Recargo Pago Fraccionado</span>
+          </th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.periodo">Periodo</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCRECARGOPAGOFRACCIONADO.porcentaje">Porcentaje</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let tCRECARGOPAGOFRACCIONADO of tCRECARGOPAGOFRACCIONADOS; trackBy: trackIdRecargoPagoFraccionado"
+          data-cy="entityTable"
+        >
+          <td>
+            <a [routerLink]="['/tcrecargopagofraccionado', tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado, 'view']">{{
+              tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado
+            }}</a>
+          </td>
+          <td>{{ tCRECARGOPAGOFRACCIONADO.periodo }}</td>
+          <td>{{ tCRECARGOPAGOFRACCIONADO.porcentaje }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tcrecargopagofraccionado', tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tcrecargopagofraccionado', tCRECARGOPAGOFRACCIONADO.idRecargoPagoFraccionado, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCRECARGOPAGOFRACCIONADO)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

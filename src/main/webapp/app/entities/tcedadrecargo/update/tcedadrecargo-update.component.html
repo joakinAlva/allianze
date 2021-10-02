@@ -1,0 +1,145 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcedadrecargo-heading"
+        data-cy="TCEDADRECARGOCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCEDADRECARGO.home.createOrEditLabel"
+      >
+        Create or edit a TCEDADRECARGO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idEdadRecargo')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCEDADRECARGO.idEdadRecargo" for="field_idEdadRecargo"
+            >Id Edad Recargo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idEdadRecargo"
+            id="field_idEdadRecargo"
+            data-cy="idEdadRecargo"
+            formControlName="idEdadRecargo"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCEDADRECARGO.edadMin" for="field_edadMin">Edad Min</label>
+          <input type="text" class="form-control" name="edadMin" id="field_edadMin" data-cy="edadMin" formControlName="edadMin" />
+          <div *ngIf="editForm.get('edadMin')!.invalid && (editForm.get('edadMin')!.dirty || editForm.get('edadMin')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('edadMin')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCEDADRECARGO.edadMax" for="field_edadMax">Edad Max</label>
+          <input type="text" class="form-control" name="edadMax" id="field_edadMax" data-cy="edadMax" formControlName="edadMax" />
+          <div *ngIf="editForm.get('edadMax')!.invalid && (editForm.get('edadMax')!.dirty || editForm.get('edadMax')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('edadMax')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCEDADRECARGO.recargoAnterior" for="field_recargoAnterior"
+            >Recargo Anterior</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="recargoAnterior"
+            id="field_recargoAnterior"
+            data-cy="recargoAnterior"
+            formControlName="recargoAnterior"
+          />
+          <div
+            *ngIf="
+              editForm.get('recargoAnterior')!.invalid &&
+              (editForm.get('recargoAnterior')!.dirty || editForm.get('recargoAnterior')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('recargoAnterior')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('recargoAnterior')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCEDADRECARGO.recargoActual" for="field_recargoActual"
+            >Recargo Actual</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="recargoActual"
+            id="field_recargoActual"
+            data-cy="recargoActual"
+            formControlName="recargoActual"
+          />
+          <div
+            *ngIf="
+              editForm.get('recargoActual')!.invalid && (editForm.get('recargoActual')!.dirty || editForm.get('recargoActual')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('recargoActual')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('recargoActual')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
