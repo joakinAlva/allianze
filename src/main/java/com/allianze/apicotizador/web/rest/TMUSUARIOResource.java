@@ -175,7 +175,7 @@ public class TMUSUARIOResource {
     }
 
     /**
-     * {@code POST  /tmusuarios/:id} : get the "id" tMUSUARIO.
+     * {@code POST  /tmusuarios/getId} : get the "id" tMUSUARIO.
      *
      * @param id the id of the tMUSUARIO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tMUSUARIO, or with status {@code 404 (Not Found)}.

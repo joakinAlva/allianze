@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCESTATUSCOTIZACION;
+import com.allianze.apicotizador.dto.TCESTATUSCOTIZACIONDTO;
 import com.allianze.apicotizador.repository.TCESTATUSCOTIZACIONRepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -153,42 +154,42 @@ public class TCESTATUSCOTIZACIONResource {
     }
 
     /**
-     * {@code GET  /tcestatuscotizacions} : get all the tCESTATUSCOTIZACIONS.
+     * {@code POST  /tcestatuscotizacions/getAll} : get all the tCESTATUSCOTIZACIONS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCESTATUSCOTIZACIONS in body.
      */
-    @GetMapping("/tcestatuscotizacions")
-    public List<TCESTATUSCOTIZACION> getAllTCESTATUSCOTIZACIONS() {
+    @PostMapping("/tcestatuscotizacions/getAll")
+    public List<TCESTATUSCOTIZACION> getAllTCESTATUSCOTIZACIONS(@RequestBody TCESTATUSCOTIZACIONDTO tcestatusCotizacionDto) {
         log.debug("REST request to get all TCESTATUSCOTIZACIONS");
         return tCESTATUSCOTIZACIONRepository.findAll();
     }
 
     /**
-     * {@code GET  /tcestatuscotizacions/:id} : get the "id" tCESTATUSCOTIZACION.
+     * {@code Post  /tcestatuscotizacions/getId} : get the "id" tCESTATUSCOTIZACION.
      *
      * @param id the id of the tCESTATUSCOTIZACION to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCESTATUSCOTIZACION, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tcestatuscotizacions/{id}")
-    public ResponseEntity<TCESTATUSCOTIZACION> getTCESTATUSCOTIZACION(@PathVariable Long id) {
-        log.debug("REST request to get TCESTATUSCOTIZACION : {}", id);
-        Optional<TCESTATUSCOTIZACION> tCESTATUSCOTIZACION = tCESTATUSCOTIZACIONRepository.findById(id);
+    @PostMapping("/tcestatuscotizacions/getId")
+    public ResponseEntity<TCESTATUSCOTIZACION> getTCESTATUSCOTIZACION(@RequestBody TCESTATUSCOTIZACIONDTO tcestatusCotizacionDto) {
+        log.debug("REST request to get TCESTATUSCOTIZACION : {}", tcestatusCotizacionDto.getId());
+        Optional<TCESTATUSCOTIZACION> tCESTATUSCOTIZACION = tCESTATUSCOTIZACIONRepository.findById(tcestatusCotizacionDto.getId());
         return ResponseUtil.wrapOrNotFound(tCESTATUSCOTIZACION);
     }
 
     /**
-     * {@code DELETE  /tcestatuscotizacions/:id} : delete the "id" tCESTATUSCOTIZACION.
+     * {@code Post  /tcestatuscotizacions/deleteId} : delete the "id" tCESTATUSCOTIZACION.
      *
      * @param id the id of the tCESTATUSCOTIZACION to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tcestatuscotizacions/{id}")
-    public ResponseEntity<Void> deleteTCESTATUSCOTIZACION(@PathVariable Long id) {
-        log.debug("REST request to delete TCESTATUSCOTIZACION : {}", id);
-        tCESTATUSCOTIZACIONRepository.deleteById(id);
+    @PostMapping("/tcestatuscotizacions/deleteId")
+    public ResponseEntity<Void> deleteTCESTATUSCOTIZACION(@RequestBody TCESTATUSCOTIZACIONDTO tcestatusCotizacionDto ) {
+        log.debug("REST request to delete TCESTATUSCOTIZACION : {}", tcestatusCotizacionDto.getId());
+        tCESTATUSCOTIZACIONRepository.deleteById(tcestatusCotizacionDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcestatusCotizacionDto.getId().toString()))
             .build();
     }
 }

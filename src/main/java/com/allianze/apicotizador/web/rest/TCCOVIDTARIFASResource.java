@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TCCOVIDTARIFAS;
+import com.allianze.apicotizador.dto.TCCOVIDTARIFASDTO;
 import com.allianze.apicotizador.repository.TCCOVIDTARIFASRepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -188,42 +189,42 @@ public class TCCOVIDTARIFASResource {
     }
 
     /**
-     * {@code GET  /tccovidtarifas} : get all the tCCOVIDTARIFAS.
+     * {@code POST  /tccovidtarifas/getAll} : get all the tCCOVIDTARIFAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCCOVIDTARIFAS in body.
      */
-    @GetMapping("/tccovidtarifas")
-    public List<TCCOVIDTARIFAS> getAllTCCOVIDTARIFAS() {
+    @PostMapping("/tccovidtarifas/getAll")
+    public List<TCCOVIDTARIFAS> getAllTCCOVIDTARIFAS(@RequestBody TCCOVIDTARIFASDTO tccovidTarifasDto) {
         log.debug("REST request to get all TCCOVIDTARIFAS");
         return tCCOVIDTARIFASRepository.findAll();
     }
 
     /**
-     * {@code GET  /tccovidtarifas/:id} : get the "id" tCCOVIDTARIFAS.
+     * {@code Post  /tccovidtarifas/getId} : get the "id" tCCOVIDTARIFAS.
      *
      * @param id the id of the tCCOVIDTARIFAS to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCOVIDTARIFAS, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tccovidtarifas/{id}")
-    public ResponseEntity<TCCOVIDTARIFAS> getTCCOVIDTARIFAS(@PathVariable Long id) {
-        log.debug("REST request to get TCCOVIDTARIFAS : {}", id);
-        Optional<TCCOVIDTARIFAS> tCCOVIDTARIFAS = tCCOVIDTARIFASRepository.findById(id);
+    @PostMapping("/tccovidtarifas/getId")
+    public ResponseEntity<TCCOVIDTARIFAS> getTCCOVIDTARIFAS(@RequestBody TCCOVIDTARIFASDTO tccovidTarifasDto) {
+        log.debug("REST request to get TCCOVIDTARIFAS : {}", tccovidTarifasDto.getId());
+        Optional<TCCOVIDTARIFAS> tCCOVIDTARIFAS = tCCOVIDTARIFASRepository.findById(tccovidTarifasDto.getId());
         return ResponseUtil.wrapOrNotFound(tCCOVIDTARIFAS);
     }
 
     /**
-     * {@code DELETE  /tccovidtarifas/:id} : delete the "id" tCCOVIDTARIFAS.
+     * {@code POST  /tccovidtarifas/deleteId} : delete the "id" tCCOVIDTARIFAS.
      *
      * @param id the id of the tCCOVIDTARIFAS to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tccovidtarifas/{id}")
-    public ResponseEntity<Void> deleteTCCOVIDTARIFAS(@PathVariable Long id) {
-        log.debug("REST request to delete TCCOVIDTARIFAS : {}", id);
-        tCCOVIDTARIFASRepository.deleteById(id);
+    @PostMapping("/tccovidtarifas/deleteId")
+    public ResponseEntity<Void> deleteTCCOVIDTARIFAS(@RequestBody TCCOVIDTARIFASDTO tccovidTarifasDto) {
+        log.debug("REST request to delete TCCOVIDTARIFAS : {}", tccovidTarifasDto.getId());
+        tCCOVIDTARIFASRepository.deleteById( tccovidTarifasDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME,  tccovidTarifasDto.getId().toString()))
             .build();
     }
 }

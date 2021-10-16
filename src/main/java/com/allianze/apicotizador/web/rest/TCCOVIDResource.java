@@ -174,7 +174,7 @@ public class TCCOVIDResource {
      * @param id the id of the tCCOVID to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCCOVID, or with status {@code 404 (Not Found)}.
      */
-    @PostMapping("/tccovids/getId}")
+    @PostMapping("/tccovids/getId")
     public ResponseEntity<TCCOVID> getTCCOVID(@RequestBody TCCOVIDDTO tccovidDto) {
         log.debug("REST request to get TCCOVID : {}", tccovidDto.getId());
         Optional<TCCOVID> tCCOVID = tCCOVIDRepository.findById(tccovidDto.getId());

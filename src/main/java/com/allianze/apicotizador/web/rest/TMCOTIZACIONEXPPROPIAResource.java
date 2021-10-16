@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TMCOTIZACIONEXPPROPIA;
+import com.allianze.apicotizador.dto.TMCOTIZACIONEXPPROPIADTO;
 import com.allianze.apicotizador.repository.TMCOTIZACIONEXPPROPIARepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -168,42 +169,42 @@ public class TMCOTIZACIONEXPPROPIAResource {
     }
 
     /**
-     * {@code GET  /tmcotizacionexppropias} : get all the tMCOTIZACIONEXPPROPIAS.
+     * {@code POST  /tmcotizacionexppropias/getAll} : get all the tMCOTIZACIONEXPPROPIAS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tMCOTIZACIONEXPPROPIAS in body.
      */
-    @GetMapping("/tmcotizacionexppropias")
-    public List<TMCOTIZACIONEXPPROPIA> getAllTMCOTIZACIONEXPPROPIAS() {
+    @PostMapping("/tmcotizacionexppropias/getAll")
+    public List<TMCOTIZACIONEXPPROPIA> getAllTMCOTIZACIONEXPPROPIAS(@RequestBody TMCOTIZACIONEXPPROPIADTO tmccotizacionezppropiaDto) {
         log.debug("REST request to get all TMCOTIZACIONEXPPROPIAS");
         return tMCOTIZACIONEXPPROPIARepository.findAll();
     }
 
     /**
-     * {@code GET  /tmcotizacionexppropias/:id} : get the "id" tMCOTIZACIONEXPPROPIA.
+     * {@code POST  /tmcotizacionexppropias/getId} : get the "id" tMCOTIZACIONEXPPROPIA.
      *
      * @param id the id of the tMCOTIZACIONEXPPROPIA to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tMCOTIZACIONEXPPROPIA, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tmcotizacionexppropias/{id}")
-    public ResponseEntity<TMCOTIZACIONEXPPROPIA> getTMCOTIZACIONEXPPROPIA(@PathVariable Long id) {
-        log.debug("REST request to get TMCOTIZACIONEXPPROPIA : {}", id);
-        Optional<TMCOTIZACIONEXPPROPIA> tMCOTIZACIONEXPPROPIA = tMCOTIZACIONEXPPROPIARepository.findById(id);
+    @PostMapping("/tmcotizacionexppropias/getId")
+    public ResponseEntity<TMCOTIZACIONEXPPROPIA> getTMCOTIZACIONEXPPROPIA(@RequestBody TMCOTIZACIONEXPPROPIADTO tmccotizacionezppropiaDto) {
+        log.debug("REST request to get TMCOTIZACIONEXPPROPIA : {}", tmccotizacionezppropiaDto.getId());
+        Optional<TMCOTIZACIONEXPPROPIA> tMCOTIZACIONEXPPROPIA = tMCOTIZACIONEXPPROPIARepository.findById(tmccotizacionezppropiaDto.getId());
         return ResponseUtil.wrapOrNotFound(tMCOTIZACIONEXPPROPIA);
     }
 
     /**
-     * {@code DELETE  /tmcotizacionexppropias/:id} : delete the "id" tMCOTIZACIONEXPPROPIA.
+     * {@code POST  /tmcotizacionexppropias/deleteId} : delete the "id" tMCOTIZACIONEXPPROPIA.
      *
      * @param id the id of the tMCOTIZACIONEXPPROPIA to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tmcotizacionexppropias/{id}")
-    public ResponseEntity<Void> deleteTMCOTIZACIONEXPPROPIA(@PathVariable Long id) {
-        log.debug("REST request to delete TMCOTIZACIONEXPPROPIA : {}", id);
-        tMCOTIZACIONEXPPROPIARepository.deleteById(id);
+    @PostMapping("/tmcotizacionexppropias/deleteId")
+    public ResponseEntity<Void> deleteTMCOTIZACIONEXPPROPIA(@RequestBody TMCOTIZACIONEXPPROPIADTO tmccotizacionezppropiaDto) {
+        log.debug("REST request to delete TMCOTIZACIONEXPPROPIA : {}", tmccotizacionezppropiaDto.getId());
+        tMCOTIZACIONEXPPROPIARepository.deleteById(tmccotizacionezppropiaDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tmccotizacionezppropiaDto.getId().toString()))
             .build();
     }
 }

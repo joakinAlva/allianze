@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TMASEGURADO;
+import com.allianze.apicotizador.dto.TMASEGURADODTO;
 import com.allianze.apicotizador.repository.TMASEGURADORepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -235,42 +236,42 @@ public class TMASEGURADOResource {
     }
 
     /**
-     * {@code GET  /tmasegurados} : get all the tMASEGURADOS.
+     * {@code POST  /tmasegurados/getAll} : get all the tMASEGURADOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tMASEGURADOS in body.
      */
-    @GetMapping("/tmasegurados")
-    public List<TMASEGURADO> getAllTMASEGURADOS() {
+    @PostMapping("/tmasegurados/getAll")
+    public List<TMASEGURADO> getAllTMASEGURADOS(@RequestBody TMASEGURADODTO tmaseguradoraDto) {
         log.debug("REST request to get all TMASEGURADOS");
         return tMASEGURADORepository.findAll();
     }
 
     /**
-     * {@code GET  /tmasegurados/:id} : get the "id" tMASEGURADO.
+     * {@code POST  /tmasegurados/getId} : get the "id" tMASEGURADO.
      *
      * @param id the id of the tMASEGURADO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tMASEGURADO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tmasegurados/{id}")
-    public ResponseEntity<TMASEGURADO> getTMASEGURADO(@PathVariable Long id) {
-        log.debug("REST request to get TMASEGURADO : {}", id);
-        Optional<TMASEGURADO> tMASEGURADO = tMASEGURADORepository.findById(id);
+    @PostMapping("/tmasegurados/{id}")
+    public ResponseEntity<TMASEGURADO> getTMASEGURADO(@RequestBody TMASEGURADODTO tmaseguradoraDto) {
+        log.debug("REST request to get TMASEGURADO : {}", tmaseguradoraDto.getId());
+        Optional<TMASEGURADO> tMASEGURADO = tMASEGURADORepository.findById(tmaseguradoraDto.getId());
         return ResponseUtil.wrapOrNotFound(tMASEGURADO);
     }
 
     /**
-     * {@code DELETE  /tmasegurados/:id} : delete the "id" tMASEGURADO.
+     * {@code POST  /tmasegurados/deleteId} : delete the "id" tMASEGURADO.
      *
      * @param id the id of the tMASEGURADO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tmasegurados/{id}")
-    public ResponseEntity<Void> deleteTMASEGURADO(@PathVariable Long id) {
-        log.debug("REST request to delete TMASEGURADO : {}", id);
-        tMASEGURADORepository.deleteById(id);
+    @PostMapping("/tmasegurados/deleteId")
+    public ResponseEntity<Void> deleteTMASEGURADO(@RequestBody TMASEGURADODTO tmaseguradoraDto) {
+        log.debug("REST request to delete TMASEGURADO : {}", tmaseguradoraDto.getId());
+        tMASEGURADORepository.deleteById(tmaseguradoraDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tmaseguradoraDto.getId().toString()))
             .build();
     }
 }

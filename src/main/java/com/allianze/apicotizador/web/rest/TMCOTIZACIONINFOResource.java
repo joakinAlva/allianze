@@ -1,6 +1,7 @@
 package com.allianze.apicotizador.web.rest;
 
 import com.allianze.apicotizador.domain.TMCOTIZACIONINFO;
+import com.allianze.apicotizador.dto.TMCOTIZACIONINFODTO;
 import com.allianze.apicotizador.repository.TMCOTIZACIONINFORepository;
 import com.allianze.apicotizador.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -388,42 +389,42 @@ public class TMCOTIZACIONINFOResource {
     }
 
     /**
-     * {@code GET  /tmcotizacioninfos} : get all the tMCOTIZACIONINFOS.
+     * {@code POST  /tmcotizacioninfos/getAll} : get all the tMCOTIZACIONINFOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tMCOTIZACIONINFOS in body.
      */
-    @GetMapping("/tmcotizacioninfos")
-    public List<TMCOTIZACIONINFO> getAllTMCOTIZACIONINFOS() {
+    @PostMapping("/tmcotizacioninfos/getAll")
+    public List<TMCOTIZACIONINFO> getAllTMCOTIZACIONINFOS(TMCOTIZACIONINFODTO tmcotizacionInfoDto) {
         log.debug("REST request to get all TMCOTIZACIONINFOS");
         return tMCOTIZACIONINFORepository.findAll();
     }
 
     /**
-     * {@code GET  /tmcotizacioninfos/:id} : get the "id" tMCOTIZACIONINFO.
+     * {@code POST  /tmcotizacioninfos/getId} : get the "id" tMCOTIZACIONINFO.
      *
      * @param id the id of the tMCOTIZACIONINFO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tMCOTIZACIONINFO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/tmcotizacioninfos/{id}")
-    public ResponseEntity<TMCOTIZACIONINFO> getTMCOTIZACIONINFO(@PathVariable Long id) {
-        log.debug("REST request to get TMCOTIZACIONINFO : {}", id);
-        Optional<TMCOTIZACIONINFO> tMCOTIZACIONINFO = tMCOTIZACIONINFORepository.findById(id);
+    @PostMapping("/tmcotizacioninfos/getId")
+    public ResponseEntity<TMCOTIZACIONINFO> getTMCOTIZACIONINFO(TMCOTIZACIONINFODTO tmcotizacionInfoDto) {
+        log.debug("REST request to get TMCOTIZACIONINFO : {}", tmcotizacionInfoDto.getId());
+        Optional<TMCOTIZACIONINFO> tMCOTIZACIONINFO = tMCOTIZACIONINFORepository.findById(tmcotizacionInfoDto.getId());
         return ResponseUtil.wrapOrNotFound(tMCOTIZACIONINFO);
     }
 
     /**
-     * {@code DELETE  /tmcotizacioninfos/:id} : delete the "id" tMCOTIZACIONINFO.
+     * {@code POST  /tmcotizacioninfos/deleteId} : delete the "id" tMCOTIZACIONINFO.
      *
      * @param id the id of the tMCOTIZACIONINFO to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
-    @DeleteMapping("/tmcotizacioninfos/{id}")
-    public ResponseEntity<Void> deleteTMCOTIZACIONINFO(@PathVariable Long id) {
-        log.debug("REST request to delete TMCOTIZACIONINFO : {}", id);
-        tMCOTIZACIONINFORepository.deleteById(id);
+    @PostMapping("/tmcotizacioninfos/deleteId")
+    public ResponseEntity<Void> deleteTMCOTIZACIONINFO(@RequestBody TMCOTIZACIONINFODTO tmcotizacionInfoDto) {
+        log.debug("REST request to delete TMCOTIZACIONINFO : {}", tmcotizacionInfoDto.getId());
+        tMCOTIZACIONINFORepository.deleteById(tmcotizacionInfoDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tmcotizacionInfoDto.getId().toString()))
             .build();
     }
 }

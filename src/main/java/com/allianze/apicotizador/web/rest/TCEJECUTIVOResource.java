@@ -143,11 +143,11 @@ public class TCEJECUTIVOResource {
     }
 
     /**
-     * {@code POST  /tcejecutivos/getId} : get all the tCEJECUTIVOS.
+     * {@code POST  /tcejecutivos/getAll} : get all the tCEJECUTIVOS.
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCEJECUTIVOS in body.
      */
-    @PostMapping("{@code POST  /tcejecutivos/getId}")
+    @PostMapping("/tcejecutivos/getAll")
     public List<TCEJECUTIVO> getAllTCEJECUTIVOS( @RequestBody TCEJECUTIVODTO tcEjecutivoDto) {
         log.debug("REST request to get all TCEJECUTIVOS");
         return tCEJECUTIVORepository.findAll();

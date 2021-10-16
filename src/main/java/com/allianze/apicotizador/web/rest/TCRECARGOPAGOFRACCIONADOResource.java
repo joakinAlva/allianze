@@ -170,7 +170,7 @@ public class TCRECARGOPAGOFRACCIONADOResource {
      *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCRECARGOPAGOFRACCIONADOS in body.
      */
-    @GetMapping("/tcrecargopagofraccionados")
+    @PostMapping("/tcrecargopagofraccionados")
     public List<TCRECARGOPAGOFRACCIONADO> getAllTCRECARGOPAGOFRACCIONADOS(
         @RequestBody TCRECARGOPAGOFRACCIONADORDTO tcrecargoPagoFraccionadorDto
     ) {
@@ -179,7 +179,7 @@ public class TCRECARGOPAGOFRACCIONADOResource {
     }
 
     /**
-     * {@code POST  /tcrecargopagofraccionados/g} : get the "id" tCRECARGOPAGOFRACCIONADO.
+     * {@code POST  /tcrecargopagofraccionados/getId} : get the "id" tCRECARGOPAGOFRACCIONADO.
      *
      * @param id the id of the tCRECARGOPAGOFRACCIONADO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCRECARGOPAGOFRACCIONADO, or with status {@code 404 (Not Found)}.

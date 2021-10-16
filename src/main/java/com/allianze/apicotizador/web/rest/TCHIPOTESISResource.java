@@ -173,7 +173,7 @@ public class TCHIPOTESISResource {
     }
 
     /**
-     * {@code POST  /tchipoteses/:deleteId} : delete the "id" tCHIPOTESIS.
+     * {@code POST  /tchipoteses/deleteId} : delete the "id" tCHIPOTESIS.
      *
      * @param id the id of the tCHIPOTESIS to delete.
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
