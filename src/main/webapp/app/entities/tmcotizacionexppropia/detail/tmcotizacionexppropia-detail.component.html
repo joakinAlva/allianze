@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tMCOTIZACIONEXPPROPIA">
+      <h2 data-cy="tMCOTIZACIONEXPPROPIADetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tMCOTIZACIONEXPPROPIA.detail.title">TMCOTIZACIONEXPPROPIA</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONEXPPROPIA.idCotizacionExpPropia">Id Cotizacion Exp Propia</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONEXPPROPIA.idCotizacionExpPropia }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONEXPPROPIA.numero">Numero</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONEXPPROPIA.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONEXPPROPIA.periodo">Periodo</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONEXPPROPIA.periodo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONEXPPROPIA.siniestro">Siniestro</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONEXPPROPIA.siniestro }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONEXPPROPIA.asegurados">Asegurados</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONEXPPROPIA.asegurados }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONEXPPROPIA.valorQx">Valor Qx</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONEXPPROPIA.valorQx }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/tmcotizacionexppropia', tMCOTIZACIONEXPPROPIA.idCotizacionExpPropia, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

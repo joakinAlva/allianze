@@ -1,0 +1,25 @@
+{
+  "apicotizadorApp": {
+    "tCESTATUSCOTIZACION": {
+      "home": {
+        "title": "TCESTATUSCOTIZACIONS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCESTATUSCOTIZACION",
+        "createOrEditLabel": "Create or edit a TCESTATUSCOTIZACION",
+        "notFound": "No TCESTATUSCOTIZACIONS found"
+      },
+      "created": "A new TCESTATUSCOTIZACION is created with identifier {{ param }}",
+      "updated": "A TCESTATUSCOTIZACION is updated with identifier {{ param }}",
+      "deleted": "A TCESTATUSCOTIZACION is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCESTATUSCOTIZACION {{ id }}?"
+      },
+      "detail": {
+        "title": "TCESTATUSCOTIZACION"
+      },
+      "idEstatusCotizacion": "Id Estatus Cotizacion",
+      "orden": "Orden",
+      "estatusCotizacion": "Estatus Cotizacion"
+    }
+  }
+}

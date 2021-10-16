@@ -1,0 +1,28 @@
+{
+  "apicotizadorApp": {
+    "tMCOTIZACIONEXPPROPIA": {
+      "home": {
+        "title": "TMCOTIZACIONEXPPROPIAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TMCOTIZACIONEXPPROPIA",
+        "createOrEditLabel": "Create or edit a TMCOTIZACIONEXPPROPIA",
+        "notFound": "No TMCOTIZACIONEXPPROPIAS found"
+      },
+      "created": "A new TMCOTIZACIONEXPPROPIA is created with identifier {{ param }}",
+      "updated": "A TMCOTIZACIONEXPPROPIA is updated with identifier {{ param }}",
+      "deleted": "A TMCOTIZACIONEXPPROPIA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TMCOTIZACIONEXPPROPIA {{ id }}?"
+      },
+      "detail": {
+        "title": "TMCOTIZACIONEXPPROPIA"
+      },
+      "idCotizacionExpPropia": "Id Cotizacion Exp Propia",
+      "numero": "Numero",
+      "periodo": "Periodo",
+      "siniestro": "Siniestro",
+      "asegurados": "Asegurados",
+      "valorQx": "Valor Qx"
+    }
+  }
+}

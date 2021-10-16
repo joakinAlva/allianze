@@ -1,0 +1,726 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tmasegurado-heading"
+        data-cy="TMASEGURADOCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tMASEGURADO.home.createOrEditLabel"
+      >
+        Create or edit a TMASEGURADO
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idAsegurados')!.value == null">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.idAsegurados" for="field_idAsegurados"
+            >Id Asegurados</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idAsegurados"
+            id="field_idAsegurados"
+            data-cy="idAsegurados"
+            formControlName="idAsegurados"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.numero" for="field_numero">Numero</label>
+          <input type="number" class="form-control" name="numero" id="field_numero" data-cy="numero" formControlName="numero" />
+          <div *ngIf="editForm.get('numero')!.invalid && (editForm.get('numero')!.dirty || editForm.get('numero')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('numero')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('numero')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.excedente" for="field_excedente">Excedente</label>
+          <input type="number" class="form-control" name="excedente" id="field_excedente" data-cy="excedente" formControlName="excedente" />
+          <div *ngIf="editForm.get('excedente')!.invalid && (editForm.get('excedente')!.dirty || editForm.get('excedente')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('excedente')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('excedente')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.subgrupo" for="field_subgrupo">Subgrupo</label>
+          <input type="number" class="form-control" name="subgrupo" id="field_subgrupo" data-cy="subgrupo" formControlName="subgrupo" />
+          <div *ngIf="editForm.get('subgrupo')!.invalid && (editForm.get('subgrupo')!.dirty || editForm.get('subgrupo')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('subgrupo')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('subgrupo')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+          <div *ngIf="editForm.get('nombre')!.invalid && (editForm.get('nombre')!.dirty || editForm.get('nombre')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nombre')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.fNacimiento" for="field_fNacimiento"
+            >F Nacimiento</label
+          >
+          <div class="input-group">
+            <input
+              id="field_fNacimiento"
+              data-cy="fNacimiento"
+              type="text"
+              class="form-control"
+              name="fNacimiento"
+              ngbDatepicker
+              #fNacimientoDp="ngbDatepicker"
+              formControlName="fNacimiento"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="fNacimientoDp.toggle()">
+                <fa-icon icon="calendar-alt"></fa-icon>
+              </button>
+            </span>
+          </div>
+          <div *ngIf="editForm.get('fNacimiento')!.invalid && (editForm.get('fNacimiento')!.dirty || editForm.get('fNacimiento')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('fNacimiento')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.sueldo" for="field_sueldo">Sueldo</label>
+          <input type="number" class="form-control" name="sueldo" id="field_sueldo" data-cy="sueldo" formControlName="sueldo" />
+          <div *ngIf="editForm.get('sueldo')!.invalid && (editForm.get('sueldo')!.dirty || editForm.get('sueldo')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('sueldo')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('sueldo')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.reglaMonto" for="field_reglaMonto">Regla Monto</label>
+          <input
+            type="number"
+            class="form-control"
+            name="reglaMonto"
+            id="field_reglaMonto"
+            data-cy="reglaMonto"
+            formControlName="reglaMonto"
+          />
+          <div *ngIf="editForm.get('reglaMonto')!.invalid && (editForm.get('reglaMonto')!.dirty || editForm.get('reglaMonto')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('reglaMonto')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('reglaMonto')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.edad" for="field_edad">Edad</label>
+          <input type="number" class="form-control" name="edad" id="field_edad" data-cy="edad" formControlName="edad" />
+          <div *ngIf="editForm.get('edad')!.invalid && (editForm.get('edad')!.dirty || editForm.get('edad')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('edad')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('edad')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.saTotal" for="field_saTotal">Sa Total</label>
+          <input type="number" class="form-control" name="saTotal" id="field_saTotal" data-cy="saTotal" formControlName="saTotal" />
+          <div *ngIf="editForm.get('saTotal')!.invalid && (editForm.get('saTotal')!.dirty || editForm.get('saTotal')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('saTotal')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('saTotal')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.saTopado" for="field_saTopado">Sa Topado</label>
+          <input type="number" class="form-control" name="saTopado" id="field_saTopado" data-cy="saTopado" formControlName="saTopado" />
+          <div *ngIf="editForm.get('saTopado')!.invalid && (editForm.get('saTopado')!.dirty || editForm.get('saTopado')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('saTopado')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('saTopado')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.basica" for="field_basica">Basica</label>
+          <input type="number" class="form-control" name="basica" id="field_basica" data-cy="basica" formControlName="basica" />
+          <div *ngIf="editForm.get('basica')!.invalid && (editForm.get('basica')!.dirty || editForm.get('basica')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('basica')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('basica')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.basicaCovid" for="field_basicaCovid"
+            >Basica Covid</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="basicaCovid"
+            id="field_basicaCovid"
+            data-cy="basicaCovid"
+            formControlName="basicaCovid"
+          />
+          <div *ngIf="editForm.get('basicaCovid')!.invalid && (editForm.get('basicaCovid')!.dirty || editForm.get('basicaCovid')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('basicaCovid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('basicaCovid')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extrabas" for="field_extrabas">Extrabas</label>
+          <input type="number" class="form-control" name="extrabas" id="field_extrabas" data-cy="extrabas" formControlName="extrabas" />
+          <div *ngIf="editForm.get('extrabas')!.invalid && (editForm.get('extrabas')!.dirty || editForm.get('extrabas')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extrabas')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extrabas')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.primaBasica" for="field_primaBasica"
+            >Prima Basica</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="primaBasica"
+            id="field_primaBasica"
+            data-cy="primaBasica"
+            formControlName="primaBasica"
+          />
+          <div *ngIf="editForm.get('primaBasica')!.invalid && (editForm.get('primaBasica')!.dirty || editForm.get('primaBasica')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primaBasica')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('primaBasica')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.invalidez" for="field_invalidez">Invalidez</label>
+          <input type="number" class="form-control" name="invalidez" id="field_invalidez" data-cy="invalidez" formControlName="invalidez" />
+          <div *ngIf="editForm.get('invalidez')!.invalid && (editForm.get('invalidez')!.dirty || editForm.get('invalidez')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('invalidez')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('invalidez')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extraInv" for="field_extraInv">Extra Inv</label>
+          <input type="number" class="form-control" name="extraInv" id="field_extraInv" data-cy="extraInv" formControlName="extraInv" />
+          <div *ngIf="editForm.get('extraInv')!.invalid && (editForm.get('extraInv')!.dirty || editForm.get('extraInv')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extraInv')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extraInv')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.exencion" for="field_exencion">Exencion</label>
+          <input type="number" class="form-control" name="exencion" id="field_exencion" data-cy="exencion" formControlName="exencion" />
+          <div *ngIf="editForm.get('exencion')!.invalid && (editForm.get('exencion')!.dirty || editForm.get('exencion')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('exencion')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('exencion')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extraExe" for="field_extraExe">Extra Exe</label>
+          <input type="number" class="form-control" name="extraExe" id="field_extraExe" data-cy="extraExe" formControlName="extraExe" />
+          <div *ngIf="editForm.get('extraExe')!.invalid && (editForm.get('extraExe')!.dirty || editForm.get('extraExe')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extraExe')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extraExe')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.muerteAcc" for="field_muerteAcc">Muerte Acc</label>
+          <input type="number" class="form-control" name="muerteAcc" id="field_muerteAcc" data-cy="muerteAcc" formControlName="muerteAcc" />
+          <div *ngIf="editForm.get('muerteAcc')!.invalid && (editForm.get('muerteAcc')!.dirty || editForm.get('muerteAcc')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('muerteAcc')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('muerteAcc')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extraAcc" for="field_extraAcc">Extra Acc</label>
+          <input type="number" class="form-control" name="extraAcc" id="field_extraAcc" data-cy="extraAcc" formControlName="extraAcc" />
+          <div *ngIf="editForm.get('extraAcc')!.invalid && (editForm.get('extraAcc')!.dirty || editForm.get('extraAcc')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extraAcc')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extraAcc')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.valorGff" for="field_valorGff">Valor Gff</label>
+          <input type="number" class="form-control" name="valorGff" id="field_valorGff" data-cy="valorGff" formControlName="valorGff" />
+          <div *ngIf="editForm.get('valorGff')!.invalid && (editForm.get('valorGff')!.dirty || editForm.get('valorGff')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorGff')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorGff')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.valorGffCovid" for="field_valorGffCovid"
+            >Valor Gff Covid</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="valorGffCovid"
+            id="field_valorGffCovid"
+            data-cy="valorGffCovid"
+            formControlName="valorGffCovid"
+          />
+          <div
+            *ngIf="
+              editForm.get('valorGffCovid')!.invalid && (editForm.get('valorGffCovid')!.dirty || editForm.get('valorGffCovid')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('valorGffCovid')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('valorGffCovid')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extraGff" for="field_extraGff">Extra Gff</label>
+          <input type="number" class="form-control" name="extraGff" id="field_extraGff" data-cy="extraGff" formControlName="extraGff" />
+          <div *ngIf="editForm.get('extraGff')!.invalid && (editForm.get('extraGff')!.dirty || editForm.get('extraGff')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extraGff')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extraGff')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.primaGff" for="field_primaGff">Prima Gff</label>
+          <input type="number" class="form-control" name="primaGff" id="field_primaGff" data-cy="primaGff" formControlName="primaGff" />
+          <div *ngIf="editForm.get('primaGff')!.invalid && (editForm.get('primaGff')!.dirty || editForm.get('primaGff')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primaGff')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('primaGff')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.primaCa" for="field_primaCa">Prima Ca</label>
+          <input type="number" class="form-control" name="primaCa" id="field_primaCa" data-cy="primaCa" formControlName="primaCa" />
+          <div *ngIf="editForm.get('primaCa')!.invalid && (editForm.get('primaCa')!.dirty || editForm.get('primaCa')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primaCa')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('primaCa')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extraCa" for="field_extraCa">Extra Ca</label>
+          <input type="number" class="form-control" name="extraCa" id="field_extraCa" data-cy="extraCa" formControlName="extraCa" />
+          <div *ngIf="editForm.get('extraCa')!.invalid && (editForm.get('extraCa')!.dirty || editForm.get('extraCa')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extraCa')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extraCa')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.primaGe" for="field_primaGe">Prima Ge</label>
+          <input type="number" class="form-control" name="primaGe" id="field_primaGe" data-cy="primaGe" formControlName="primaGe" />
+          <div *ngIf="editForm.get('primaGe')!.invalid && (editForm.get('primaGe')!.dirty || editForm.get('primaGe')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primaGe')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('primaGe')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extraGe" for="field_extraGe">Extra Ge</label>
+          <input type="number" class="form-control" name="extraGe" id="field_extraGe" data-cy="extraGe" formControlName="extraGe" />
+          <div *ngIf="editForm.get('extraGe')!.invalid && (editForm.get('extraGe')!.dirty || editForm.get('extraGe')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extraGe')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extraGe')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.primaIqs" for="field_primaIqs">Prima Iqs</label>
+          <input type="number" class="form-control" name="primaIqs" id="field_primaIqs" data-cy="primaIqs" formControlName="primaIqs" />
+          <div *ngIf="editForm.get('primaIqs')!.invalid && (editForm.get('primaIqs')!.dirty || editForm.get('primaIqs')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primaIqs')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('primaIqs')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extraIqa" for="field_extraIqa">Extra Iqa</label>
+          <input type="number" class="form-control" name="extraIqa" id="field_extraIqa" data-cy="extraIqa" formControlName="extraIqa" />
+          <div *ngIf="editForm.get('extraIqa')!.invalid && (editForm.get('extraIqa')!.dirty || editForm.get('extraIqa')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extraIqa')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extraIqa')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.primaIqv" for="field_primaIqv">Prima Iqv</label>
+          <input type="number" class="form-control" name="primaIqv" id="field_primaIqv" data-cy="primaIqv" formControlName="primaIqv" />
+          <div *ngIf="editForm.get('primaIqv')!.invalid && (editForm.get('primaIqv')!.dirty || editForm.get('primaIqv')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primaIqv')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('primaIqv')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tMASEGURADO.extraIqv" for="field_extraIqv">Extra Iqv</label>
+          <input type="number" class="form-control" name="extraIqv" id="field_extraIqv" data-cy="extraIqv" formControlName="extraIqv" />
+          <div *ngIf="editForm.get('extraIqv')!.invalid && (editForm.get('extraIqv')!.dirty || editForm.get('extraIqv')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('extraIqv')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('extraIqv')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

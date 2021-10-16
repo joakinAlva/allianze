@@ -1,0 +1,95 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-tcestatuscotizacion-heading"
+        data-cy="TCESTATUSCOTIZACIONCreateUpdateHeading"
+        jhiTranslate="apicotizadorApp.tCESTATUSCOTIZACION.home.createOrEditLabel"
+      >
+        Create or edit a TCESTATUSCOTIZACION
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('idEstatusCotizacion')!.value == null">
+          <label
+            class="form-control-label"
+            jhiTranslate="apicotizadorApp.tCESTATUSCOTIZACION.idEstatusCotizacion"
+            for="field_idEstatusCotizacion"
+            >Id Estatus Cotizacion</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="idEstatusCotizacion"
+            id="field_idEstatusCotizacion"
+            data-cy="idEstatusCotizacion"
+            formControlName="idEstatusCotizacion"
+            [readonly]="true"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="apicotizadorApp.tCESTATUSCOTIZACION.orden" for="field_orden">Orden</label>
+          <input type="number" class="form-control" name="orden" id="field_orden" data-cy="orden" formControlName="orden" />
+          <div *ngIf="editForm.get('orden')!.invalid && (editForm.get('orden')!.dirty || editForm.get('orden')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('orden')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('orden')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="apicotizadorApp.tCESTATUSCOTIZACION.estatusCotizacion"
+            for="field_estatusCotizacion"
+            >Estatus Cotizacion</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="estatusCotizacion"
+            id="field_estatusCotizacion"
+            data-cy="estatusCotizacion"
+            formControlName="estatusCotizacion"
+          />
+          <div
+            *ngIf="
+              editForm.get('estatusCotizacion')!.invalid &&
+              (editForm.get('estatusCotizacion')!.dirty || editForm.get('estatusCotizacion')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('estatusCotizacion')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tMASEGURADO">
+      <h2 data-cy="tMASEGURADODetailsHeading"><span jhiTranslate="apicotizadorApp.tMASEGURADO.detail.title">TMASEGURADO</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.idAsegurados">Id Asegurados</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.idAsegurados }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.numero">Numero</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.excedente">Excedente</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.excedente }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.subgrupo">Subgrupo</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.subgrupo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.fNacimiento">F Nacimiento</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.fNacimiento | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.sueldo">Sueldo</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.sueldo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.reglaMonto">Regla Monto</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.reglaMonto }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.edad">Edad</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.edad }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.saTotal">Sa Total</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.saTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.saTopado">Sa Topado</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.saTopado }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.basica">Basica</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.basica }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.basicaCovid">Basica Covid</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.basicaCovid }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extrabas">Extrabas</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extrabas }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaBasica">Prima Basica</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.primaBasica }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.invalidez">Invalidez</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.invalidez }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraInv">Extra Inv</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extraInv }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.exencion">Exencion</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.exencion }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraExe">Extra Exe</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extraExe }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.muerteAcc">Muerte Acc</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.muerteAcc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraAcc">Extra Acc</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extraAcc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.valorGff">Valor Gff</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.valorGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.valorGffCovid">Valor Gff Covid</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.valorGffCovid }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraGff">Extra Gff</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extraGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaGff">Prima Gff</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.primaGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaCa">Prima Ca</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.primaCa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraCa">Extra Ca</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extraCa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaGe">Prima Ge</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.primaGe }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraGe">Extra Ge</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extraGe }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaIqs">Prima Iqs</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.primaIqs }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraIqa">Extra Iqa</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extraIqa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaIqv">Prima Iqv</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.primaIqv }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraIqv">Extra Iqv</span></dt>
+        <dd>
+          <span>{{ tMASEGURADO.extraIqv }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tmasegurado', tMASEGURADO.idAsegurados, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

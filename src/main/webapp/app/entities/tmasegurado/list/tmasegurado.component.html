@@ -1,0 +1,140 @@
+<div>
+  <h2 id="page-heading" data-cy="TMASEGURADOHeading">
+    <span jhiTranslate="apicotizadorApp.tMASEGURADO.home.title">TMASEGURADOS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tMASEGURADO.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tmasegurado"
+        [routerLink]="['/tmasegurado/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tMASEGURADO.home.createLabel"> Create a new TMASEGURADO </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tMASEGURADOS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tMASEGURADO.home.notFound">No tMASEGURADOS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tMASEGURADOS && tMASEGURADOS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.idAsegurados">Id Asegurados</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.numero">Numero</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.excedente">Excedente</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.subgrupo">Subgrupo</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.nombre">Nombre</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.fNacimiento">F Nacimiento</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.sueldo">Sueldo</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.reglaMonto">Regla Monto</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.edad">Edad</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.saTotal">Sa Total</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.saTopado">Sa Topado</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.basica">Basica</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.basicaCovid">Basica Covid</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extrabas">Extrabas</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaBasica">Prima Basica</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.invalidez">Invalidez</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraInv">Extra Inv</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.exencion">Exencion</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraExe">Extra Exe</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.muerteAcc">Muerte Acc</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraAcc">Extra Acc</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.valorGff">Valor Gff</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.valorGffCovid">Valor Gff Covid</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraGff">Extra Gff</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaGff">Prima Gff</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaCa">Prima Ca</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraCa">Extra Ca</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaGe">Prima Ge</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraGe">Extra Ge</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaIqs">Prima Iqs</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraIqa">Extra Iqa</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.primaIqv">Prima Iqv</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMASEGURADO.extraIqv">Extra Iqv</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tMASEGURADO of tMASEGURADOS; trackBy: trackIdAsegurados" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tmasegurado', tMASEGURADO.idAsegurados, 'view']">{{ tMASEGURADO.idAsegurados }}</a>
+          </td>
+          <td>{{ tMASEGURADO.numero }}</td>
+          <td>{{ tMASEGURADO.excedente }}</td>
+          <td>{{ tMASEGURADO.subgrupo }}</td>
+          <td>{{ tMASEGURADO.nombre }}</td>
+          <td>{{ tMASEGURADO.fNacimiento | formatMediumDate }}</td>
+          <td>{{ tMASEGURADO.sueldo }}</td>
+          <td>{{ tMASEGURADO.reglaMonto }}</td>
+          <td>{{ tMASEGURADO.edad }}</td>
+          <td>{{ tMASEGURADO.saTotal }}</td>
+          <td>{{ tMASEGURADO.saTopado }}</td>
+          <td>{{ tMASEGURADO.basica }}</td>
+          <td>{{ tMASEGURADO.basicaCovid }}</td>
+          <td>{{ tMASEGURADO.extrabas }}</td>
+          <td>{{ tMASEGURADO.primaBasica }}</td>
+          <td>{{ tMASEGURADO.invalidez }}</td>
+          <td>{{ tMASEGURADO.extraInv }}</td>
+          <td>{{ tMASEGURADO.exencion }}</td>
+          <td>{{ tMASEGURADO.extraExe }}</td>
+          <td>{{ tMASEGURADO.muerteAcc }}</td>
+          <td>{{ tMASEGURADO.extraAcc }}</td>
+          <td>{{ tMASEGURADO.valorGff }}</td>
+          <td>{{ tMASEGURADO.valorGffCovid }}</td>
+          <td>{{ tMASEGURADO.extraGff }}</td>
+          <td>{{ tMASEGURADO.primaGff }}</td>
+          <td>{{ tMASEGURADO.primaCa }}</td>
+          <td>{{ tMASEGURADO.extraCa }}</td>
+          <td>{{ tMASEGURADO.primaGe }}</td>
+          <td>{{ tMASEGURADO.extraGe }}</td>
+          <td>{{ tMASEGURADO.primaIqs }}</td>
+          <td>{{ tMASEGURADO.extraIqa }}</td>
+          <td>{{ tMASEGURADO.primaIqv }}</td>
+          <td>{{ tMASEGURADO.extraIqv }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tmasegurado', tMASEGURADO.idAsegurados, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tmasegurado', tMASEGURADO.idAsegurados, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tMASEGURADO)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -45,6 +45,12 @@
     <include file="config/liquibase/changelog/20211001044457_added_entity_TCEDADRECARGO.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20211001044458_added_entity_TCCOVID.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20211001044459_added_entity_TCREGIONAL.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211016032838_added_entity_TCCOVIDTARIFAS.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211016032839_added_entity_TCESTATUSCOTIZACION.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211016032840_added_entity_TMCOTIZACION.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211016032841_added_entity_TMCOTIZACIONINFO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211016032842_added_entity_TMCOTIZACIONEXPPROPIA.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211016032843_added_entity_TMASEGURADO.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20210928034941_added_entity_constraints_TMUSUARIO.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->

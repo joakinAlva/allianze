@@ -156,6 +156,36 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'apicotizadorApp.tCREGIONAL.home.title' },
         loadChildren: () => import('./tcregional/tcregional.module').then(m => m.TCREGIONALModule),
       },
+      {
+        path: 'tccovidtarifas',
+        data: { pageTitle: 'apicotizadorApp.tCCOVIDTARIFAS.home.title' },
+        loadChildren: () => import('./tccovidtarifas/tccovidtarifas.module').then(m => m.TCCOVIDTARIFASModule),
+      },
+      {
+        path: 'tcestatuscotizacion',
+        data: { pageTitle: 'apicotizadorApp.tCESTATUSCOTIZACION.home.title' },
+        loadChildren: () => import('./tcestatuscotizacion/tcestatuscotizacion.module').then(m => m.TCESTATUSCOTIZACIONModule),
+      },
+      {
+        path: 'tmcotizacion',
+        data: { pageTitle: 'apicotizadorApp.tMCOTIZACION.home.title' },
+        loadChildren: () => import('./tmcotizacion/tmcotizacion.module').then(m => m.TMCOTIZACIONModule),
+      },
+      {
+        path: 'tmcotizacioninfo',
+        data: { pageTitle: 'apicotizadorApp.tMCOTIZACIONINFO.home.title' },
+        loadChildren: () => import('./tmcotizacioninfo/tmcotizacioninfo.module').then(m => m.TMCOTIZACIONINFOModule),
+      },
+      {
+        path: 'tmcotizacionexppropia',
+        data: { pageTitle: 'apicotizadorApp.tMCOTIZACIONEXPPROPIA.home.title' },
+        loadChildren: () => import('./tmcotizacionexppropia/tmcotizacionexppropia.module').then(m => m.TMCOTIZACIONEXPPROPIAModule),
+      },
+      {
+        path: 'tmasegurado',
+        data: { pageTitle: 'apicotizadorApp.tMASEGURADO.home.title' },
+        loadChildren: () => import('./tmasegurado/tmasegurado.module').then(m => m.TMASEGURADOModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

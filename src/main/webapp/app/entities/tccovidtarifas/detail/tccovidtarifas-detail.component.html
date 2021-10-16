@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCCOVIDTARIFAS">
+      <h2 data-cy="tCCOVIDTARIFASDetailsHeading"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.detail.title">TCCOVIDTARIFAS</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.idCovidTarifas">Id Covid Tarifas</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.idCovidTarifas }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.edad">Edad</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.edad }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxcnsfg">Qxcnsfg</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxcnsfg }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.titular">Titular</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.titular }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.conyuge">Conyuge</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.conyuge }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.hijoMayor">Hijo Mayor</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.hijoMayor }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.hijoMenor">Hijo Menor</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.hijoMenor }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxTitular">Qx Titular</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxTitular }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxConyuge">Qx Conyuge</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxConyuge }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxHijoMayor">Qx Hijo Mayor</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxHijoMayor }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxHijoMenor">Qx Hijo Menor</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxHijoMenor }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxTitularRecargada">Qx Titular Recargada</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxTitularRecargada }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxConyugeRecargada">Qx Conyuge Recargada</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxConyugeRecargada }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxHijoMayorRecargada">Qx Hijo Mayor Recargada</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxHijoMayorRecargada }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxHijoMenorRecargada">Qx Hijo Menor Recargada</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.qxHijoMenorRecargada }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.valorGff">Valor Gff</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.valorGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.valorGffCovid">Valor Gff Covid</span></dt>
+        <dd>
+          <span>{{ tCCOVIDTARIFAS.valorGffCovid }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tccovidtarifas', tCCOVIDTARIFAS.idCovidTarifas, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

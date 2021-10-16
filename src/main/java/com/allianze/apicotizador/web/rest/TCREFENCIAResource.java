@@ -169,7 +169,7 @@ public class TCREFENCIAResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCREFENCIA, or with status {@code 404 (Not Found)}.
      */
     @PostMapping("/tcrefencias/grtId")
-    public ResponseEntity<TCREFENCIA> getTCREFENCIA(@PathVariable TCREFERENCIADTO	tcreferenciasDTO) {
+    public ResponseEntity<TCREFENCIA> getTCREFENCIA(@PathVariable TCREFERENCIADTO tcreferenciasDTO) {
         log.debug("REST request to get TCREFENCIA : {}", tcreferenciasDTO.getId());
         Optional<TCREFENCIA> tCREFENCIA = tCREFENCIARepository.findById(tcreferenciasDTO.getId());
         return ResponseUtil.wrapOrNotFound(tCREFENCIA);

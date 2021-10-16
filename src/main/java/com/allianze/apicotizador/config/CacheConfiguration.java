@@ -79,6 +79,12 @@ public class CacheConfiguration {
             createCache(cm, com.allianze.apicotizador.domain.TCEDADRECARGO.class.getName());
             createCache(cm, com.allianze.apicotizador.domain.TCCOVID.class.getName());
             createCache(cm, com.allianze.apicotizador.domain.TCREGIONAL.class.getName());
+            createCache(cm, com.allianze.apicotizador.domain.TCCOVIDTARIFAS.class.getName());
+            createCache(cm, com.allianze.apicotizador.domain.TCESTATUSCOTIZACION.class.getName());
+            createCache(cm, com.allianze.apicotizador.domain.TMCOTIZACION.class.getName());
+            createCache(cm, com.allianze.apicotizador.domain.TMCOTIZACIONINFO.class.getName());
+            createCache(cm, com.allianze.apicotizador.domain.TMCOTIZACIONEXPPROPIA.class.getName());
+            createCache(cm, com.allianze.apicotizador.domain.TMASEGURADO.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

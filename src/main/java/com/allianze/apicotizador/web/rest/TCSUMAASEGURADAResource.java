@@ -176,7 +176,7 @@ public class TCSUMAASEGURADAResource {
      */
     @PostMapping("/tcsumaaseguradas/getId")
     public ResponseEntity<TCSUMAASEGURADA> getTCSUMAASEGURADA(@RequestBody TCSUMAASEGURADORADTO tcsumaAseguradoraDTO) {
-        log.debug("REST request to get TCSUMAASEGURADA : {}",tcsumaAseguradoraDTO.getId());
+        log.debug("REST request to get TCSUMAASEGURADA : {}", tcsumaAseguradoraDTO.getId());
         Optional<TCSUMAASEGURADA> tCSUMAASEGURADA = tCSUMAASEGURADARepository.findById(tcsumaAseguradoraDTO.getId());
         return ResponseUtil.wrapOrNotFound(tCSUMAASEGURADA);
     }

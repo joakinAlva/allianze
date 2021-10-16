@@ -174,7 +174,9 @@ public class TCDESCUENTOSUMAASEGURADAResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCDESCUENTOSUMAASEGURADAS in body.
      */
     @PostMapping("/tcdescuentosumaaseguradas/getAll")
-    public List<TCDESCUENTOSUMAASEGURADA> getAllTCDESCUENTOSUMAASEGURADAS(@RequestBody TCDESCUENTOSUMAASEGURADADTO tcdescuentoSumaaseguradaDto) {
+    public List<TCDESCUENTOSUMAASEGURADA> getAllTCDESCUENTOSUMAASEGURADAS(
+        @RequestBody TCDESCUENTOSUMAASEGURADADTO tcdescuentoSumaaseguradaDto
+    ) {
         log.debug("REST request to get all TCDESCUENTOSUMAASEGURADAS");
         return tCDESCUENTOSUMAASEGURADARepository.findAll();
     }
@@ -186,9 +188,13 @@ public class TCDESCUENTOSUMAASEGURADAResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCDESCUENTOSUMAASEGURADA, or with status {@code 404 (Not Found)}.
      */
     @PostMapping("/tcdescuentosumaaseguradas/getId")
-    public ResponseEntity<TCDESCUENTOSUMAASEGURADA> getTCDESCUENTOSUMAASEGURADA(@RequestBody TCDESCUENTOSUMAASEGURADADTO tcdescuentoSumaaseguradaDto) {
+    public ResponseEntity<TCDESCUENTOSUMAASEGURADA> getTCDESCUENTOSUMAASEGURADA(
+        @RequestBody TCDESCUENTOSUMAASEGURADADTO tcdescuentoSumaaseguradaDto
+    ) {
         log.debug("REST request to get TCDESCUENTOSUMAASEGURADA : {}", tcdescuentoSumaaseguradaDto.getId());
-        Optional<TCDESCUENTOSUMAASEGURADA> tCDESCUENTOSUMAASEGURADA = tCDESCUENTOSUMAASEGURADARepository.findById(tcdescuentoSumaaseguradaDto.getId());
+        Optional<TCDESCUENTOSUMAASEGURADA> tCDESCUENTOSUMAASEGURADA = tCDESCUENTOSUMAASEGURADARepository.findById(
+            tcdescuentoSumaaseguradaDto.getId()
+        );
         return ResponseUtil.wrapOrNotFound(tCDESCUENTOSUMAASEGURADA);
     }
 
@@ -204,7 +210,9 @@ public class TCDESCUENTOSUMAASEGURADAResource {
         tCDESCUENTOSUMAASEGURADARepository.deleteById(tcdescuentoSumaaseguradaDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcdescuentoSumaaseguradaDto.getId().toString()))
+            .headers(
+                HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcdescuentoSumaaseguradaDto.getId().toString())
+            )
             .build();
     }
 }

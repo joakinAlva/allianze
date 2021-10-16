@@ -171,7 +171,9 @@ public class TCRECARGOPAGOFRACCIONADOResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tCRECARGOPAGOFRACCIONADOS in body.
      */
     @GetMapping("/tcrecargopagofraccionados")
-    public List<TCRECARGOPAGOFRACCIONADO> getAllTCRECARGOPAGOFRACCIONADOS(@RequestBody TCRECARGOPAGOFRACCIONADORDTO tcrecargoPagoFraccionadorDto) {
+    public List<TCRECARGOPAGOFRACCIONADO> getAllTCRECARGOPAGOFRACCIONADOS(
+        @RequestBody TCRECARGOPAGOFRACCIONADORDTO tcrecargoPagoFraccionadorDto
+    ) {
         log.debug("REST request to get all TCRECARGOPAGOFRACCIONADOS");
         return tCRECARGOPAGOFRACCIONADORepository.findAll();
     }
@@ -183,9 +185,13 @@ public class TCRECARGOPAGOFRACCIONADOResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tCRECARGOPAGOFRACCIONADO, or with status {@code 404 (Not Found)}.
      */
     @PostMapping("/tcrecargopagofraccionados/getId")
-    public ResponseEntity<TCRECARGOPAGOFRACCIONADO> getTCRECARGOPAGOFRACCIONADO(@RequestBody TCRECARGOPAGOFRACCIONADORDTO tcrecargoPagoFraccionadorDto) {
+    public ResponseEntity<TCRECARGOPAGOFRACCIONADO> getTCRECARGOPAGOFRACCIONADO(
+        @RequestBody TCRECARGOPAGOFRACCIONADORDTO tcrecargoPagoFraccionadorDto
+    ) {
         log.debug("REST request to get TCRECARGOPAGOFRACCIONADO : {}", tcrecargoPagoFraccionadorDto.getId());
-        Optional<TCRECARGOPAGOFRACCIONADO> tCRECARGOPAGOFRACCIONADO = tCRECARGOPAGOFRACCIONADORepository.findById(tcrecargoPagoFraccionadorDto.getId());
+        Optional<TCRECARGOPAGOFRACCIONADO> tCRECARGOPAGOFRACCIONADO = tCRECARGOPAGOFRACCIONADORepository.findById(
+            tcrecargoPagoFraccionadorDto.getId()
+        );
         return ResponseUtil.wrapOrNotFound(tCRECARGOPAGOFRACCIONADO);
     }
 
@@ -201,7 +207,9 @@ public class TCRECARGOPAGOFRACCIONADOResource {
         tCRECARGOPAGOFRACCIONADORepository.deleteById(tcrecargoPagoFraccionadorDto.getId());
         return ResponseEntity
             .noContent()
-            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcrecargoPagoFraccionadorDto.getId().toString()))
+            .headers(
+                HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, tcrecargoPagoFraccionadorDto.getId().toString())
+            )
             .build();
     }
 }

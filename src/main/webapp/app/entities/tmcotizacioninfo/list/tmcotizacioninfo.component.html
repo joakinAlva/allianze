@@ -1,0 +1,246 @@
+<div>
+  <h2 id="page-heading" data-cy="TMCOTIZACIONINFOHeading">
+    <span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.home.title">TMCOTIZACIONINFOS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tmcotizacioninfo"
+        [routerLink]="['/tmcotizacioninfo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.home.createLabel"> Create a new TMCOTIZACIONINFO </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tMCOTIZACIONINFOS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.home.notFound">No tMCOTIZACIONINFOS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tMCOTIZACIONINFOS && tMCOTIZACIONINFOS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.idCotizacionInfo">Id Cotizacion Info</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.numero">Numero</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.cotizacion">Cotizacion</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.region">Region</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.fechaSolicitud">Fecha Solicitud</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.responsable">Responsable</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.fechaEntrega">Fecha Entrega</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.contratante">Contratante</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.tipoUno">Tipo Uno</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.tipoDos">Tipo Dos</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.poliza">Poliza</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.inicioVigencia">Inicio Vigencia</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.finVigencia">Fin Vigencia</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.intermediario">Intermediario</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.rfc">Rfc</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.ejecutivo">Ejecutivo</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.suscriptor">Suscriptor</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.plan">Plan</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.ocupacion">Ocupacion</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaCovidVida">Prima Covid Vida</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaCovidGff">Prima Covid Gff</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.descuentoPrimaCovid">Descuento Prima Covid</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.extraPrimaVida">Extra Prima Vida</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.extraPrimaGff">Extra Prima Gff</span></th>
+          <th scope="col">
+            <span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.porcentajeExtraPrimaVida">Porcentaje Extra Prima Vida</span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.porcentajeExtraPrimaGff">Porcentaje Extra Prima Gff</span>
+          </th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.valorFtr">Valor Ftr</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.sami">Sami</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.samiMin">Sami Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.samiMax">Sami Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.margen">Margen</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.margenMin">Margen Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.margenMax">Margen Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.comision">Comision</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.comisionMin">Comision Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.comisionMax">Comision Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.descuento">Descuento</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.descuentoMin">Descuento Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.descuentoMax">Descuento Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaneta">Primaneta</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaNetaMin">Prima Neta Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaNetaMax">Prima Neta Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.derechoPoliza">Derecho Poliza</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.derechoPolizaMin">Derecho Poliza Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.derechoPolizaMax">Derecho Poliza Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.mayores">Mayores</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.mayoresMin">Mayores Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.mayoresMax">Mayores Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.asegurados">Asegurados</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.aseguradosMin">Asegurados Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.aseguradosMax">Asegurados Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saPromedio">Sa Promedio</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saPromedioMin">Sa Promedio Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saPromedioMax">Sa Promedio Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.varSa">Var Sa</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.varSaMin">Var Sa Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.varSaMax">Var Sa Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saTotal">Sa Total</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saMaxima">Sa Maxima</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saMaximaMin">Sa Maxima Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saMaximaMax">Sa Maxima Max</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.subgrupos">Subgrupos</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.subgruposMin">Subgrupos Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMediaMin">Edad Media Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadActuarial">Edad Actuarial</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadActuarialMin">Edad Actuarial Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadActPond">Edad Act Pond</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadActPondMin">Edad Act Pond Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMin">Edad Min</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMinDos">Edad Min Dos</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMaxDos">Edad Max Dos</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMaxTres">Edad Max Tres</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.coeficienteVariacion">Coeficiente Variacion</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.factorTrUnoGiro">Factor Tr Uno Giro</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.factorSaProm">Factor Sa Prom</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaGlobalSdmc">P Neta Global Sdmc</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaGlobalCdmcCuota">P Neta Global Cdmc Cuota</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaGlobalSmccdesc">P Neta Global Smccdesc</span></th>
+          <th scope="col">
+            <span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaGlobalSmccdescCuota">P Neta Global Smccdesc Cuota</span>
+          </th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaBasicaSdmc">P Neta Basica Sdmc</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaBasicaSdmcCuota">P Neta Basica Sdmc Cuota</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaBasicaCdmc">P Neta Basica Cdmc</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaBasicaCdmcCuota">P Neta Basica Cdmc Cuota</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tMCOTIZACIONINFO of tMCOTIZACIONINFOS; trackBy: trackIdCotizacionInfo" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tmcotizacioninfo', tMCOTIZACIONINFO.idCotizacionInfo, 'view']">{{ tMCOTIZACIONINFO.idCotizacionInfo }}</a>
+          </td>
+          <td>{{ tMCOTIZACIONINFO.numero }}</td>
+          <td>{{ tMCOTIZACIONINFO.cotizacion }}</td>
+          <td>{{ tMCOTIZACIONINFO.region }}</td>
+          <td>{{ tMCOTIZACIONINFO.fechaSolicitud | formatMediumDate }}</td>
+          <td>{{ tMCOTIZACIONINFO.responsable }}</td>
+          <td>{{ tMCOTIZACIONINFO.fechaEntrega | formatMediumDate }}</td>
+          <td>{{ tMCOTIZACIONINFO.contratante }}</td>
+          <td>{{ tMCOTIZACIONINFO.tipoUno }}</td>
+          <td>{{ tMCOTIZACIONINFO.tipoDos }}</td>
+          <td>{{ tMCOTIZACIONINFO.poliza }}</td>
+          <td>{{ tMCOTIZACIONINFO.inicioVigencia | formatMediumDate }}</td>
+          <td>{{ tMCOTIZACIONINFO.finVigencia | formatMediumDate }}</td>
+          <td>{{ tMCOTIZACIONINFO.intermediario }}</td>
+          <td>{{ tMCOTIZACIONINFO.rfc }}</td>
+          <td>{{ tMCOTIZACIONINFO.ejecutivo }}</td>
+          <td>{{ tMCOTIZACIONINFO.suscriptor }}</td>
+          <td>{{ tMCOTIZACIONINFO.plan }}</td>
+          <td>{{ tMCOTIZACIONINFO.ocupacion }}</td>
+          <td>{{ tMCOTIZACIONINFO.primaCovidVida }}</td>
+          <td>{{ tMCOTIZACIONINFO.primaCovidGff }}</td>
+          <td>{{ tMCOTIZACIONINFO.descuentoPrimaCovid }}</td>
+          <td>{{ tMCOTIZACIONINFO.extraPrimaVida }}</td>
+          <td>{{ tMCOTIZACIONINFO.extraPrimaGff }}</td>
+          <td>{{ tMCOTIZACIONINFO.porcentajeExtraPrimaVida }}</td>
+          <td>{{ tMCOTIZACIONINFO.porcentajeExtraPrimaGff }}</td>
+          <td>{{ tMCOTIZACIONINFO.valorFtr }}</td>
+          <td>{{ tMCOTIZACIONINFO.sami }}</td>
+          <td>{{ tMCOTIZACIONINFO.samiMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.samiMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.margen }}</td>
+          <td>{{ tMCOTIZACIONINFO.margenMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.margenMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.comision }}</td>
+          <td>{{ tMCOTIZACIONINFO.comisionMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.comisionMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.descuento }}</td>
+          <td>{{ tMCOTIZACIONINFO.descuentoMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.descuentoMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.primaneta }}</td>
+          <td>{{ tMCOTIZACIONINFO.primaNetaMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.primaNetaMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.derechoPoliza }}</td>
+          <td>{{ tMCOTIZACIONINFO.derechoPolizaMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.derechoPolizaMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.mayores }}</td>
+          <td>{{ tMCOTIZACIONINFO.mayoresMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.mayoresMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.asegurados }}</td>
+          <td>{{ tMCOTIZACIONINFO.aseguradosMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.aseguradosMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.saPromedio }}</td>
+          <td>{{ tMCOTIZACIONINFO.saPromedioMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.saPromedioMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.varSa }}</td>
+          <td>{{ tMCOTIZACIONINFO.varSaMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.varSaMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.saTotal }}</td>
+          <td>{{ tMCOTIZACIONINFO.saMaxima }}</td>
+          <td>{{ tMCOTIZACIONINFO.saMaximaMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.saMaximaMax }}</td>
+          <td>{{ tMCOTIZACIONINFO.subgrupos }}</td>
+          <td>{{ tMCOTIZACIONINFO.subgruposMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadMediaMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadActuarial }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadActuarialMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadActPond }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadActPondMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadMin }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadMinDos }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadMaxDos }}</td>
+          <td>{{ tMCOTIZACIONINFO.edadMaxTres }}</td>
+          <td>{{ tMCOTIZACIONINFO.coeficienteVariacion }}</td>
+          <td>{{ tMCOTIZACIONINFO.factorTrUnoGiro }}</td>
+          <td>{{ tMCOTIZACIONINFO.factorSaProm }}</td>
+          <td>{{ tMCOTIZACIONINFO.pNetaGlobalSdmc }}</td>
+          <td>{{ tMCOTIZACIONINFO.pNetaGlobalCdmcCuota }}</td>
+          <td>{{ tMCOTIZACIONINFO.pNetaGlobalSmccdesc }}</td>
+          <td>{{ tMCOTIZACIONINFO.pNetaGlobalSmccdescCuota }}</td>
+          <td>{{ tMCOTIZACIONINFO.pNetaBasicaSdmc }}</td>
+          <td>{{ tMCOTIZACIONINFO.pNetaBasicaSdmcCuota }}</td>
+          <td>{{ tMCOTIZACIONINFO.pNetaBasicaCdmc }}</td>
+          <td>{{ tMCOTIZACIONINFO.pNetaBasicaCdmcCuota }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tmcotizacioninfo', tMCOTIZACIONINFO.idCotizacionInfo, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tmcotizacioninfo', tMCOTIZACIONINFO.idCotizacionInfo, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tMCOTIZACIONINFO)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+{
+  "apicotizadorApp": {
+    "tMASEGURADO": {
+      "home": {
+        "title": "TMASEGURADOS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TMASEGURADO",
+        "createOrEditLabel": "Create or edit a TMASEGURADO",
+        "notFound": "No TMASEGURADOS found"
+      },
+      "created": "A new TMASEGURADO is created with identifier {{ param }}",
+      "updated": "A TMASEGURADO is updated with identifier {{ param }}",
+      "deleted": "A TMASEGURADO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TMASEGURADO {{ id }}?"
+      },
+      "detail": {
+        "title": "TMASEGURADO"
+      },
+      "idAsegurados": "Id Asegurados",
+      "numero": "Numero",
+      "excedente": "Excedente",
+      "subgrupo": "Subgrupo",
+      "nombre": "Nombre",
+      "fNacimiento": "F Nacimiento",
+      "sueldo": "Sueldo",
+      "reglaMonto": "Regla Monto",
+      "edad": "Edad",
+      "saTotal": "Sa Total",
+      "saTopado": "Sa Topado",
+      "basica": "Basica",
+      "basicaCovid": "Basica Covid",
+      "extrabas": "Extrabas",
+      "primaBasica": "Prima Basica",
+      "invalidez": "Invalidez",
+      "extraInv": "Extra Inv",
+      "exencion": "Exencion",
+      "extraExe": "Extra Exe",
+      "muerteAcc": "Muerte Acc",
+      "extraAcc": "Extra Acc",
+      "valorGff": "Valor Gff",
+      "valorGffCovid": "Valor Gff Covid",
+      "extraGff": "Extra Gff",
+      "primaGff": "Prima Gff",
+      "primaCa": "Prima Ca",
+      "extraCa": "Extra Ca",
+      "primaGe": "Prima Ge",
+      "extraGe": "Extra Ge",
+      "primaIqs": "Prima Iqs",
+      "extraIqa": "Extra Iqa",
+      "primaIqv": "Prima Iqv",
+      "extraIqv": "Extra Iqv"
+    }
+  }
+}

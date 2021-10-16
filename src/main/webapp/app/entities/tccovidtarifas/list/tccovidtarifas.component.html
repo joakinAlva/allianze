@@ -1,0 +1,108 @@
+<div>
+  <h2 id="page-heading" data-cy="TCCOVIDTARIFASHeading">
+    <span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.home.title">TCCOVIDTARIFAS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tccovidtarifas"
+        [routerLink]="['/tccovidtarifas/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.home.createLabel"> Create a new TCCOVIDTARIFAS </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tCCOVIDTARIFAS?.length === 0">
+    <span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.home.notFound">No tCCOVIDTARIFAS found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tCCOVIDTARIFAS && tCCOVIDTARIFAS.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.idCovidTarifas">Id Covid Tarifas</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.edad">Edad</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxcnsfg">Qxcnsfg</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.titular">Titular</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.conyuge">Conyuge</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.hijoMayor">Hijo Mayor</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.hijoMenor">Hijo Menor</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxTitular">Qx Titular</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxConyuge">Qx Conyuge</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxHijoMayor">Qx Hijo Mayor</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxHijoMenor">Qx Hijo Menor</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxTitularRecargada">Qx Titular Recargada</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxConyugeRecargada">Qx Conyuge Recargada</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxHijoMayorRecargada">Qx Hijo Mayor Recargada</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.qxHijoMenorRecargada">Qx Hijo Menor Recargada</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.valorGff">Valor Gff</span></th>
+          <th scope="col"><span jhiTranslate="apicotizadorApp.tCCOVIDTARIFAS.valorGffCovid">Valor Gff Covid</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tCCOVIDTARIFAS of tCCOVIDTARIFAS; trackBy: trackIdCovidTarifas" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tccovidtarifas', tCCOVIDTARIFAS.idCovidTarifas, 'view']">{{ tCCOVIDTARIFAS.idCovidTarifas }}</a>
+          </td>
+          <td>{{ tCCOVIDTARIFAS.edad }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxcnsfg }}</td>
+          <td>{{ tCCOVIDTARIFAS.titular }}</td>
+          <td>{{ tCCOVIDTARIFAS.conyuge }}</td>
+          <td>{{ tCCOVIDTARIFAS.hijoMayor }}</td>
+          <td>{{ tCCOVIDTARIFAS.hijoMenor }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxTitular }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxConyuge }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxHijoMayor }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxHijoMenor }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxTitularRecargada }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxConyugeRecargada }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxHijoMayorRecargada }}</td>
+          <td>{{ tCCOVIDTARIFAS.qxHijoMenorRecargada }}</td>
+          <td>{{ tCCOVIDTARIFAS.valorGff }}</td>
+          <td>{{ tCCOVIDTARIFAS.valorGffCovid }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tccovidtarifas', tCCOVIDTARIFAS.idCovidTarifas, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tccovidtarifas', tCCOVIDTARIFAS.idCovidTarifas, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tCCOVIDTARIFAS)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+{
+  "apicotizadorApp": {
+    "tCCOVIDTARIFAS": {
+      "home": {
+        "title": "TCCOVIDTARIFAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new TCCOVIDTARIFAS",
+        "createOrEditLabel": "Create or edit a TCCOVIDTARIFAS",
+        "notFound": "No TCCOVIDTARIFAS found"
+      },
+      "created": "A new TCCOVIDTARIFAS is created with identifier {{ param }}",
+      "updated": "A TCCOVIDTARIFAS is updated with identifier {{ param }}",
+      "deleted": "A TCCOVIDTARIFAS is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete TCCOVIDTARIFAS {{ id }}?"
+      },
+      "detail": {
+        "title": "TCCOVIDTARIFAS"
+      },
+      "idCovidTarifas": "Id Covid Tarifas",
+      "edad": "Edad",
+      "qxcnsfg": "Qxcnsfg",
+      "titular": "Titular",
+      "conyuge": "Conyuge",
+      "hijoMayor": "Hijo Mayor",
+      "hijoMenor": "Hijo Menor",
+      "qxTitular": "Qx Titular",
+      "qxConyuge": "Qx Conyuge",
+      "qxHijoMayor": "Qx Hijo Mayor",
+      "qxHijoMenor": "Qx Hijo Menor",
+      "qxTitularRecargada": "Qx Titular Recargada",
+      "qxConyugeRecargada": "Qx Conyuge Recargada",
+      "qxHijoMayorRecargada": "Qx Hijo Mayor Recargada",
+      "qxHijoMenorRecargada": "Qx Hijo Menor Recargada",
+      "valorGff": "Valor Gff",
+      "valorGffCovid": "Valor Gff Covid"
+    }
+  }
+}

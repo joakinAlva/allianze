@@ -261,6 +261,137 @@ entity TMCOTIZACION {
     eliminada Long required
 }
 
+entity TMCOTIZACIONINFO {        //falta la relacion de la FK
+	@Id idCotizacionInfo  Long
+    numero  Long required
+    cotizacion  Long required
+    region  Long required
+    fechaSolicitud LocalDate required
+	responsable   Long required
+	fechaEntrega LocalDate required
+    contratante   Long required
+    tipoUno    Long required
+    tipoDos  Long required
+    poliza   Long required
+    inicioVigencia   LocalDate required
+    finVigencia    LocalDate required
+    intermediario   String required
+    rfc    String required
+    ejecutivo  Long required
+    suscriptor   Long required
+    plan    Long required
+    ocupacion     Long required
+    primaCovidVida   Long required
+    primaCovidGff    Long required
+    descuentoPrimaCovid  Long required
+    extraPrimaVida   Long required
+    extraPrimaGff    Long required
+    porcentajeExtraPrimaVida     Long required
+    porcentajeExtraPrimaGff      Long required
+    valorFtr  Long required
+    sami      Long required
+    samiMin   Long required
+    samiMax    Long required
+    margen     Long required
+    margenMin  Long required
+    margenMax  Long required
+    comision   Long required
+    comisionMin Long required
+    comisionMax Long required
+    descuento  Long required
+    descuento  Long required
+    descuentoMin Long required
+    descuentoMax Long required
+    primaneta  Long required
+    primaNetaMin  Long required
+    primaNetaMax  Long required
+    derechoPoliza  Long required
+    derechoPolizaMin  Long required
+    derechoPolizaMax  Long required
+    mayores   Long required
+    mayoresMin   Long required
+    mayoresMax   Long required
+    asegurados   Long required
+    aseguradosMin    Long required
+    aseguradosMax    Long required
+    saPromedio     Long required
+    saPromedioMin  Long required
+    saPromedioMax  Long required
+    varSa   Long required
+    varSaMin   Long required
+    varSaMax   Long required
+    saTotal   Long required
+    saMaxima    Long required
+    saMaximaMin     Long required
+    saMaximaMax     Long required
+    saMaxima    Long required
+    subgrupos   Long required
+    subgruposMin  Long required
+    edadMediaMin  Long required
+    edadActuarial  Long required
+    edadActuarialMin    Long required
+    edadActPond  Long required
+    edadActPondMin Long required
+    edadMin  Long required
+    edadMinDos   Long required
+    edadMaxDos  Long required
+    edadMaxTres Long required
+    coeficienteVariacion  Long required
+    factorTrUnoGiro Long required
+    factorSaProm  Long required
+    pNetaGlobalSdmc Long required
+    pNetaGlobalCdmcCuota  Long required
+    pNetaGlobalSmccdesc  Long required
+    pNetaGlobalSmccdescCuota  Long required
+    pNetaBasicaSdmc    Long required
+    pNetaBasicaSdmcCuota  Long required
+    pNetaBasicaCdmc   Long required
+    pNetaBasicaCdmcCuota   Long required    
+}
+entity TMCOTIZACIONEXPPROPIA {
+	@Id idCotizacionExpPropia  Long //falta relacion de fk
+    numero  Long required
+    periodo   Long required
+    siniestro   Long required
+    asegurados   Long required
+    valorQx    Long required
+}
+
+entity TMASEGURADO {
+	@Id idAsegurados   Long //falta relacion de fk
+    numero   Long required
+    excedente    Long required
+    subgrupo    Long required
+    nombre    String required
+    fNacimiento     LocalDate required
+    sueldo      Long required
+    reglaMonto       Long required
+    edad       Long required
+    saTotal       Long required
+    saTopado       Long required
+    basica       Long required
+    basicaCovid       Long required
+    extrabas       Long required
+    primaBasica       Long required
+    invalidez       Long required
+    extraInv 	      Long required
+    exencion       Long required
+    extraExe        Long required
+    muerteAcc        Long required
+    extraAcc        Long required
+    valorGff        Long required
+    valorGffCovid        Long required
+    extraGff        Long required
+    primaGff        Long required
+    primaCa        Long required
+    extraCa         Long required
+    primaGe         Long required
+    extraGe         Long required
+    primaIqs         Long required
+    extraIqa          Long required
+    primaIqv           Long required
+    extraIqv           Long required
+}
 
 
 // an ignored comment

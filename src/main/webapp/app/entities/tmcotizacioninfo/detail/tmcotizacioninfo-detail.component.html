@@ -1,0 +1,358 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tMCOTIZACIONINFO">
+      <h2 data-cy="tMCOTIZACIONINFODetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.detail.title">TMCOTIZACIONINFO</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.idCotizacionInfo">Id Cotizacion Info</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.idCotizacionInfo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.numero">Numero</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.numero }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.cotizacion">Cotizacion</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.cotizacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.region">Region</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.region }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.fechaSolicitud">Fecha Solicitud</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.fechaSolicitud | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.responsable">Responsable</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.responsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.fechaEntrega">Fecha Entrega</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.fechaEntrega | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.contratante">Contratante</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.contratante }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.tipoUno">Tipo Uno</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.tipoUno }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.tipoDos">Tipo Dos</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.tipoDos }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.poliza">Poliza</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.poliza }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.inicioVigencia">Inicio Vigencia</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.inicioVigencia | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.finVigencia">Fin Vigencia</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.finVigencia | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.intermediario">Intermediario</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.intermediario }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.rfc">Rfc</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.rfc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.ejecutivo">Ejecutivo</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.ejecutivo }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.suscriptor">Suscriptor</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.suscriptor }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.plan">Plan</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.plan }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.ocupacion">Ocupacion</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.ocupacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaCovidVida">Prima Covid Vida</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.primaCovidVida }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaCovidGff">Prima Covid Gff</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.primaCovidGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.descuentoPrimaCovid">Descuento Prima Covid</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.descuentoPrimaCovid }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.extraPrimaVida">Extra Prima Vida</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.extraPrimaVida }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.extraPrimaGff">Extra Prima Gff</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.extraPrimaGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.porcentajeExtraPrimaVida">Porcentaje Extra Prima Vida</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.porcentajeExtraPrimaVida }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.porcentajeExtraPrimaGff">Porcentaje Extra Prima Gff</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.porcentajeExtraPrimaGff }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.valorFtr">Valor Ftr</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.valorFtr }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.sami">Sami</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.sami }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.samiMin">Sami Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.samiMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.samiMax">Sami Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.samiMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.margen">Margen</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.margen }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.margenMin">Margen Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.margenMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.margenMax">Margen Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.margenMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.comision">Comision</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.comision }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.comisionMin">Comision Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.comisionMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.comisionMax">Comision Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.comisionMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.descuento">Descuento</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.descuento }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.descuentoMin">Descuento Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.descuentoMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.descuentoMax">Descuento Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.descuentoMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaneta">Primaneta</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.primaneta }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaNetaMin">Prima Neta Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.primaNetaMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.primaNetaMax">Prima Neta Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.primaNetaMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.derechoPoliza">Derecho Poliza</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.derechoPoliza }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.derechoPolizaMin">Derecho Poliza Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.derechoPolizaMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.derechoPolizaMax">Derecho Poliza Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.derechoPolizaMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.mayores">Mayores</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.mayores }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.mayoresMin">Mayores Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.mayoresMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.mayoresMax">Mayores Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.mayoresMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.asegurados">Asegurados</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.asegurados }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.aseguradosMin">Asegurados Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.aseguradosMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.aseguradosMax">Asegurados Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.aseguradosMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saPromedio">Sa Promedio</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.saPromedio }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saPromedioMin">Sa Promedio Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.saPromedioMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saPromedioMax">Sa Promedio Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.saPromedioMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.varSa">Var Sa</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.varSa }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.varSaMin">Var Sa Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.varSaMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.varSaMax">Var Sa Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.varSaMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saTotal">Sa Total</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.saTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saMaxima">Sa Maxima</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.saMaxima }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saMaximaMin">Sa Maxima Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.saMaximaMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.saMaximaMax">Sa Maxima Max</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.saMaximaMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.subgrupos">Subgrupos</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.subgrupos }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.subgruposMin">Subgrupos Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.subgruposMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMediaMin">Edad Media Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadMediaMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadActuarial">Edad Actuarial</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadActuarial }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadActuarialMin">Edad Actuarial Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadActuarialMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadActPond">Edad Act Pond</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadActPond }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadActPondMin">Edad Act Pond Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadActPondMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMin">Edad Min</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMinDos">Edad Min Dos</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadMinDos }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMaxDos">Edad Max Dos</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadMaxDos }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.edadMaxTres">Edad Max Tres</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.edadMaxTres }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.coeficienteVariacion">Coeficiente Variacion</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.coeficienteVariacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.factorTrUnoGiro">Factor Tr Uno Giro</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.factorTrUnoGiro }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.factorSaProm">Factor Sa Prom</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.factorSaProm }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaGlobalSdmc">P Neta Global Sdmc</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.pNetaGlobalSdmc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaGlobalCdmcCuota">P Neta Global Cdmc Cuota</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.pNetaGlobalCdmcCuota }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaGlobalSmccdesc">P Neta Global Smccdesc</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.pNetaGlobalSmccdesc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaGlobalSmccdescCuota">P Neta Global Smccdesc Cuota</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.pNetaGlobalSmccdescCuota }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaBasicaSdmc">P Neta Basica Sdmc</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.pNetaBasicaSdmc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaBasicaSdmcCuota">P Neta Basica Sdmc Cuota</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.pNetaBasicaSdmcCuota }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaBasicaCdmc">P Neta Basica Cdmc</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.pNetaBasicaCdmc }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tMCOTIZACIONINFO.pNetaBasicaCdmcCuota">P Neta Basica Cdmc Cuota</span></dt>
+        <dd>
+          <span>{{ tMCOTIZACIONINFO.pNetaBasicaCdmcCuota }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tmcotizacioninfo', tMCOTIZACIONINFO.idCotizacionInfo, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

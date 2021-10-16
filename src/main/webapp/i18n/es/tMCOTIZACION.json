@@ -1,0 +1,27 @@
+{
+  "apicotizadorApp": {
+    "tMCOTIZACION": {
+      "home": {
+        "title": "TMCOTIZACIONS",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo TMCOTIZACION",
+        "createOrEditLabel": "Crear o editar TMCOTIZACION",
+        "notFound": "Ningún TMCOTIZACIONS encontrado"
+      },
+      "created": "Un nuevo TMCOTIZACION ha sido creado con el identificador {{ param }}",
+      "updated": "Un TMCOTIZACION ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un TMCOTIZACION ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar TMCOTIZACION {{ id }}?"
+      },
+      "detail": {
+        "title": "TMCOTIZACION"
+      },
+      "idCotizacion": "Id Cotizacion",
+      "usuario": "Usuario",
+      "fechaRegistro": "Fecha Registro",
+      "estatus": "Estatus",
+      "eliminada": "Eliminada"
+    }
+  }
+}

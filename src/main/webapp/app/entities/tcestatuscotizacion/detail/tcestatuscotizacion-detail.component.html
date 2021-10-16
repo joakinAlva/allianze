@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tCESTATUSCOTIZACION">
+      <h2 data-cy="tCESTATUSCOTIZACIONDetailsHeading">
+        <span jhiTranslate="apicotizadorApp.tCESTATUSCOTIZACION.detail.title">TCESTATUSCOTIZACION</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="apicotizadorApp.tCESTATUSCOTIZACION.idEstatusCotizacion">Id Estatus Cotizacion</span></dt>
+        <dd>
+          <span>{{ tCESTATUSCOTIZACION.idEstatusCotizacion }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCESTATUSCOTIZACION.orden">Orden</span></dt>
+        <dd>
+          <span>{{ tCESTATUSCOTIZACION.orden }}</span>
+        </dd>
+        <dt><span jhiTranslate="apicotizadorApp.tCESTATUSCOTIZACION.estatusCotizacion">Estatus Cotizacion</span></dt>
+        <dd>
+          <span>{{ tCESTATUSCOTIZACION.estatusCotizacion }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/tcestatuscotizacion', tCESTATUSCOTIZACION.idEstatusCotizacion, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

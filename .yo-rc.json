@@ -72,8 +72,14 @@
       "TCCUOTAPROPUESTA",
       "TCEDADRECARGO",
       "TCCOVID",
-      "TCREGIONAL"
+      "TCREGIONAL",
+      "TCCOVIDTARIFAS",
+      "TCESTATUSCOTIZACION",
+      "TMCOTIZACION",
+      "TMCOTIZACIONINFO",
+      "TMCOTIZACIONEXPPROPIA",
+      "TMASEGURADO"
     ],
-    "lastLiquibaseTimestamp": 1633063499000
+    "lastLiquibaseTimestamp": 1634354923000
   }
 }
